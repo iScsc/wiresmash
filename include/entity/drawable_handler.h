@@ -8,7 +8,7 @@
 class DrawableHandler : public sf::Drawable {
 private:
     std::vector<sf::Drawable*> toDraw;
-    virtual void DrawableHandler::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
         for(sf::Drawable* d : toDraw){
             target.draw(*d,states);
         }
