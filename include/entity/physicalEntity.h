@@ -10,7 +10,7 @@ typedef struct
 
 
 
-class Physical_entity
+class PhysicalEntity
 {
 private:
     sf::Vector2f pos;
@@ -23,15 +23,15 @@ public:
     void getCollider();
     void setCollider(Collider newCollider);
     
-    Physical_entity(/* args */);
-    ~Physical_entity();
+    PhysicalEntity(/* args */);
+    ~PhysicalEntity();
 };
 
-Physical_entity::Physical_entity(/* args */)
+PhysicalEntity::PhysicalEntity(/* args */)
 {
 }
 
-Physical_entity::~Physical_entity()
+PhysicalEntity::~PhysicalEntity()
 {
 }
 
