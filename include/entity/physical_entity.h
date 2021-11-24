@@ -1,7 +1,7 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include <SFML/System/Vector2.hpp>
-
+#include <SFML/Graphics/Transformable.hpp>
 
 typedef struct 
 {
@@ -9,12 +9,9 @@ typedef struct
 } Collider;
 
 
-
-class PhysicalEntity
+class PhysicalEntity 
 {
 private:
-    sf::Vector2f pos;
-    float rot;
 
     Collider bndBox;
 public:
