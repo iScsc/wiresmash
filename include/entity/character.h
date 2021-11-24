@@ -5,7 +5,7 @@
 #include "physical_entity.h"
 #include "schedulable.h"
 
-class Character : Controllable, DrawableHandler, Physical_entity, Schedulable
+class Character : Controllable, DrawableHandler, PhysicalEntity, Schedulable
 {
 private:
     /* data */

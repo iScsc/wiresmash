@@ -5,7 +5,7 @@
 
 
 
-class Wall: DrawableHandler, Physical_entity
+class Wall: DrawableHandler, PhysicalEntity
 {
 private:
     /* data */
