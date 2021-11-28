@@ -1,5 +1,5 @@
-#ifndef SCHEDULABLE.H
-#define SCHEDULABLE.H
+#ifndef SCHEDULABLE_H
+#define SCHEDULABLE_H
 #include "entity.h"
 #include <queue>
 #include <functional>

@@ -1,13 +1,11 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-#include "controlable.h"
+#include "controllable.h"
 #include "drawable_handler.h"
 #include "physical_entity.h"
 #include "schedulable.h"
 #include <vector>
 
-// dependencies
-class Hitbox{ /* Stuff with hitboxes */ };
 
 
 class Character : Controllable, DrawableHandler, PhysicalEntity, Schedulable
