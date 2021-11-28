@@ -8,7 +8,7 @@
 class Wall: DrawableHandler, PhysicalEntity
 {
 private:
-    /* data */
+    
 public:
     Wall(/* args */);
     ~Wall();

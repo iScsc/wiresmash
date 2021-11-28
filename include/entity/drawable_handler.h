@@ -1,11 +1,11 @@
 #ifndef DRAWABLE_HANDLER
 #define DRAWABLE_HANDLER
-
+#include "entity.h"
 #include <vector>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
 
-class DrawableHandler : public sf::Drawable {
+class DrawableHandler : public sf::Drawable, public virtual Entity {
 private:
     std::vector<sf::Drawable*> toDraw;
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {

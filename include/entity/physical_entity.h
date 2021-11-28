@@ -1,25 +1,23 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
-#include <SFML/System/Vector2.hpp>
+#include "entity.h"
 #include <SFML/Graphics/Transformable.hpp>
 
-typedef struct 
-{
-    /* collider stuff ( e.g. linked list of vertex) */
-} Collider;
+class Hitbox{};
 
-
-class PhysicalEntity 
+class PhysicalEntity : public sf::Transformable
 {
 private:
 
-    Collider bndBox;
+    Hitbox physicalHitbox;
+
+
 public:
 
     virtual void updatePhysics(); //here some kind of phx::PhysicsHandler; 
-    void getCollider();
-    void setCollider(Collider newCollider);
-    
+    Hitbox getHitbox();
+    void setHitbox(Hitbox newHitbox);
+
     PhysicalEntity(/* args */);
     ~PhysicalEntity();
 };

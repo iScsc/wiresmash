@@ -1,9 +1,11 @@
 #ifndef CONTROLLABLE_H
 #define CONTROLLABLE_H
+#include "entity.h"
 #include <SFML/Window.hpp>
 
 
-class Controllable
+
+class Controllable : public virtual Entity
 {
 private:
     
