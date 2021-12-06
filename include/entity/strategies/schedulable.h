@@ -1,11 +1,11 @@
 #ifndef SCHEDULABLE_H
 #define SCHEDULABLE_H
-#include "entity.h"
+#include "strategy.h"
 #include <queue>
 #include <functional>
 #include <map>
 
-class Schedulable : public virtual Entity
+class Schedulable : public virtual Strategy //schedulable is useless right now we'll think it later
 {
 private:
 
