@@ -1,17 +1,23 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-class Entity
+#include "strategy.h"
+#include <vector>
+
+class Entity //maybe virtual class ? let's see if this is usefull or not later
 {
 private:
-    
+    std::vector<Strategy*> strategies;
 public:
-    Entity();
+    Entity(std::vector<Strategy*> strategies);
     ~Entity();
 };
 
-Entity::Entity()
-{
+//in .cpp :
+
+
+Entity::Entity(std::vector<Strategy*> strategies){
+    //this->strategies = strategies;
 }
 
 Entity::~Entity()

@@ -1,21 +1,22 @@
 #ifndef WALL_H
 #define WALL_H
-#include "drawable_handler.h"
-#include "physical_entity.h"
+#include "entity.h"
 
-
-
-class Wall: DrawableHandler, PhysicalEntity
+class Wall: Entity
 {
 private:
+    //properties as visible, physical (can we pass through, or only some charcac ?) will be store in strategies
     
 public:
-    Wall(/* args */);
+    Wall(std::vector<Strategy*> strategies);// same question as character
     ~Wall();
 };
 
+// in .cpp :
+
 Wall::Wall(/* args */)
 {
+
 }
 
 Wall::~Wall()

@@ -1,40 +1,36 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-#include "controllable.h"
-#include "drawable_handler.h"
-#include "physical_entity.h"
-#include "schedulable.h"
+#include "entity.h"
 #include <vector>
 
 
 
-class Character : Controllable, DrawableHandler, PhysicalEntity, Schedulable
+class Character : public Entity
 {
 private:
 
-    std::vector<Hitbox> attackHitbox;
+    std::vector<Hitbox> attackHitbox; //in a strategy ?
     Hitbox damageHitbox;
+
+    float maxLife; //to be update if a charac is considered as an agglo of body parts
+    float currentLife;
+    float strength;
+    float maxSpeed;
+    float jumpHeight;
 
 
 public:
 
-    Character(/* args */);
+    Character(std::vector<Strategy*> strategies); //or every player has the same strategies ? to be discussed...
     ~Character();
-
-    virtual void sendEvent( sf::Event e );
-
-
-    float maxLife;
-    float currentLife;
-    float strength;
-    float speed;
-    float jumpHeight;
-
 
 };
 
+//in .cpp:
+
 Character::Character(/* args */)
 {
+    //initialize startegies of parent class !
 }
 
 Character::~Character()
