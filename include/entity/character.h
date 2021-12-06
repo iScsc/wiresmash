@@ -12,7 +12,7 @@ private:
     std::vector<Hitbox> attackHitbox; //in a strategy ?
     Hitbox damageHitbox;
 
-    float maxLife; //to be update if a charac is considered as an agglo of body parts
+    float maxLife; //to be update later if a charac is considered as a system of body parts
     float currentLife;
     float strength;
     float maxSpeed;
