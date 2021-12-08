@@ -2,7 +2,6 @@
 #define DEF_CONTROLLABLE
 
 #include <SFML/Graphics.hpp>
-#include <SFML/Keyboard.hpp>
 
 class Controllable {
   public:
