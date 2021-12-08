@@ -10,10 +10,9 @@ class Character : public Entity
 private:
 
     std::vector<Hitbox> attackHitbox; //in a strategy ?
-    Hitbox damageHitbox;
+    Hitbox damageHitbox;  //-->> in the future stored in strategies ???
 
-    float maxLife; //to be update later if a charac is considered as a system of body parts
-    float currentLife;
+
     float strength;
     float maxSpeed;
     float jumpHeight;
@@ -30,7 +29,8 @@ public:
 
 Character::Character(/* args */)
 {
-    //initialize startegies of parent class !
+    //init drawable, physical, controllable, damageable,...
+
 }
 
 Character::~Character()

@@ -16,7 +16,7 @@ public:
 
 Wall::Wall(/* args */)
 {
-
+//init drawable, physical, ...
 }
 
 Wall::~Wall()
