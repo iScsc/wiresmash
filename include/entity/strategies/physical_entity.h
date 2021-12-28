@@ -1,6 +1,7 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include "strategy.h"
+#include <vector>
 #include <SFML/Graphics/Transformable.hpp>
 #include "lib.h"
 
@@ -23,10 +24,10 @@ private:
     PhxParam phxParam;
 
 public:
-    static void correction(Vector<PhysicalEntity> phxEtts, Vector<Vector<double,double>> correctionMatrix);
+    static void
+    correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double, double>> correctionMatrix);
 
-    Hitbox getHitbox();
-    void setHitbox(Hitbox newHitbox);
+
 
     //setPosition already handle in parent class Transformable: Google "sfml Transformable"
 
@@ -40,10 +41,34 @@ public:
     PhysicalEntity(/* Default values */);
     PhysicalEntity(unsigned double mass, unsigned double bouncyness, signed short gravityReaction, double internalEnergy, double electricCharge);
     ~PhysicalEntity();
+
+    //getters and setters ...
+    void setMass(double _mass);
+
+    double getMass();
+
+    void setHitbox(Hitbox &_Hitbox); //with stored reference...
+    Hitbox getHitbox();
+
+    void setGravityReaction(signed short _gravityReaction);
+
+    signed short getGravityReaction();
+
+    void setBouncyness(double _bouncyness);
+
+    double getBouncyness();
+
+    void setInternalEnergy(double _internalEnergy);
+
+    double getInternalEnergy();
+
+    void setElectricCharge(double eC);
+
+    double getElectricCharge();
+
 };
 
 // in cpp :
-
 PhysicalEntity::PhysicalEntity(/* Default values */) : Strategy(/* no args */), sf::Transformable()
 {
     // Initialize default parameters
@@ -66,7 +91,5 @@ PhysicalEntity::PhysicalEntity(unsigned double mass, unsigned double bouncyness,
 PhysicalEntity::~PhysicalEntity()
 {
 }
-
-
 
 #endif

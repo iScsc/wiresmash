@@ -35,7 +35,4 @@ Entity::~Entity()
 {
 }
 
-
-
-
 #endif

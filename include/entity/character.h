@@ -9,10 +9,11 @@
 #include "strategies/schedulable.h"
 #include "strategies/damageable.h"
 
+class Hitbox {
+};
 
 
-class Character : public Entity
-{
+class Character : public Entity {
 private:
 
     std::vector<Hitbox> attackHitbox; //in a strategy ?
@@ -20,10 +21,30 @@ private:
 
     std::vector<Strategy*> generateDefaultStrategies();
 
-
     float strength;
     float maxSpeed;
     float jumpHeight;
+
+public:
+    const std::vector<Hitbox> &getAttackHitbox() const;
+
+    void setAttackHitbox(const std::vector<Hitbox> &attackHitbox);
+
+    const Hitbox &getDamageHitbox() const;
+
+    void setDamageHitbox(const Hitbox &damageHitbox);
+
+    float getStrength() const;
+
+    void setStrength(float strength);
+
+    float getMaxSpeed() const;
+
+    void setMaxSpeed(float maxSpeed);
+
+    float getJumpHeight() const;
+
+    void setJumpHeight(float jumpHeight);
 
 
 public:
@@ -37,7 +58,6 @@ public:
 };
 
 //in .cpp:
-
 std::vector<Strategy*> generateDefaultStrategies() {
     std::vector<Strategy*> vec;
     vec.push_back(new Damageable());
@@ -62,9 +82,5 @@ Character::Character(std::vector<Strategy *> strategies, float strength, float m
 Character::~Character()
 {
 }
-
-
-
-
 
 #endif

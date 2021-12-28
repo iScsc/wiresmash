@@ -2,15 +2,24 @@
 #define DAMAGEABLE_H
 
 #include "strategy.h"
+#include <vector>
 
-
-class Damageable : public virtual Strategy
+class Damageable : public Strategy
 {
 private:
     float maxLife;
     float currentLife;
 public:
-    static void damage(Vector<Damageable> damageableArray, Vector<Vector<double,double>> damageMatrix);
+    static void damage(std::vector<Damageable> damageableArray, std::vector<std::vector<double, double>> damageMatrix);
+
+    void setMaxLife(float &_maxLife);
+
+    float getMaxLife();
+
+    void setCurrentLife(float &_currentLife);
+
+    float getCurrentLife();
+
 
     Damageable(float maxLife);
     Damageable(/* Default parameters */);
@@ -33,7 +42,5 @@ Damageable::Damageable(float maxLife) : Strategy(/* args */) {
 Damageable::~Damageable()
 {
 }
-
-
 
 #endif

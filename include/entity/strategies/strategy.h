@@ -21,9 +21,4 @@ Strategy::Strategy(/* args */)
     // Nothing to do
 }
 
-Strategy::~Strategy()
-{
-}
-
-
 #endif
