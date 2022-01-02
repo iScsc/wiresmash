@@ -1,41 +1,19 @@
 #ifndef PHX_PHX_H
 #define PHX_PHX_H
 
-#include <tuple>
+#include "lib/lib.h"
 #include <vector>
+#include <iostream>
+#include "entity/strategies/physical_entity.h"
 
 // Constrain
 // vitessePersoMax < longeurPersoMin
 
-// dependencies
-class Scene;
-class Entity;
-
-typedef std::pair<unsigned int, unsigned int> Vec;
-typedef std::pair<int, int> Vel;
-
-/** 
- * Update each Entity in the Scene
- */
-void update(Scene);
-
-void updateCinematics(Entity&);
-void updateCollision(Scene);
-
-class Cinematics {
-private:
-    Vec m_pos;
-    Vel m_vel;
-};
+Vel updateCinematics(PhysicalEntity const);
 
 class Hitbox {
 private:
     std::vector<Vec> m_vertices;
-};
-
-class PhysicalParameters {
-private:
-    std::vector<int> m_parameters;
 };
 
 #endif

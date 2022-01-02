@@ -3,7 +3,7 @@ using namespace std;
 
 #include <SFML/Graphics.hpp>
 
-#include "Conductor.h"
+#include "conductor/Conductor.h"
 
 
 int main(){
