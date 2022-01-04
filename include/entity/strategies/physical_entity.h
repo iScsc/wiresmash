@@ -13,10 +13,10 @@ PhysicalEntity (or later simply "Physical" ? "Physicable" ?) has to describe phy
 mass, touchable, (not invisible --> in Drawable), elasticity (wait ?), forceSensible (if he is or isn't sensible to some)..
 
 Maybe we would like to store damage hitboxes in here instead of Character, 
-or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't take damages
+or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't take damage
 */
 private:
-    //position, rotation etc in the parent class Transformable
+    //!!! IMPORTANT position, rotation etc in the parent class Transformable
 
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
 
