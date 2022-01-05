@@ -19,7 +19,7 @@ public:
 };
 
 // in cpp:
-virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
+void draw(sf::RenderTarget& target, sf::RenderStates states) const {
     for(sf::Drawable* d : toDraw){
         target.draw(*d,states);
     }

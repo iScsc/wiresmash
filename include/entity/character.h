@@ -3,6 +3,11 @@
 #include "entity.h"
 #include "strategies/strategy.h"
 #include <vector>
+#include "strategies/multi_drawable.h"
+#include "strategies/controllable.h"
+#include "strategies/physical_entity.h"
+#include "strategies/schedulable.h"
+#include "strategies/damageable.h"
 
 
 
@@ -12,6 +17,8 @@ private:
 
     std::vector<Hitbox> attackHitbox; //in a strategy ?
     Hitbox damageHitbox;  //-->> in the future stored in strategies ???
+
+    std::vector<Strategy*> generateDefaultStrategies();
 
 
     float strength;
@@ -29,6 +36,16 @@ public:
 };
 
 //in .cpp:
+
+std::vector<Strategy*> generateDefaultStrategies() {
+    std::vector<Strategy*> vec;
+    vec.push_back(new Damageable());
+    vec.push_back(new Controllable());
+    vec.push_back(new MultiDrawable());
+    vec.push_back(new PhysicalEntity());
+    vec.push_back(new Schedulable());
+    return vec;
+}
 
 Character::Character(std::vector<Strategy*> strategies) : Entity(strategies)
 {

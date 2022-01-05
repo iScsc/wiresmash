@@ -5,7 +5,7 @@
 class Schedulable : public virtual Strategy //schedulable is useless right now we'll think it later
 {
 private:
-A    std::multimap<int, std::function<void ()>> actions; // actions to do at a given frame (contains a frame and a function to call)
+    std::multimap<int, std::function<void ()>> actions; // actions to do at a given frame (contains a frame and a function to call)
     
 public:
 
