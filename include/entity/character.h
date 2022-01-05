@@ -28,9 +28,10 @@ private:
 
 public:
 
-    Character(std::vector<Strategy*> strategies); //or every player has the same strategies ? to be discussed...
     Character();
-    Character(float strength, float maxSpeed, float jumpHeigth);
+    Character(std::vector<Strategy*> strategies); //or every player has the same strategies ? to be discussed...
+    Character(float strength, float maxSpeed, float jumpHeight);
+    Character(std::vector<Strategy*>, float strength, float maxSpeed, float jumpHeight);
     ~Character();
 
 };
@@ -47,15 +48,16 @@ std::vector<Strategy*> generateDefaultStrategies() {
     return vec;
 }
 
-Character::Character(std::vector<Strategy*> strategies) : Entity(strategies)
-{
-    //init drawable, physical, controllable, damageable,...
-    // Initiate parameters
-    this->strength = 100;
-    this->maxSpeed = 100;
-    this->jumpHeight = 50;
-    // Done for now
+Character::Character() : Character(Character::generateDefaultStrategies()) {}
+Character::Character(std::vector<Strategy*> strategies) : Character(Character::generateDefaultStrategies(), 100, 100, 10) {};
+Character::Character(float strength, float maxSpeed, float jumpHeight) : Character(Character::generateDefaultStrategies(), strength, maxSpeed, jumpHeight) {}
+
+Character::Character(std::vector<Strategy *> strategies, float strength, float maxSpeed, float jumpHeight) : Entity(strategies) {
+    this->strength = strength;
+    this->maxSpeed = maxSpeed;
+    this->jumpHeight = jumpHeight;
 }
+
 
 Character::~Character()
 {
