@@ -14,9 +14,10 @@ public:
 
 // in .cpp :
 
-Wall::Wall(/* args */)
+Wall::Wall(std::vector<Strategy*> strategies) : Entity(strategies)
 {
 //init drawable, physical, ...
+// Done for now
 }
 
 Wall::~Wall()

@@ -10,12 +10,28 @@ private:
     std::vector<sf::Drawable*> toDraw; //list of sprites/shapes to draw
     //!!! big question on the best way to store Sprites ? and on the pointer and freeing...
 public:
-    void draw(sf::RenderTarget& target/*often the window where to draw*/, sf::RenderStates states/*shader or other*/);
-    void addSprite(sf::Drawable);//called addSprite but can add any sf::Drawable
+    MultiDrawable();
     MultiDrawable(std::vector<sf::Drawable*>);
     MultiDrawable(sf::Drawable);
-    MultiDrawable();
     ~MultiDrawable();
+    void draw(sf::RenderTarget& target/*often the window where to draw*/, sf::RenderStates states/*shader or other*/);
+    void addSprite(sf::Drawable);//called addSprite but can add any sf::Drawable
 };
+
+// in cpp:
+virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
+    for(sf::Drawable* d : toDraw){
+        target.draw(*d,states);
+    }
+}
+
+
+MultiDrawable::MultiDrawable(/* no args */) : Strategy(/* no args */), sf::Drawable()
+{
+    // Done for now
+}
+
+MultiDrawable::~MultiDrawable(){
+}
 
 #endif

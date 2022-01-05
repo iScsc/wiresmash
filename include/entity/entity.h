@@ -1,7 +1,7 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "strategy.h"
+#include "strategies/strategy.h"
 #include <vector>
 
 class Entity //maybe virtual class ? let's see if this is useful or not later
@@ -21,12 +21,14 @@ public:
 
 //in .cpp :
 
-Entity::hasStrategy(int strategy){
+const bool Entity::hasStrategy(int strategy)
+{
     //if 'strategy' in strategies return true
 }
 
 Entity::Entity(std::vector<Strategy*> strategies){
-    //this->strategies = strategies;
+    this->strategies = strategies;
+    // Done for now
 }
 
 Entity::~Entity()
