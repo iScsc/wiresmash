@@ -69,3 +69,22 @@ renvoie un vecteur de couple, pour l'instant c'est un vecteur de 2 couples : le 
 (comme je débute en C++, peut être que j'ignore d'autre façon de déclarer mes fonctions mais en tout cas les déclarations proposées sont normalement fonctionnelles et testées)
 comme c'est souvent marqué, j'ai codé au cas où on déciderait de faire des hitbox différentes donc si jamais cela devait arriver, tout le code se servant des hitbox rectangulaires ne serait PAS à changer, les mêmes déclarations, les mêmes renvois de fonctions,...
 un cas que je n'ai pas vraiment pris en compte c'est le cas de hitbox en ellipse, mais à ce moment je pense que seul la partie phx devrait rajouter du code pour savoir si la hitbox est polygonale ou en ellipse en appelant une fonction H.isPoly() ou quelque chose du genre (j'imagien que si ça devait arriver, je ferais une hitbox avec comme variable : le centre et les 2 demi-rayons)
+
+## PHX/COLLISION
+
+call checkCollision() with a vector of all the entities that requires collision testing.
+Returns a vector of collidersfor each couple of entities that collide, so its size is upto n(n+1)/2 where n is the number of entities
+
+Collider : struct with 3 fields.
+ - ettColliding : the 1st Entity that collides into
+ - ettInto      : the Entity inside which it collides
+ - colVector    : the vector of how much ettColliding is inside ettInto.
+
+EXAMPLE : 
+
+Consider two square hitboxes, whose bottom-left & top-right corners are :
+1st Square : (0, 0) -> (3, 3)
+2nd Square : (2, 1) -> (5, 4)
+
+The returned collider will be {1st Square, 2nd Square, (+1, +2)}
+
