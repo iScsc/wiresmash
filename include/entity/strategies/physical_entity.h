@@ -2,6 +2,7 @@
 #define PHYSICAL_ENTITY
 #include "strategy.h"
 #include <SFML/Graphics/Transformable.hpp>
+#include "lib.h"
 
 class Hitbox{};
 
@@ -18,12 +19,8 @@ private:
     //position, rotation etc in the parent class Transformable
 
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
-    
-    unsigned double mass; //mass > 0
-    signed short gravityReaction; //-1 if the PhysicalEntity is likely to fly
-    unsigned double bouncyness; // [0,1] absorb every momentum (0) or none (1), maybe it will increase it's internal energy ( to satisfy conservation of energy)
-    double internalEnergy; //for characters that can absorb energy and then liberate it ?
-    double electricCharge; //mdr
+
+    PhxParam phxParam;
 
 public:
     static void correction(Vector<PhysicalEntity> phxEtts, Vector<Vector<double,double>> correctionMatrix);
