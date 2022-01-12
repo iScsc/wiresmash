@@ -1,17 +1,17 @@
 #ifndef LIB_H
 #define LIB_H
 
-typedef struct Vel
-{
-    int dx;
-    int dy;
-} Vel ;
+#include <tuple>
 
+typedef std::pair<unsigned int, unsigned int> Vec;
+typedef std::pair<int, int> Vel;
 
 typedef struct phxParam
 {   
+    Vec position;
     Vel velocity;
 } phxParam;
 
+enum Force {weight};
 
 #endif
