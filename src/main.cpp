@@ -29,7 +29,7 @@ int main(){
     }
 
     // objects update.
-    conductor.flush()
+    conductor.flush();
     window.clear(sf::Color::Black);
     // TODO
     window.display();
