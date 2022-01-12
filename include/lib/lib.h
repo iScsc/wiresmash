@@ -3,6 +3,8 @@
 
 #include <tuple>
 
+#define NB_KEYS 256
+
 typedef std::pair<unsigned int, unsigned int> Vec;
 typedef std::pair<int, int> Vel;
 

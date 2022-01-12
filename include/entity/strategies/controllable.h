@@ -3,7 +3,7 @@
 #include "strategy.h"
 #include <SFML/Window.hpp>
 
-#define NB_KEYS 256
+
 
 
 
