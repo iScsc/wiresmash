@@ -33,21 +33,21 @@ public:
 
     void eraseAttackHitbox(int indexFirst, int indexLast);
 
-    const std::vector<Hitbox> &getAttackHitbox() const;
+    std::vector<Hitbox> &getAttackHitbox();
 
-    const Hitbox &getDamageHitbox() const;
+    Hitbox &getDamageHitbox();
 
-    void setDamageHitbox(const Hitbox &damageHitbox);
+    void setDamageHitbox(Hitbox &damageHitbox);
 
-    float getStrength() const;
+    float getStrength();
 
     void setStrength(float strength);
 
-    float getMaxSpeed() const;
+    float getMaxSpeed();
 
     void setMaxSpeed(float maxSpeed);
 
-    float getJumpHeight() const;
+    float getJumpHeight();
 
     void setJumpHeight(float jumpHeight);
 

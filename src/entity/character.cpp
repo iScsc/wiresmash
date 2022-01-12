@@ -4,23 +4,19 @@
 Character::~Character() {
 }
 
-const std::vector<Hitbox> &Character::getAttackHitbox() const {
+std::vector<Hitbox> &Character::getAttackHitbox() {
     return attackHitbox;
 }
 
-void Character::setAttackHitbox(const std::vector<Hitbox> &attackHitbox) {
-    Character::attackHitbox = attackHitbox;
-}
-
-const Hitbox &Character::getDamageHitbox() const {
+Hitbox &Character::getDamageHitbox() {
     return damageHitbox;
 }
 
-void Character::setDamageHitbox(const Hitbox &damageHitbox) {
+void Character::setDamageHitbox(Hitbox &damageHitbox) {
     Character::damageHitbox = damageHitbox;
 }
 
-float Character::getStrength() const {
+float Character::getStrength() {
     return strength;
 }
 
@@ -28,7 +24,7 @@ void Character::setStrength(float strength) {
     Character::strength = strength;
 }
 
-float Character::getMaxSpeed() const {
+float Character::getMaxSpeed() {
     return maxSpeed;
 }
 
@@ -36,7 +32,7 @@ void Character::setMaxSpeed(float maxSpeed) {
     Character::maxSpeed = maxSpeed;
 }
 
-float Character::getJumpHeight() const {
+float Character::getJumpHeight() {
     return jumpHeight;
 }
 
