@@ -7,15 +7,21 @@
 class Entity //maybe virtual class ? let's see if this is useful or not later
 {
 private:
-    std::vector<Strategy*> strategies; //basic attribute of an Entity
-    
+    std::vector<Strategy *> strategies; //basic attribute of an Entity
+
 public:
     const static int PHYSICAL = 0;
     const static int DRAWABLE = 1;
 
     const bool hasStrategy(int strategy);
 
-    Entity(std::vector<Strategy*> strategies); //basic constructor
+    void addStrategies(Strategy *strat);
+
+    void eraseStrategies(int index);
+
+    void eraseStrategies(int indexFirst, int indexLast);
+
+    Entity(std::vector<Strategy *> strategies); //basic constructor
     ~Entity();
 };
 

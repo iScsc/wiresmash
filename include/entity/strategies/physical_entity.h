@@ -48,6 +48,7 @@ public:
     double getMass();
 
     void setHitbox(Hitbox &_Hitbox); //with stored reference...
+
     Hitbox getHitbox();
 
     void setGravityReaction(signed short _gravityReaction);

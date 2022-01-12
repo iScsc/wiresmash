@@ -43,3 +43,15 @@ float Character::getJumpHeight() const {
 void Character::setJumpHeight(float jumpHeight) {
     Character::jumpHeight = jumpHeight;
 }
+
+void Character::addAttackHitbox(Hitbox htbx) {
+    attackHitbox.push_back(htbx);
+}
+
+void Character::eraseAttackHitbox(int index) {
+    attackHitbox.erase(attackHitbox.begin() + index);
+}
+
+void Character::eraseAttackHitbox(int indexFirst, int indexLast) {
+    attackHitbox.erase(attackHitbox.begin() + indexFirst, attackHitbox.begin() + indexLast);
+}

@@ -26,9 +26,17 @@ private:
     float jumpHeight;
 
 public:
+
+    void addAttackHitbox(Hitbox htbx);
+
+    void eraseAttackHitbox(int index);
+
+    void eraseAttackHitbox(int indexFirst, int indexLast);
+
     const std::vector<Hitbox> &getAttackHitbox() const;
 
     void setAttackHitbox(const std::vector<Hitbox> &attackHitbox);
+    //ADD
 
     const Hitbox &getDamageHitbox() const;
 

@@ -7,3 +7,4 @@ Strategy::Strategy(/* args */) {
 Strategy::~Strategy() {
 
 }
+

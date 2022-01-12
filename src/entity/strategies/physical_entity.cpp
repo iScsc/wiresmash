@@ -28,7 +28,7 @@ void PhysicalEntity::setGravityReaction(signed short _gravityReaction) {
     gravityReaction = _gravityReaction;
 }
 
-double PhysicalEntity::getGravityReaction() {
+signed short PhysicalEntity::getGravityReaction() {
     return gravityReaction;
 }
 
