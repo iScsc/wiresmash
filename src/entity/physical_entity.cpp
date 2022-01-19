@@ -34,6 +34,9 @@ public :
         phxProp.speed[1] *= -1;
     }
 
+    /**
+     * Correts the collided entities' position and speed 
+     */
     static void correctionUpdate(std::vector<Collisionner> collisionners)
     {
         for (Collisionner col : collisionners) {
