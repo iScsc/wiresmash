@@ -11,9 +11,4 @@
 
 Vel updateCinematics(PhysicalEntity const);
 
-class Hitbox {
-private:
-    std::vector<Vec> m_vertices;
-};
-
 #endif
