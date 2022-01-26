@@ -3,7 +3,7 @@
 #include "strategy.h"
 #include <vector>
 #include <SFML/Graphics/Transformable.hpp>
-#include "lib.h"
+#include "lib/lib.h"
 
 class Hitbox{};
 
@@ -23,11 +23,7 @@ private:
 
     PhxParam phxParam;
 
-public:
-    static void
-    correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double, double>> correctionMatrix);
-
-
+    static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
 
     //setPosition already handle in parent class Transformable: Google "sfml Transformable"
 
@@ -39,7 +35,7 @@ public:
     */
 
     PhysicalEntity(/* Default values */);
-    PhysicalEntity(unsigned double mass, unsigned double bouncyness, signed short gravityReaction, double internalEnergy, double electricCharge);
+    PhysicalEntity(double mass, double bouncyness, signed short gravityReaction, double internalEnergy, double electricCharge);
     ~PhysicalEntity();
 
     //getters and setters ...

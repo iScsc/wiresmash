@@ -10,10 +10,12 @@ private:
     std::vector<Strategy *> strategies; //basic attribute of an Entity
 
 public:
-    const static int PHYSICAL = 0;
-    const static int DRAWABLE = 1;
+    enum StrategiesID{
+        DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
+    };
 
-    const bool hasStrategy(int strategy);
+    bool Entity::hasStrategy(StrategiesID);
+    Strategy* Entity::getStrategy(StrategiesID);
 
     void addStrategies(Strategy *strat);
 
@@ -26,3 +28,4 @@ public:
 };
 
 #endif
+
