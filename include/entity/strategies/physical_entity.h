@@ -1,12 +1,11 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include "strategy.h"
-#include <SFML/Graphics/Transformable.hpp>
 #include "lib/lib.h"
 
 class Hitbox{};
 
-class PhysicalEntity : public sf::Transformable, public Strategy 
+class PhysicalEntity : public Strategy 
 {
 /*Maybe the most important strategy
 PhysicalEntity (or later simply "Physical" ? "Physicable" ?) has to describe physical caracteristics of his entity:
@@ -17,7 +16,7 @@ or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't
 */
 private:
     //position, rotation etc in the parent class Transformable
-
+    std::vector<Force> forces;
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
 
     PhxParam phxParam;
@@ -27,6 +26,8 @@ public:
 
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
+
+    std::vector<Force> PhysicalEntity::getForces();
 
     //setPosition already handle in parent class Transformable: Google "sfml Transformable"
 

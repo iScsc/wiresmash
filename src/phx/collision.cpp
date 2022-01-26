@@ -1,42 +1,20 @@
 #include "phx/collision.h"
-#include <cstdio>
-using namespace std;
 
-Hitbox::Hitbox(unsigned int x, unsigned int y, unsigned int length, unsigned int height){
-    this->x = x;
-    this->y = y;
-    this->length = length;
-    this->height = height;
-}
-unsigned int Hitbox::getX(){
-    return this->x;
-}
-unsigned int Hitbox::getY(){
-    return this->y;
-}
-unsigned int Hitbox::getL(){
-    return this->length;
-}
-unsigned int Hitbox::getH(){
-    return this->length;
-}
+vel singleCheckCollision(Entity* ett1, Entity* ett2){
+    Hitbox hbx = ((PhysicalEntity*)(ett1->getStrategy(Entity::PHYSICAL)))->getHitbox();
+    std::vector<pos> hbx_points = hbx.getHitbox();
 
-Entity::Entity(Hitbox hbx){
-    this->hbx = hbx;
-}
-
-pair<int, int> checkCollisionEntities(Entity ett1, Entity ett2){
-    Hitbox bx = ett1.hbx;
-    unsigned int minx1 = bx.getX();
-    unsigned int maxx1 = minx1 + bx.getL();
-    unsigned int miny1 = bx.getY();
-    unsigned int maxy1 = miny1 + bx.getH();
-
-    bx = ett2.hbx;
-    unsigned int minx2 = bx.getX();
-    unsigned int maxx2 = minx2 + bx.getL();
-    unsigned int miny2 = bx.getY();
-    unsigned int maxy2 = miny2 + bx.getH();
+    unsigned int minx1 = hbx_points.at(0).first;
+    unsigned int maxx1 = hbx_points.at(1).first;
+    unsigned int miny1 = hbx_points.at(0).second;
+    unsigned int maxy1 = hbx_points.at(1).second;
+    
+    hbx = ((PhysicalEntity*)(ett2->getStrategy(Entity::PHYSICAL)))->getHitbox();
+    hbx_points = hbx.getHitbox();
+    unsigned int minx2 = hbx_points.at(0).first;
+    unsigned int maxx2 = hbx_points.at(1).first;
+    unsigned int miny2 = hbx_points.at(0).second;
+    unsigned int maxy2 = hbx_points.at(1).second;
 
     int xcol = 0;
     int ycol = 0;
@@ -51,22 +29,22 @@ pair<int, int> checkCollisionEntities(Entity ett1, Entity ett2){
     return make_pair(xcol, ycol);
 }
 
-vector<Collider> checkCollision(std::vector<Entity> collEtt){
-    int nbEtt = collEtt.size();
-    pair<int, int> colVect;
+vector<Collider> checkCollision(std::vector<Entity*> entities){
+    int nbEtt = entities.size();
+    pair<int, int> tmpVect;
     Collider collider;
-    vector<Collider> collColl = vector<Collider>();
+    vector<Collider> colliderList = vector<Collider>();
     for(int i = 0; i < nbEtt - 1; i++){
         for(int j = i+1; i < nbEtt - 1; i++){
-            colVect = checkCollisionEntities(collEtt.at(i), collEtt.at(j));
-            if(colVect.first != 0 || colVect.second != 0){
+            tmpVect = singleCheckCollision(entities.at(i), entities.at(j));
+            if(tmpVect.first != 0 || tmpVect.second != 0){
                 collider = Collider();
-                collider.colVector = colVect;
-                collider.ettColliding = &(collEtt.at(0));
-                collider.ettInto = &(collEtt.at(1));
-                collColl.push_back(collider);
+                collider.collisionVector = tmpVect;
+                collider.ettColliding = entities.at(0);
+                collider.ettCollided = entities.at(1);
+                colliderList.push_back(collider);
             }
         }
     }
-    return collColl;
+    return colliderList;
 }
