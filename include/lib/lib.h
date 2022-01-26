@@ -2,6 +2,7 @@
 #define LIB_H
 
 #include <tuple>
+#include <vector>
 
 #define NB_KEYS 256
 
@@ -15,7 +16,7 @@ typedef struct PhxParam
 
     unsigned int mass;
     short gravityReaction; //-1 if the PhysicalEntity is likely to fly
-    unsigned double bouncyness; // [0,1] absorb every momentum (0) or none (1), maybe it will increase it's internal energy ( to satisfy conservation of energy)
+    double bouncyness; // [0,1] absorb every momentum (0) or none (1), maybe it will increase it's internal energy ( to satisfy conservation of energy)
     double internalEnergy; //for characters that can absorb energy and then liberate it ?
 } PhxParam;
 
