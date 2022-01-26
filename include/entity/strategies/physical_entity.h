@@ -2,7 +2,7 @@
 #define PHYSICAL_ENTITY
 #include "strategy.h"
 #include <SFML/Graphics/Transformable.hpp>
-#include "lib.h"
+#include "lib/lib.h"
 
 class Hitbox{};
 
@@ -23,7 +23,7 @@ private:
     PhxParam phxParam;
 
 public:
-    static void correction(Vector<PhysicalEntity> phxEtts, Vector<Vector<double,double>> correctionMatrix);
+    static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
 
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
