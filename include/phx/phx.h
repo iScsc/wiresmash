@@ -1,14 +1,14 @@
-#ifndef PHX_PHX_H
-#define PHX_PHX_H
+#ifndef PHX_PFD_H
+#define PHX_PFD_H
 
 #include "lib/lib.h"
-#include <vector>
 #include <iostream>
-#include "entity/strategies/physical_entity.h"
+
+#include "lib/forces.h"
 
 // Constrain
 // vitessePersoMax < longeurPersoMin
 
-Vel updateCinematics(PhysicalEntity const);
+vel updateCinematics(PhysicalEntity* const);
 
 #endif

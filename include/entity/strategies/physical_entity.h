@@ -1,13 +1,9 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include "strategy.h"
-#include <vector>
-#include <SFML/Graphics/Transformable.hpp>
 #include "lib/lib.h"
 
-class Hitbox{};
-
-class PhysicalEntity : public sf::Transformable, public Strategy 
+class PhysicalEntity : public Strategy 
 {
 /*Maybe the most important strategy
 PhysicalEntity (or later simply "Physical" ? "Physicable" ?) has to describe physical caracteristics of his entity:
@@ -17,15 +13,10 @@ Maybe we would like to store damage hitboxes in here instead of Character,
 or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't take damage
 */
 private:
-    //!!! IMPORTANT position, rotation etc in the parent class Transformable
-
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
-
     PhxParam phxParam;
 
     static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
-
-    //setPosition already handle in parent class Transformable: Google "sfml Transformable"
 
     /*
     the Physic toolbox will access position and then update position of every Entity
@@ -35,34 +26,7 @@ private:
     */
 
     PhysicalEntity(/* Default values */);
-    PhysicalEntity(double mass, double bouncyness, signed short gravityReaction, double internalEnergy, double electricCharge);
     ~PhysicalEntity();
-
-    //getters and setters ...
-    void setMass(double _mass);
-
-    double getMass();
-
-    void setHitbox(Hitbox &_Hitbox); //with stored reference...
-
-    Hitbox getHitbox();
-
-    void setGravityReaction(signed short _gravityReaction);
-
-    signed short getGravityReaction();
-
-    void setBouncyness(double _bouncyness);
-
-    double getBouncyness();
-
-    void setInternalEnergy(double _internalEnergy);
-
-    double getInternalEnergy();
-
-    void setElectricCharge(double eC);
-
-    double getElectricCharge();
-
 };
 
 #endif

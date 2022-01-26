@@ -1,5 +1,5 @@
-#PHX README
-##PHX/PFD
+# PHX README
+## PHX/PFD
 
 - Use unsigned int from 0 to MAX_INT to calculate the physics
 - Positions are unsigned int pairs, Vectors are signed int pairs. These types are declared in lib.
@@ -7,78 +7,60 @@
   Param: PhysicalEntity
   Output: correction velocity to apply
 
-##PHX/HITBOX
+## PHX/HITBOX
 
-/--------------------voici les fonctions pour créer une hitbox : 
+2 coordinate conventions :
 
-dans cette partie, les coordonnées sont données suivant la conventions de la partie ETT, les fonctions convertissent directement dans les conventions de la partie phx
-rappel conventions : 
-ETT --> sens trigo, (0, 0) en haut à gauche avec pour un point (x, y) x positif vers la droite et y positif vers le bas de l'écran
-phx --> sens trigo, (0, 0) en bas à gauche avec pour un point (x, y) x positif vers la droite et y positif vers le haut de l'écran
+ETT one : (0, 0) in the top left, (x, y) with x increasing rightwards and y increasing downwards; used to define Hitbox points (a hitbox is declared by ETT team)
 
+phx one : (0, 0) in the top left, (x, y) with x increasing rightwards and y increasing topwards ; used to return Hitbox points (a hitbox is read by phx team)
 
-1) Hitbox(unsigned int size = 2)
-déclarez :
-Hitbox H;
-Hitbox H(size);
+/--------------------here's the constructor : ( ETT convention )
 
-elle créer une hitbox remplie de (0, 0)
+`Hitbox(unsigned int H[][2], unsigned int size = 2)`
+  - `size` is the number of points that the hitbox is made of, by default 2 (by default hitbox are rectangles), for now 2 is the only value allowed (however setting another value will save this value even if there will still be 2 points)
 
-la valeur par défaut de la taille de la hitbox (nombre de points la composant) est de 2 (mettre autre chose ne change rien, c'est simplement au cas où il y aurait besoin de hitbox plus complèxes)
-J'ai choisi la valeur de 2 car la plupart de nos hitbox seront des rectangles, il suffit donc uniquement de préciser 2 angles opposés (pour la création ces angles sont l'angle en haut à gauche et celui en bas à droite, ça me paraissait plus proche de la convention de la partie ETT)
+  - `H[][2]` is a classic array of 2-values arrays (however giving more than two 2-values arrays will just save the first two), the first should be the top left point and the second should be the bottom right point
 
+  [ in the future, if size is allowed to change, which point you give in first is up to you but other points should be given in the same order as the shape you want create turning in the trigonometric direction, size = 1 could be used for conics like that : (a, b) with the following cononical equation (x/a)² + (y/b)² = 1 ]
 
-2) Hitbox(unsigned int H[][2], unsigned int size = 2)
-déclarez :
-Hitbox H(A);
-Hitbox H(A, size);
-
-avec : unsigned int A[][2] = {{x1, y1}, {x2, y2}}    (on peut mettre plus de points mais seuls les 2 premiers seront conservés, en prévisions de hitbox plus complèxes)
-(n'hésitez pas à me dire si vous préféreriez un autre type que 'array' en entrée)
+  - no argument --> create a hitbox of two points (0, 0)
 
 
-3) void setPoint(unsigned int i, unsigned int x, unsigned int y);
-déclarez :
-setPoint(i, x, y);
-i == 0 --> angle en haut à gauche
-i != 0 --> angle en bas à droite (encore une fois on peut rentrer autre chose que 0 ou 1 en prévision de hitbox plus complèxes)
-
-x et y sont à rentrer en convention ETT
+`void setPoint(unsigned int i, unsigned int x, unsigned int y)`
+  - replace the point with index i in the hitbox by the point (x, y)
 
 
+/--------------------here's how to get an information about the hitbox : ( phx convention )
 
-/--------------------voici les fonctions pour connaître une hitbox : 
+`unsigned int size()`
+  - give you the `size` variable explained previously, so even if for now, a hitbox is made of 2 points, if this variable is defined with another value, you will see this other value.
 
-tout est renvoyer en conventions phx, j'ai choisi de faire ainsi car à priori la partie ETT ne fait que créer des hitbox et la partie phx ne fait que demander à les connaître (si vous penser que vous avez besoin d'une fonction qui n'est pas dans votre convention n'hésitez pas à me le dire, je changerais ça)
-
-1) unsigned int size()
-déclarez :
-unsigned int s = H.size();
-
-ça renvoie évidemment la variable size associée à la hitbox (si une valeur autre que 2 a été rentrée, elle sera renvoyée bien qu'en vrai la hitbox sera de taille 2 tant qu'il n'y a pas de hitbox plus complète)
+  [ recommended to use this fonction to make testes before using a hitbox if you're not sure hitbox will be limited to 2 points ]
 
 
-2) std::vector<std::pair<unsigned int, unsigned int>> getHitbox()
-déclarez :
-std::vector<std::pair<unsigned int, unsigned int>> V = H.getHitbox();
-
-renvoie un vecteur de couple, pour l'instant c'est un vecteur de 2 couples : le point en BAS à GAUCHE et celui en HAUT à DROITE car je trouvais que cela collait plus aux conventions phx (évidemment les coordonnées sont en conventions phx)
-
-
-
-(comme je débute en C++, peut être que j'ignore d'autre façon de déclarer mes fonctions mais en tout cas les déclarations proposées sont normalement fonctionnelles et testées)
-comme c'est souvent marqué, j'ai codé au cas où on déciderait de faire des hitbox différentes donc si jamais cela devait arriver, tout le code se servant des hitbox rectangulaires ne serait PAS à changer, les mêmes déclarations, les mêmes renvois de fonctions,...
-un cas que je n'ai pas vraiment pris en compte c'est le cas de hitbox en ellipse, mais à ce moment je pense que seul la partie phx devrait rajouter du code pour savoir si la hitbox est polygonale ou en ellipse en appelant une fonction H.isPoly() ou quelque chose du genre (j'imagien que si ça devait arriver, je ferais une hitbox avec comme variable : le centre et les 2 demi-rayons)
+`std::vector<pos> getHitbox()`
+  - (pos is a pair tuple of unsigned int) this function returns all the points composing the hitbox, but the given points are the bottom left point in first and the top right in second
+  
+  [ if size can change and is different of 2, it only gives the points in the same order and without modification as they were define ]
 
 ## PHX/COLLISION
 
-call checkCollision() with a vector of all the entities that requires collision testing.
-Returns a vector of collidersfor each couple of entities that collide, so its size is upto n(n+1)/2 where n is the number of entities
+**DISCLAIMER:**
+ Maybe we'll have to change the return type of `checkCollision` to `std::vector<Collider*>` to avoid struct duplication or side effect.. To be seen...
+
+ 
+Conductor must call :  
+```std::vector<Collider> checkCollision(std::vector<Entity*>);``` 
+with a vector of all the entities **THAT REQUIRES COLLISION** testing. 
+Meaning: there is a pre-triage to fill `checkCollision` with `Entity*` that have the `PhysicalEntity` strategy.
+
+Returns a vector of colliders for each couple of entities that collide, so its size is upto n(n+1)/2 where n is the number of entities filled.
 
 Collider : struct with 3 fields.
- - ettColliding : the 1st Entity that collides into
- - ettInto      : the Entity inside which it collides
- - colVector    : the vector of how much ettColliding is inside ettInto.
+ - ettColliding     : the 1st Entity that collides into
+ - ettCollided      : the Entity inside which it collides
+ - collisionVector  : the vector of how much ettColliding is inside ettCollided. **see `lib/lib.h`**
 
 EXAMPLE : 
 
@@ -86,5 +68,5 @@ Consider two square hitboxes, whose bottom-left & top-right corners are :
 1st Square : (0, 0) -> (3, 3)
 2nd Square : (2, 1) -> (5, 4)
 
-The returned collider will be {1st Square, 2nd Square, (+1, +2)}
+The returned collider will be `{1st Square, 2nd Square, (+1, +2)}`
 
