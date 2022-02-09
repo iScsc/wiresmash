@@ -25,20 +25,4 @@ public:
     ~Entity();
 };
 
-//in .cpp :
-
-const bool Entity::hasStrategy(int strategy)
-{
-    //if 'strategy' in strategies return true
-}
-
-Entity::Entity(std::vector<Strategy*> strategies){
-    this->strategies = strategies;
-    // Done for now
-}
-
-Entity::~Entity()
-{
-}
-
 #endif

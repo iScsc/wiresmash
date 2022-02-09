@@ -1,9 +1,5 @@
 
-#include "../../include/entity/entity.h"
-
- Entity::hasStrategy(int strategy) {
-     //if 'strategy' in strategies return true
- }
+#include "entity/entity.h"
 
 Entity::Entity(std::vector<Strategy *> strategies) {
     //this->strategies = strategies;

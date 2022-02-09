@@ -4,12 +4,15 @@ using namespace std;
 #include <SFML/Graphics.hpp>
 
 #include "conductor/Conductor.h"
+#include "entity/Character.h"
 
 
 int main(){
   sf::RenderWindow window(sf::VideoMode(800, 450), "fil rouge!");
   window.setVerticalSyncEnabled(true);
   window.setFramerateLimit(60);
+
+
 
   Conductor conductor;
 
