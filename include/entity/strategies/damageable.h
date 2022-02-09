@@ -4,19 +4,21 @@
 #include "strategy.h"
 #include <vector>
 
+using namespace std;
+
 class Damageable : public Strategy
 {
 private:
     float maxLife;
     float currentLife;
 public:
-    static void damage(std::vector<Damageable> damageableArray, std::vector<std::vector<double, double>> damageMatrix);
+    static void damage(vector<Damageable> damageableArray, vector<vector<double, double>> damageMatrix);
 
-    void setMaxLife(float &_maxLife);
+    void setMaxLife(float maxLife);
 
     float getMaxLife();
 
-    void setCurrentLife(float &_currentLife);
+    void setCurrentLife(float currentLife);
 
     float getCurrentLife();
 
@@ -25,22 +27,5 @@ public:
     Damageable(/* Default parameters */);
     ~Damageable();
 };
-
-Damageable::Damageable() : Strategy()
-{
-    this->maxLife = 100;
-    this->currentLife = 100;
-}
-
-Damageable::Damageable(float maxLife) : Strategy(/* args */) {
-    this->maxLife = maxLife;
-    this->currentLife = maxLife;
-}
-
-
-
-Damageable::~Damageable()
-{
-}
 
 #endif
