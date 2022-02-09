@@ -1,4 +1,8 @@
 build
 debug
 .cache
+<<<<<<< HEAD
 .vscode
+=======
+.vscode
+>>>>>>> 775f385 (Starting working on main)
