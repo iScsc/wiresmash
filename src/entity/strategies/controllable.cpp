@@ -1,6 +1,7 @@
 
-#include "../../../include/entity/strategies/controllable.h"
+#include "entity/strategies/controllable.h"
 
+using namespace std;
 
 Controllable::Controllable(/* args */) {
 }
@@ -9,34 +10,33 @@ Controllable::~Controllable() {
 }
 
 
-void Controllable::addCallBack(std::vector<unsigned short> inputs, std::function<void()> callback) {
+void Controllable::addCallBack(unsigned short input, void (*callBackFunc)()) {
 
-    for (int i = 0; i < callBacks.size(); i++) {
-        if (callBacks[i].first == inputs) { /// adds the callback to the callBacks Vector
-            callBacks[i].second.emplace_back(callback);
+    callBacks.push_back(make_pair(input, callBackFunc));
+}
+
+void Controllable::deleteCallBack(key input){
+    for(int i = 0; i < callBacks.size(); i++){
+        if(callBacks.at(i).first == input){
+            callBacks.erase(i);
             return;
         }
     }
-
-
-    std::pair<std::vector<unsigned short>, std::function<void()> > a = std::pair<std::vector<unsigned short>, std::function<void()>>(
-            inputs, callback);
-
-    callBacks.emplace_back(a);
-    
+    printf("[X] Key n°%d not found in CallBacks",input);
+    return;
 }
+/*
+void Controllable::modifyCallBack_by_Key(key old_input, key new_input);
+void Controllable::modifyCallBack_by_Func(void (*callBackFunc_toModify)(), key new_input);
+*/
+void Controllable::flush(std::array<key, NB_KEYS> inputs){
 
-void Controllable::flush(std::vector<unsigned short> &inputs){
-
-    // Calls all callback functions ( without MAE)
-    for (int i = 0; i < callBacks.size(); i++)
-    {
-        if(callBacks[i].first == inputs){
-            for (int j = 0; j < callBacks[i].second.size(); i++)
-            {
-                callBacks[i].second[j](); // flushes Every Callbacks
+    for(int j = 0; j < inputs.size(); j++){
+        for (int i = 0; i < callBacks.size(); i++){
+            if(callBacks.at(i).first == inputs.at(j)){
+                (*callBacks.at(i).second)();
+                return;
             }
-            break;
         }
     }
     

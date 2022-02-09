@@ -1,33 +1,30 @@
 #ifndef CONTROLLABLE_H
 #define CONTROLLABLE_H
+#include "lib/lib.h"
 #include "strategy.h"
 #include <SFML/Window.hpp>
 
+typedef unsigned short key;
+
+using namespace std;
+
 class Controllable : public virtual Strategy {
 private:
-    std::vector<std::pair<std::vector<unsigned short>, std::vector<std::function<void()>>>> callBacks;
+    vector<pair<key, void (*)() > > callBacks;
 public:
     Controllable(/* args */);
 
     ~Controllable();
 
-    MBK
-    void flush(std::array<unsigned short, MBKEY> &inputs); //flush ? events ?, receive an array of boolean (flags) representing if some keys are pressed,
+    void flush(std::array<key, NB_KEYS>); 
+    //receives an array of boolean (flags) representing if some keys are pressed
     // WARNIGN needs a convention (between conductor.ControllableHandler and this class) on that boolean array
 
-    void addCallBack(std::vector<unsigned short> inputs,
-                     std::function<void()> callback); // These take effects immediatly ( independant of the MAE )
-
+    void Controllable::addCallBack(key input, void (*callBackFunc)()); 
+    void Controllable::deleteCallBack(key input);
+    void Controllable::modifyCallBack_by_Key(key old_input, key new_input);
+    void Controllable::modifyCallBack_by_Func(void (*callBackFunc_toModify)(), key new_input);
 
 };
-
-Controllable::Controllable(/* args */) : Strategy(/* args */)
-{
-    // Done
-}
-
-Controllable::~Controllable()
-{
-}
 
 #endif
