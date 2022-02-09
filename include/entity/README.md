@@ -1,15 +1,11 @@
-# Entity
-
-## Collision correction
-
-### Features to remove/check
-
-- The whole `PhysicsProp` thing is invented by me to have the code to make sense, so something equivalent must already exist, so replace it by the adequate thing. <br>
-So the `PhysicalEntity::void invertSpeed()` method may be to change, I think the behavior is understadable enough. <br>
- - The `Collisionner` structure must also be removed since it must be implemented somewhere in the physics branch.
-
-### What does it implement ?
-
-The main goal is to replace correctly the entities after they interpenetrated themselves. <br>
-So the main feature is the `correctionUpdate` method, it takes a list of `Collisionner` (the structure is defined in the code), and corrects the positions and velocity of the entities involved in each collision.<br>
-The method is `void` so it just modifies the entities via pointers.
+## Constructeurs (Pole entity - Benoit - 05/01)
+### Strategies
+Pour la plupart des strategies le constructeur appelle simplement celui de la classe `Strategy`,
+sauf pour `damageable` et `physical_entity` où il y a deux constructeurs :
+- Un sans arguments qui initialise donc les paramètres avec des valeurs par defaut (genre vie, masse etc)
+- Et donc un second ou on peut passer ces valeurs en arguments
+### Character et Wall
+Normalement les strategies sont créées par ces constructeurs, mais il y en a quand même un où on peut passer une liste de strategies.
+Sinon il y a plusieurs constructeurs, toujours un sans arguments pour les valeurs par défaut, et pour `character` un où on peut choisir les paramètres.
+### To Do
+Traiter les hitbox dans le constructeur de `physical_entity`
