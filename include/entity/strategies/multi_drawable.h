@@ -20,20 +20,4 @@ public:
     void addSprite(sf::Drawable);//called addSprite but can add any sf::Drawable
 };
 
-// in cpp:
-void draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    for(sf::Drawable* d : toDraw){
-        target.draw(*d,states);
-    }
-}
-
-
-MultiDrawable::MultiDrawable(/* no args */) : Strategy(/* no args */), sf::Drawable()
-{
-    // Done for now
-}
-
-MultiDrawable::~MultiDrawable(){
-}
-
 #endif

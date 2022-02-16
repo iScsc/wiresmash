@@ -1,4 +1,13 @@
-#include "multi_drawable.h"
+#include "entity/strategies/multi_drawable.h"
+
+MultiDrawable::MultiDrawable(/* no args */) : Strategy(/* no args */), sf::Drawable()
+{
+    // Done for now
+}
+
+MultiDrawable::~MultiDrawable(){
+
+}
 
 void MultiDrawable::draw(sf::RenderTarget& target, sf::RenderStates states) {
     for(sf::Drawable* d : toDraw){
@@ -17,7 +26,4 @@ void MultiDrawable::MultiDrawable(sf::Drawable *sprite){
 
 void MultiDrawable(){
     //would it be good by default to add a "default sprite" to avoid risk of crashed when draw on empty vector
-}
-void ~MultiDrawable(){
-
 }
