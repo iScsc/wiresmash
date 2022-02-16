@@ -12,8 +12,8 @@ using namespace std;
 
 #define NB_KEYS 256
 
-typedef std::pair<unsigned int, unsigned int> pos;
-typedef std::pair<int, int> vel;
+typedef sf::Vector2u pos;
+typedef sf::Vector2i vel;
 
 struct Collider
 {

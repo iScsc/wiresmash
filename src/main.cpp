@@ -39,7 +39,6 @@ int main(){
         window.clear(sf::Color::Black);
         // TODO
         vel velocity = updateCinematics(&ett1);
-        sf::Vector2u
         window.display();
     }
     
