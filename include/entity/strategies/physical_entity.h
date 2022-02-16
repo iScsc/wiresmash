@@ -1,7 +1,8 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include "strategy.h"
-#include "lib/lib.h"
+#include "lib/forces.h"
+#include <vector>
 
 class PhysicalEntity : public Strategy 
 {
@@ -15,7 +16,6 @@ or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't
 private:
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
     PhxParam phxParam;
-
     static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
 
     /*
