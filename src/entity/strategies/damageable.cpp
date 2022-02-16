@@ -1,4 +1,4 @@
-#include "../../../include/entity/strategies/damageable.h"
+#include "entity/strategies/damageable.h"
 
 Damageable::Damageable() : Strategy()
 {
