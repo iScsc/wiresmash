@@ -2,9 +2,7 @@
 #define PHX_PFD_H
 
 #include "lib/lib.h"
-#include <iostream>
-
-#include "lib/forces.h"
+#include "entity/strategies/physical_entity.h"
 
 // Constrain
 // vitessePersoMax < longeurPersoMin

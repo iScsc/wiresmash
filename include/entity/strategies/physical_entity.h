@@ -1,7 +1,8 @@
 #ifndef PHYSICAL_ENTITY
 #define PHYSICAL_ENTITY
 #include "strategy.h"
-#include "lib/lib.h"
+#include "lib/forces.h"
+#include <vector>
 
 class Hitbox{};
 
@@ -19,15 +20,13 @@ private:
     std::vector<Force> forces;
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
 
-    PhxParam phxParam;
-
 public:
     static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
 
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
 
-    std::vector<Force> PhysicalEntity::getForces();
+    std::vector<Force> getForces();
 
     //setPosition already handle in parent class Transformable: Google "sfml Transformable"
 
@@ -39,20 +38,9 @@ public:
     */
 
     PhysicalEntity(/* args */);
+    PhysicalEntity(std::vector<Force> force);
     ~PhysicalEntity();
 };
-
-// in cpp :
-
-PhysicalEntity::PhysicalEntity(/* args */)
-{
-    //think to instantiate the parent Transformable attributes
-}
-
-PhysicalEntity::~PhysicalEntity()
-{
-}
-
 
 
 #endif

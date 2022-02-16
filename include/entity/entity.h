@@ -14,8 +14,8 @@ public:
         DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
     };
 
-    bool Entity::hasStrategy(StrategiesID);
-    Strategy* Entity::getStrategy(StrategiesID);
+    bool hasStrategy(StrategiesID);
+    Strategy*getStrategy(StrategiesID);
 
     Entity(std::vector<Strategy*> strategies); //basic constructor
     ~Entity();
