@@ -1,4 +1,4 @@
-#include "Conductor.h"
+#include "conductor/Conductor.h"
 
 Conductor::Conductor(){
 }
