@@ -9,3 +9,8 @@ PhysicalEntity::PhysicalEntity(std::vector<Force> f)
 {
   forces = f;
 }
+
+PhysicalEntity::addVel(vel v)
+{
+  
+}

@@ -2,6 +2,7 @@
 #define PHYSICAL_ENTITY
 #include "strategy.h"
 #include "lib/forces.h"
+#include "lib/lib.h"
 #include <vector>
 
 class PhysicalEntity : public Strategy 
