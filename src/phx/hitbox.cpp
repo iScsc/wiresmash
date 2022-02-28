@@ -1,4 +1,5 @@
 #include "phx/hitbox.h"
+#include <climits>
 
 //----------------------------Creation de Hitbox----------------------------// (ETT conventions)
 
@@ -31,7 +32,7 @@ unsigned int Hitbox::size(){
 
 std::vector<pos> Hitbox::getHitbox(){
     std::vector<pos> H;
-    H.push_back( std::make_pair(tl.first, br.second) );
-    H.push_back( std::make_pair(br.first, tl.second) );
+    H.push_back(pos(tl.x, br.y) );
+    H.push_back(pos(br.x, tl.y) );
     return H;
 }

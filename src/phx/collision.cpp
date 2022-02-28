@@ -1,20 +1,23 @@
 #include "phx/collision.h"
+#include "entity/entity.h"
+#include "entity/strategies/physical_entity.h"
+
 
 vel singleCheckCollision(Entity* ett1, Entity* ett2){
-    Hitbox hbx = ((PhysicalEntity*)(ett1->getStrategy(Entity::PHYSICAL)))->getHitbox();
+    Hitbox hbx = ((PhysicalEntity*)(ett1->getStrategy(PHYSICAL)))->getHitbox();
     std::vector<pos> hbx_points = hbx.getHitbox();
 
-    unsigned int minx1 = hbx_points.at(0).first;
-    unsigned int maxx1 = hbx_points.at(1).first;
-    unsigned int miny1 = hbx_points.at(0).second;
-    unsigned int maxy1 = hbx_points.at(1).second;
+    unsigned int minx1 = hbx_points.at(0).x;
+    unsigned int maxx1 = hbx_points.at(1).x;
+    unsigned int miny1 = hbx_points.at(0).y;
+    unsigned int maxy1 = hbx_points.at(1).y;
     
-    hbx = ((PhysicalEntity*)(ett2->getStrategy(Entity::PHYSICAL)))->getHitbox();
+    hbx = ((PhysicalEntity*)(ett2->getStrategy(PHYSICAL)))->getHitbox();
     hbx_points = hbx.getHitbox();
-    unsigned int minx2 = hbx_points.at(0).first;
-    unsigned int maxx2 = hbx_points.at(1).first;
-    unsigned int miny2 = hbx_points.at(0).second;
-    unsigned int maxy2 = hbx_points.at(1).second;
+    unsigned int minx2 = hbx_points.at(0).x;
+    unsigned int maxx2 = hbx_points.at(1).x;
+    unsigned int miny2 = hbx_points.at(0).y;
+    unsigned int maxy2 = hbx_points.at(1).y;
 
     int xcol = 0;
     int ycol = 0;
@@ -26,18 +29,18 @@ vel singleCheckCollision(Entity* ett1, Entity* ett2){
         ycol = -min(maxy2 - miny1, maxy1 - miny2);
     }
 
-    return make_pair(xcol, ycol);
+    return vel(xcol, ycol);
 }
 
 vector<Collider> checkCollision(std::vector<Entity*> entities){
     int nbEtt = entities.size();
-    pair<int, int> tmpVect;
+    vel tmpVect;
     Collider collider;
     vector<Collider> colliderList = vector<Collider>();
     for(int i = 0; i < nbEtt - 1; i++){
         for(int j = i+1; i < nbEtt - 1; i++){
             tmpVect = singleCheckCollision(entities.at(i), entities.at(j));
-            if(tmpVect.first != 0 || tmpVect.second != 0){
+            if(tmpVect.x != 0 || tmpVect.y != 0){
                 collider = Collider();
                 collider.collisionVector = tmpVect;
                 collider.ettColliding = entities.at(0);

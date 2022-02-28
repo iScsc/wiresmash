@@ -3,6 +3,7 @@
 #include "strategy.h"
 #include "lib/forces.h"
 #include "lib/lib.h"
+#include "phx/hitbox.h"
 #include <vector>
 
 class PhysicalEntity : public Strategy 
