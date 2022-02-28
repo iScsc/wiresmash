@@ -8,7 +8,7 @@ vel updateCinematics(PhysicalEntity* const ett) {
   for (auto force: forces) {
     switch(force) {
       case weight:
-        correction.second += WEIGHT;
+        correction.y += WEIGHT;
         break;
 
       default:

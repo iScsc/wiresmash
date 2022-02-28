@@ -16,13 +16,6 @@ public:
     ~Strategy();
 };
 
-Strategy::Strategy(/* args */)
-{
-}
-
-Strategy::~Strategy()
-{
-}
 
 
 #endif

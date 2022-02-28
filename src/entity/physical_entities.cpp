@@ -1,4 +1,5 @@
 #include "entity/strategies/physical_entity.h"
+#include "phx/hitbox.h"
 
 PhysicalEntity::PhysicalEntity(/* args */)
 {
@@ -10,7 +11,10 @@ PhysicalEntity::PhysicalEntity(std::vector<Force> f)
   forces = f;
 }
 
-PhysicalEntity::addVel(vel v)
-{
-  
+Hitbox PhysicalEntity::getHitbox() {
+  return physicalHitbox;
+}
+
+std::vector<Force> PhysicalEntity::getForces() {
+  return forces;
 }

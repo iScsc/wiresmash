@@ -6,7 +6,7 @@
 #include <SFML/System/Vector2.hpp>
 #include <vector>
 
-enum StrategiesID{
+enum StrategiesID {
   DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
 };
 
@@ -17,16 +17,14 @@ private:
     sf::Vector2u position;
     
 public:
-
+    Entity(std::vector<Strategy*> strategies); //basic constructor
+    ~Entity();
 
     bool hasStrategy(StrategiesID);
     Strategy* getStrategy(StrategiesID);
 
     sf::Vector2u getPosition();
     void addVelocity(sf::Vector2i v);
-
-    Entity(std::vector<Strategy*> strategies); //basic constructor
-    ~Entity();
 };
 
 

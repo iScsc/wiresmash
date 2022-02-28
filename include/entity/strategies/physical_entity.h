@@ -3,9 +3,8 @@
 #include "strategy.h"
 #include "lib/forces.h"
 #include "lib/lib.h"
+#include "phx/hitbox.h"
 #include <vector>
-
-class Hitbox{};
 
 class PhysicalEntity : public Strategy 
 {
@@ -26,7 +25,6 @@ public:
 
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
-    void addVel(vel v);
 
     std::vector<Force> getForces();
 
