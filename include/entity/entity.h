@@ -15,7 +15,7 @@ class Entity //maybe virtual class ? let's see if this is useful or not later
 private:
     std::vector<Strategy*> strategies; //basic attribute of an Entity
     sf::Vector2u position;
-    
+    sf::Vector2i velocity;
 public:
     Entity(std::vector<Strategy*> strategies); //basic constructor
     ~Entity();
@@ -24,7 +24,8 @@ public:
     Strategy* getStrategy(StrategiesID);
 
     sf::Vector2u getPosition();
-    void addVelocity(sf::Vector2i v);
+    void addVelocity();
+    void incVelocity(sf::Vector2i a);
 };
 
 
