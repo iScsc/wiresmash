@@ -7,6 +7,16 @@
 // Constrain
 // vitessePersoMax < longeurPersoMin
 
+#define PHX_MAX_VEL = 1000000
+
+// Constants
+#define PHX_CST_Gx   0
+#define PHX_CST_Gy -10
+
+void smoothVel(vel*);
+
+void addGravity(vel*);
+
 vel updateCinematics(PhysicalEntity* const);
 
 #endif
