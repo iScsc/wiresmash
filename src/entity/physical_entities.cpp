@@ -1,20 +1,24 @@
 #include "entity/strategies/physical_entity.h"
 #include "phx/hitbox.h"
 
+PhyParam::PhyParam(int mass){
+  this->mass = mass;
+}
+
 PhysicalEntity::PhysicalEntity(/* args */)
 {
     //think to instantiate the parent Transformable attributes
 }
 
-PhysicalEntity::PhysicalEntity(std::vector<Force> f)
+PhysicalEntity::PhysicalEntity(PhyParam phxParam)
 {
-  forces = f;
+  this->phxParam = phxParam;
 }
 
 Hitbox PhysicalEntity::getHitbox() {
   return physicalHitbox;
 }
 
-std::vector<Force> PhysicalEntity::getForces() {
-  return forces;
+PhyParam PhysicalEntity::getParam(){
+  return phxParam;
 }
