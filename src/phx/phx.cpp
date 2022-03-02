@@ -1,21 +1,18 @@
 #include "phx/phx.h"
 
+void addGravity(vel* tempAcc){
+    tempAcc->x += PHX_CST_Gx;
+    tempAcc->y += PHX_CST_Gy;
+}
 
 vel updateCinematics(PhysicalEntity* const ett) {
-  vel correction (0,0); 
-  std::vector<Force> forces = ett->getForces();
 
-  for (auto force: forces) {
-    switch(force) {
-      case weight:
-        correction.y += WEIGHT;
-        break;
+    vel correction (0,0); 
+    PhyParam phxParam = ett->getParam();
 
-      default:
-        break;
-    }
-  } 
+    //Newton's Second Law
+    addGravity(&correction);
 
-  return correction; 
+    return correction; 
 }
 
