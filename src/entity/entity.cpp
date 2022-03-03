@@ -16,8 +16,12 @@ sf::Vector2u  Entity::getPosition() {
   return position;
 }
     
-void Entity::addVelocity(sf::Vector2i vel) {
+void Entity::addVelocity() {
   // TODO dirty casting
-  position = (sf::Vector2u) ((sf::Vector2i) position + vel);
+  position = (sf::Vector2u) ((sf::Vector2i) position + velocity);
+}
+
+void Entity::incVelocity(sf::Vector2i acc) {
+  velocity += acc;
 }
 

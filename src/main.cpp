@@ -1,19 +1,20 @@
+#include <iostream>
+#include <SFML/Graphics.hpp>
+
 #include "entity/entity.h"
 #include "entity/strategies/strategy.h"
-#include <iostream>
-using namespace std;
-
 #include "entity/strategies/physical_entity.h"
 #include "phx/phx.h"
 #include "phx/collision.h"
-#include <SFML/Graphics.hpp>
+
+using namespace std;
 
 int main() {
-  sf::RenderWindow window(sf::VideoMode(800, 450), "fil rouge!");
+  sf::RenderWindow window(sf::VideoMode(800, 450), "Wiresmash");
   window.setVerticalSyncEnabled(true);
   window.setFramerateLimit(60);
-  vector<Force> forces = {Force::weight};
-  std::vector<Strategy*> weightEtt = { nullptr, new PhysicalEntity(forces), nullptr}; // TODO so ugly
+  PhyParam param = PhyParam(1);
+  std::vector<Strategy*> weightEtt = { nullptr, new PhysicalEntity(param), nullptr}; // TODO so ugly
   Entity *ett1 = new Entity(weightEtt);
   Entity *ett2 = new Entity(weightEtt);
   std::vector<Entity*> ettVect;
@@ -42,10 +43,12 @@ int main() {
     // objects update.
     window.clear(sf::Color::Black);
 
-    vel vel1 = updateCinematics((PhysicalEntity*) ett1->getStrategy(PHYSICAL));
-    ett1->addVelocity(vel1);
-    vel vel2 = updateCinematics((PhysicalEntity*) ett1->getStrategy(PHYSICAL));
-    ett2->addVelocity(vel2);
+    vel acc1 = updateCinematics((PhysicalEntity*) ett1->getStrategy(PHYSICAL));
+    ett1->incVelocity(acc1);
+    ett1->addVelocity();
+    vel acc2 = updateCinematics((PhysicalEntity*) ett2->getStrategy(PHYSICAL));
+    ett2->incVelocity(acc2);
+    ett2->addVelocity();
     do
     {
       collVect = checkCollision(ettVect);
@@ -56,7 +59,6 @@ int main() {
       
       
     } while (/*True condition : collVect.size() != 0 */ 0);
-    
     
 
     std::cout << "position of ett1: " << ettVect.at(0)->getPosition().x << ";" << ettVect.at(0)->getPosition().y << std::endl;
