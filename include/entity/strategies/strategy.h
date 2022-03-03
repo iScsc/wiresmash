@@ -1,6 +1,14 @@
 #ifndef STRATEGY_H
 #define STRATEGY_H
 
+#include <vector>
+
+#define NB_STRATEGY 3
+
+enum StrategiesID {
+    DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
+};
+
 class Strategy 
 //For now Strategy seems only a polymorphic-class, usefull only to store every strategies.
 //we'll have to think how we want to use strategies, because if they're all stored as Strategy
@@ -16,6 +24,6 @@ public:
     ~Strategy();
 };
 
-
+std::vector<Strategy*> emptyStrHdl();
 
 #endif

@@ -1,8 +1,15 @@
 #include "entity/entity.h"
 #include <SFML/System/Vector2.hpp>
 
+Entity::Entity(){
+    strategies = emptyStrHdl();
+}
 Entity::Entity(std::vector<Strategy*> s) : strategies(s) {}
 Entity::~Entity() {}
+
+void Entity::setStrategy(StrategiesID id, Strategy* str){
+  strategies.at(id) = str;
+}
 
 bool Entity::hasStrategy(StrategiesID strategy){
     return (strategies.at(strategy) != nullptr);

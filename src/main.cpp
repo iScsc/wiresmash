@@ -13,14 +13,20 @@ int main() {
   sf::RenderWindow window(sf::VideoMode(800, 450), "Wiresmash");
   window.setVerticalSyncEnabled(true);
   window.setFramerateLimit(60);
-  PhyParam param = PhyParam(1);
-  std::vector<Strategy*> weightEtt = { nullptr, new PhysicalEntity(param), nullptr}; // TODO so ugly
-  Entity *ett1 = new Entity(weightEtt);
-  Entity *ett2 = new Entity(weightEtt);
+
+  PhyParam light = PhyParam(1);
+  PhyParam heavy = PhyParam(10);
+
+  Entity *ett1 = new Entity();
+  Entity *ett2 = new Entity();
+  ett1->setStrategy(PHYSICAL, new PhysicalEntity(light));
+  ett2->setStrategy(PHYSICAL, new PhysicalEntity(heavy));
+
   std::vector<Entity*> ettVect;
 
   ettVect.push_back(ett1);
   ettVect.push_back(ett2);
+
 
   vector<Collider> collVect;
   std::cout << "position of ett1: " << ettVect.at(0)->getPosition().x << ";" << ettVect.at(0)->getPosition().y << std::endl;
@@ -66,6 +72,9 @@ int main() {
 
     window.display();
   }
+
+  printf("Mass of both entities : %d, %d \n", ((PhysicalEntity*)ettVect.at(0)->getStrategy(PHYSICAL))->getParam().mass,
+                                              ((PhysicalEntity*)ettVect.at(1)->getStrategy(PHYSICAL))->getParam().mass);
 
   return 0;
 }

@@ -1,14 +1,10 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "strategies/strategy.h"
 // TODO cannot include recursivly #include "lib/lib.h"
 #include <SFML/System/Vector2.hpp>
 #include <vector>
-
-enum StrategiesID {
-  DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
-};
+#include "strategies/strategy.h"
 
 class Entity //maybe virtual class ? let's see if this is useful or not later
 {
@@ -17,9 +13,11 @@ private:
     sf::Vector2u position;
     sf::Vector2i velocity;
 public:
+    Entity();
     Entity(std::vector<Strategy*> strategies); //basic constructor
     ~Entity();
 
+    void setStrategy(StrategiesID, Strategy*);
     bool hasStrategy(StrategiesID);
     Strategy* getStrategy(StrategiesID);
 
