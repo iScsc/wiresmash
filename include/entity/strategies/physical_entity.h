@@ -7,16 +7,16 @@
 #include "lib/lib.h"
 
 #include "entity/strategies/strategy.h"
-
 #include "phx/hitbox.h"
 
-struct PhyParam
+typedef struct PhxParam PhxParam; 
+struct PhxParam
 {
     int mass = 0;
 
-    PhyParam() = default;
+    PhxParam() = default;
     /* Full constructor as of version XX.YY */
-    PhyParam(int mass);
+    PhxParam(int mass);
 
     /*     
     Procedure adding new params is the following : 
@@ -67,13 +67,12 @@ or damageHitbox != physicalHitbox (like i can touch with my legs) but they can't
 */
 private:
     //position, rotation etc in the parent class Transformable TODO WTF
-    PhyParam phxParam;
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
     PhxParam phxParam;
     static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
-    PhyParam getParam();
+    PhxParam getParam();
 
     //setPosition already handle in parent class Transformable: Google "sfml Transformable"
     /*
@@ -84,7 +83,7 @@ private:
     */
 
     PhysicalEntity(/* args */);
-    PhysicalEntity(PhyParam phxParam);
+    PhysicalEntity(PhxParam phxParam);
     ~PhysicalEntity();
 };
 

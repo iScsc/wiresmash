@@ -40,6 +40,7 @@ public :
     static void correctionUpdate(std::vector<Collisionner> collisionners)
     {
         for (Collisionner col : collisionners) {
+            // TODO HELLO GREGORY
             Entity ett1 = *col.touching;
             Entity ett2 = *col.touched;
             std::vector<int> intr = col.intricate;
@@ -49,7 +50,7 @@ public :
             // b2 = ett2.bouncyness;
             const unsigned int m1 = ett1.mass;
             const unsigned int m2 = ett2.mass;
-            const unsigned float ratio = m2/(m1 + m2);
+            const double ratio = m2/(m1 + m2);
             // Inherited from SFML transformable
             ett1.move(floor( ratio     *intr[0]),floor( ratio     *intr[1]));
             ett2.move(floor((ratio - 1)*intr[0]),floor((ratio - 1)*intr[1]));
