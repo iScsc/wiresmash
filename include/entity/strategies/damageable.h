@@ -1,8 +1,8 @@
 #ifndef DAMAGEABLE_H
 #define DAMAGEABLE_H
 
-#include "strategy.h"
 #include <vector>
+#include "entity/strategies/strategy.h"
 
 using namespace std;
 

@@ -1,8 +1,9 @@
 #ifndef CONTROLLABLE_H
 #define CONTROLLABLE_H
-#include "lib/lib.h"
-#include "strategy.h"
+
 #include <SFML/Window.hpp>
+#include "lib/lib.h"
+#include "entity/strategies/strategy.h"
 
 typedef unsigned short key;
 
