@@ -69,6 +69,8 @@ private:
     //position, rotation etc in the parent class Transformable TODO WTF
     Hitbox physicalHitbox; // boolean solid (or touchable ?) in here
     PhxParam phxParam;
+    
+public:
     static void correction(std::vector<PhysicalEntity> phxEtts, std::vector<std::vector<double,double>> correctionMatrix);
     Hitbox getHitbox();
     void setHitbox(Hitbox newHitbox);
@@ -81,7 +83,6 @@ private:
 
     only get and set positions are needed
     */
-
     PhysicalEntity(/* args */);
     PhysicalEntity(PhxParam phxParam);
     ~PhysicalEntity();
