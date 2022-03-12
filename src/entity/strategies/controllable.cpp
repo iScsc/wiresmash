@@ -16,9 +16,10 @@ void Controllable::addCallBack(unsigned short input, void (*callBackFunc)()) {
 }
 
 void Controllable::deleteCallBack(key input){
+    // TODO : remplacer par une liste
     for(int i = 0; i < callBacks.size(); i++){
         if(callBacks.at(i).first == input){
-            callBacks.erase(i);
+            callBacks.erase(callBacks.begin()+i);
             return;
         }
     }
