@@ -12,7 +12,7 @@ int main() {
   sf::RenderWindow window(sf::VideoMode(800, 450), "Wiresmash");
   window.setVerticalSyncEnabled(true);
   window.setFramerateLimit(60);
-  PhyParam param = PhyParam(1);
+  PhxParam param = PhxParam(1);
   std::vector<Strategy*> weightEtt = { nullptr, new PhysicalEntity(param), nullptr}; // TODO so ugly
   Entity *ett1 = new Entity(weightEtt);
   Entity *ett2 = new Entity(weightEtt);
