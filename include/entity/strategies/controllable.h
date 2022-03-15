@@ -21,10 +21,10 @@ public:
     //receives an array of boolean (flags) representing if some keys are pressed
     // WARNIGN needs a convention (between conductor.ControllableHandler and this class) on that boolean array
 
-    void Controllable::addCallBack(key input, void (*callBackFunc)()); 
-    void Controllable::deleteCallBack(key input);
-    void Controllable::modifyCallBack_by_Key(key old_input, key new_input);
-    void Controllable::modifyCallBack_by_Func(void (*callBackFunc_toModify)(), key new_input);
+    void addCallBack(key input, void (*callBackFunc)()); 
+    void deleteCallBack(key input);
+    void modifyCallBack_by_Key(key old_input, key new_input);
+    void modifyCallBack_by_Func(void (*callBackFunc_toModify)(), key new_input);
 
 };
 
