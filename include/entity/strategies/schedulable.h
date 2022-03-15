@@ -1,5 +1,7 @@
 #ifndef SCHEDULABLE_H
 #define SCHEDULABLE_H
+
+#include <map>
 #include "entity/strategies/strategy.h"
 
 class Schedulable : public virtual Strategy //schedulable is useless right now we'll think it later
