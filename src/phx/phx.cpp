@@ -8,7 +8,7 @@ void addGravity(vel* tempAcc){
 vel updateCinematics(PhysicalEntity* const ett) {
 
     vel correction (0,0); 
-    PhyParam phxParam = ett->getParam();
+    PhxParam phxParam = ett->getParam();
 
     //Newton's Second Law
     addGravity(&correction);
