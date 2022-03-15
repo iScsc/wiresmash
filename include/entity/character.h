@@ -16,7 +16,7 @@ private:
     std::vector<Hitbox> attackHitbox; //in a strategy ?
     Hitbox damageHitbox;  //-->> in the future stored in strategies ???
 
-    std::vector<Strategy*> generateDefaultStrategies();
+    static std::vector<Strategy*> generateDefaultStrategies();
 
     float strength;
     float maxSpeed;
