@@ -16,7 +16,7 @@ public:
     MultiDrawable(std::vector<sf::Drawable*>);
 
     void draw(sf::RenderTarget& target/*often the window where to draw*/, 
-              sf::RenderStates states/*shader or other*/);
+              sf::RenderStates states/*shader or other*/) const;
     
     void addSprite(sf::Drawable*);//called addSprite but can add any sf::Drawable
 };

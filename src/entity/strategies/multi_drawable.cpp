@@ -1,6 +1,6 @@
 #include "entity/strategies/multi_drawable.h"
 
-void MultiDrawable::draw(sf::RenderTarget& target, sf::RenderStates states) {
+void MultiDrawable::draw(sf::RenderTarget& target, sf::RenderStates states) const{
     for(sf::Drawable* d : toDraw){
         target.draw(*d,states);
     }
@@ -13,4 +13,8 @@ MultiDrawable::MultiDrawable(std::vector<sf::Drawable*> spriteVector){
 
 MultiDrawable::MultiDrawable(sf::Drawable *sprite){
     this->addSprite(sprite);
+}
+
+void MultiDrawable::addSprite(sf::Drawable *sprite){
+    this->toDraw.push_back(sprite);
 }
