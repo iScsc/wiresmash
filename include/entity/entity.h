@@ -1,10 +1,13 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include "strategies/strategy.h"
 // TODO cannot include recursivly #include "lib/lib.h"
-#include <SFML/System/Vector2.hpp>
 #include <vector>
+
+#include <SFML/System/Vector2.hpp>
+
+#include "strategies/strategy.h"
+
 
 enum StrategiesID {
   DRAWABLE = 0, PHYSICAL = 1, DAMAGEABLE = 2
@@ -22,8 +25,10 @@ public:
     bool hasStrategy(StrategiesID);
     Strategy* getStrategy(StrategiesID);
     sf::Vector2u getPosition();
+    void move(sf::Vector2i);
     void addVelocity();
     void incVelocity(sf::Vector2i a);
+    void revertVelocity();
 };
 
 #endif

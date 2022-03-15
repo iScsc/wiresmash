@@ -1,5 +1,4 @@
 #include "entity/entity.h"
-#include <SFML/System/Vector2.hpp>
 
 Entity::Entity(std::vector<Strategy*> s) : strategies(s) {}
 Entity::~Entity() {}
@@ -15,7 +14,13 @@ Strategy* Entity::getStrategy(StrategiesID strategy){
 sf::Vector2u  Entity::getPosition() {
   return position;
 }
-    
+
+void Entity::move(sf::Vector2i vel){
+  // TODO Casting
+  position = (sf::Vector2u) ((sf::Vector2i) position + vel);
+
+}
+
 void Entity::addVelocity() {
   // TODO dirty casting
   position = (sf::Vector2u) ((sf::Vector2i) position + velocity);
@@ -25,3 +30,6 @@ void Entity::incVelocity(sf::Vector2i acc) {
   velocity += acc;
 }
 
+void Entity::revertVelocity(){
+  velocity *= -1;
+}
