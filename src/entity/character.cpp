@@ -1,7 +1,28 @@
-#include "../../include/entity/character.h"
+#include "entity/character.h"
+
+std::vector<Strategy*> Character::generateDefaultStrategies() {
+    std::vector<Strategy*> vec;
+    vec.push_back(new Damageable());
+    vec.push_back(new Controllable());
+    vec.push_back(new MultiDrawable());
+    vec.push_back(new PhysicalEntity());
+    vec.push_back(new Schedulable());
+    return vec;
+}
+
+Character::Character() : Character(Character::generateDefaultStrategies()) {}
+Character::Character(std::vector<Strategy*> strategies) : Character(Character::generateDefaultStrategies(), 100, 100, 10) {};
+Character::Character(float strength, float maxSpeed, float jumpHeight) : Character(Character::generateDefaultStrategies(), strength, maxSpeed, jumpHeight) {}
+
+Character::Character(std::vector<Strategy *> strategies, float strength, float maxSpeed, float jumpHeight) : Entity(strategies) {
+    this->strength = strength;
+    this->maxSpeed = maxSpeed;
+    this->jumpHeight = jumpHeight;
+}
 
 
-Character::~Character() {
+Character::~Character()
+{
 }
 
 std::vector<Hitbox> &Character::getAttackHitbox() {

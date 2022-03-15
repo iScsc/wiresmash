@@ -1,17 +1,14 @@
 #ifndef CHARACTER_H
 #define CHARACTER_H
-#include "entity.h"
-#include "strategies/strategy.h"
 #include <vector>
-#include "strategies/multi_drawable.h"
-#include "strategies/controllable.h"
-#include "strategies/physical_entity.h"
-#include "strategies/schedulable.h"
-#include "strategies/damageable.h"
 
-class Hitbox {
-};
-
+#include "entity/entity.h"
+#include "entity/strategies/strategy.h"
+#include "entity/strategies/multi_drawable.h"
+#include "entity/strategies/controllable.h"
+#include "entity/strategies/physical_entity.h"
+#include "entity/strategies/schedulable.h"
+#include "entity/strategies/damageable.h"
 
 class Character : public Entity {
 private:
@@ -61,31 +58,5 @@ public:
     ~Character();
 
 };
-
-//in .cpp:
-std::vector<Strategy*> generateDefaultStrategies() {
-    std::vector<Strategy*> vec;
-    vec.push_back(new Damageable());
-    vec.push_back(new Controllable());
-    vec.push_back(new MultiDrawable());
-    vec.push_back(new PhysicalEntity());
-    vec.push_back(new Schedulable());
-    return vec;
-}
-
-Character::Character() : Character(Character::generateDefaultStrategies()) {}
-Character::Character(std::vector<Strategy*> strategies) : Character(Character::generateDefaultStrategies(), 100, 100, 10) {};
-Character::Character(float strength, float maxSpeed, float jumpHeight) : Character(Character::generateDefaultStrategies(), strength, maxSpeed, jumpHeight) {}
-
-Character::Character(std::vector<Strategy *> strategies, float strength, float maxSpeed, float jumpHeight) : Entity(strategies) {
-    this->strength = strength;
-    this->maxSpeed = maxSpeed;
-    this->jumpHeight = jumpHeight;
-}
-
-
-Character::~Character()
-{
-}
 
 #endif
