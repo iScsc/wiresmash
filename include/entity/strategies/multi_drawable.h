@@ -1,32 +1,24 @@
-#ifndef DRAWABLE_HANDLER
-#define DRAWABLE_HANDLER
-#include "strategy.h"
+#ifndef MULTI_DRAWABLE
+#define MULTI_DRAWABLE
+#include <vector>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/RenderTarget.hpp>
+#include "entity/strategies/strategy.h"
 
-class MultiDrawable : public sf::Drawable/*--> peut etre le mettre en attribut*/, public virtual Strategy {
+class MultiDrawable : public sf::Drawable/*a MultiDrawable can be in toDraw of another MultiDrawable*/, public virtual Strategy {
 private:
-    std::Vector<sf::Drawable*> toDraw; //list of sprites/shapes to draw
-    virtual void draw(sf::RenderTarget& target, sf::RenderStates states); //i don't understand why const, comes form google "sfml drawable"
-
+    std::vector<sf::Drawable*> toDraw; //list of sprites/shapes to draw
+    //!!! big question on the best way to store Sprites ? and on the pointer and freeing...
 public:
-    DrawableHandler();
-    ~DrawableHandler();
+
+    MultiDrawable() = default;
+    MultiDrawable(sf::Drawable*);
+    MultiDrawable(std::vector<sf::Drawable*>);
+
+    void draw(sf::RenderTarget& target/*often the window where to draw*/, 
+              sf::RenderStates states/*shader or other*/) const;
+    
+    void addSprite(sf::Drawable*);//called addSprite but can add any sf::Drawable
 };
-
-// in cpp:
-
-virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const {
-    for(sf::Drawable* d : toDraw){
-        target.draw(*d,states);
-    }
-}
-
-DrawableHandler::DrawableHandler(/* args */){
-}
-
-DrawableHandler::~DrawableHandler(){
-}
-
 
 #endif

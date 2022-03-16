@@ -15,7 +15,6 @@ class Strategy
 //we can't write strategies.get(0).aMethodFromPhysicalEntity() because strategies.get(0) is of type Strategy,
 //maybe a method in Strategy that return the type of the object(Physical, Drawable,..) or directly return the object ?
 //there is to be discussed here
-
 {
 private:
     /* data */

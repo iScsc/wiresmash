@@ -15,4 +15,4 @@ std::vector<Strategy*> emptyStrHdl(){
         strategyHandler.push_back(nullptr);
     }
     return strategyHandler;
-}
+};

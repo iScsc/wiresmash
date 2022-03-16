@@ -13,9 +13,9 @@ int main() {
   sf::RenderWindow window(sf::VideoMode(800, 450), "Wiresmash");
   window.setVerticalSyncEnabled(true);
   window.setFramerateLimit(60);
-
-  PhyParam light = PhyParam(1);
-  PhyParam heavy = PhyParam(10);
+  
+  PhxParam light = PhxParam(1);
+  PhxParam heavy = PhxParam(10);
 
   Entity *ett1 = new Entity();
   Entity *ett2 = new Entity();

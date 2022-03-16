@@ -3,7 +3,9 @@
 
 // TODO cannot include recursivly #include "lib/lib.h"
 #include <SFML/System/Vector2.hpp>
+
 #include <vector>
+
 #include "strategies/strategy.h"
 
 class Entity //maybe virtual class ? let's see if this is useful or not later
@@ -22,10 +24,11 @@ public:
     Strategy* getStrategy(StrategiesID);
 
     sf::Vector2u getPosition();
+    void move(sf::Vector2i);
     void addVelocity();
     void incVelocity(sf::Vector2i a);
+    void revertVelocity();
 };
 
-
-
 #endif
+
