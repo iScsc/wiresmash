@@ -2,9 +2,8 @@
 #define ENGINE_PHYSIC_PHYSIC_H
 
 #include <vector>
-#include "engine/entity.h"
 
-typedef struct PhxParam PhxParam; 
+typedef struct PhxParam PhxParam;
 struct PhxParam
 {
     int mass = 0;
@@ -13,10 +12,9 @@ struct PhxParam
 };
 
 
-class Physic 
+class Physic
 {
 private:
-    Entity* owner;
     PhxParam phxParam;
 public:
     PhxParam getParam();

@@ -11,3 +11,7 @@ Entity::Entity(std::string name){
 void Entity::addPhysic(){
     this->physic = new Physic();
 }
+
+Physic* Entity::getPhysic(){
+    return this->physic;
+}

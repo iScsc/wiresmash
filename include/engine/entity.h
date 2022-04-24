@@ -22,6 +22,7 @@ public:
     ~Entity() = default;
 
     void addPhysic();
+    Physic* getPhysic();
 
     std::string getName(){ return name; };
 
