@@ -10,6 +10,7 @@ Entity::Entity(std::string name){
 
 void Entity::addPhysic(){
     this->physic = new Physic();
+    this->physic->linkPos(&(this->pos));
 }
 
 Physic* Entity::getPhysic(){

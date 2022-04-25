@@ -12,6 +12,7 @@ void UniverseMaster::updateEntity(){
     for (Entity* p_entity : allEntity)
     {
         std::cout << p_entity->getName() << " ";
+	std::cout << (p_entity->getPos()).second << " ";
     }
 }
 
@@ -19,6 +20,7 @@ void UniverseMaster::updatePhysic(){
     for (Physic* p_physic : allPhysic)
     {
         std::cout << p_physic << " ";
+	p_physic->update();
     }
 
 }

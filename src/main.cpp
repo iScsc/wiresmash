@@ -6,6 +6,8 @@ int main(int argc, char const *argv[])
 
   Entity* entity1 = new Entity("Oui");
   entity1->addPhysic();
+  entity1->getPhysic()->setMass(1);
+
   Entity* entity2 = new Entity("Non");
   
   universe.addEntity(entity1);
