@@ -4,7 +4,7 @@ Entity::Entity(){
     this->physic = NULL;
 }
 
-Entity::Entity(std::string name){
+Entity::Entity(std::string name): Entity() {
     this->name = name;
 }
 
