@@ -3,6 +3,10 @@
 
 #include <string>
 #include <vector>
+
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
+
 #include "engine/physic/physic.h"
 
 
@@ -14,7 +18,8 @@ private:
 
     std::string name;
 
-    Physic* physic;    
+    Physic* physic;
+    sf::Drawable* sprite;
 
 public:
     Entity();
@@ -23,6 +28,9 @@ public:
 
     void addPhysic();
     Physic* getPhysic();
+
+    void addSprite();
+    sf::Drawable* getSprite();
 
     std::string getName(){ return name; };
 
