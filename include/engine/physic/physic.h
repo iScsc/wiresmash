@@ -17,10 +17,15 @@ struct PhxParam
 
 class Physic
 {
+    friend class Entity;
+
 private:
+
     PhxParam phxParam;
     std::pair<int, int>* pos;
     std::pair<int, int> vel;
+    
+    void linkPos(std::pair<int, int>* pos);
 
 public:
 
@@ -31,9 +36,7 @@ public:
     Physic(PhxParam phxParam){this->phxParam = phxParam;};
 
     void setMass(int mass){this->phxParam.mass = mass;};
-    
-    void linkPos(std::pair<int, int>* pos);
-    
+        
     void update();
 };
 
