@@ -3,6 +3,7 @@
 
 #include "engine/universe_master.h"
 #include "graphics/display.h"
+#include "game/entity/dev/red_square.h"
 
 int main(int argc, char const *argv[]){
 
@@ -13,17 +14,10 @@ int main(int argc, char const *argv[]){
 
     universe.linkWindow(&window);
 
-    Entity *entity1 = new Entity("Oui");
-    entity1->addPhysic();
-    entity1->getPhysic()->setMass(1);
+    RedSquare* dev_ett1 = new RedSquare();
 
-    Entity *entity2 = new Entity("Non");
-    entity2->addSprite();
-    entity2->addPhysic();
-    entity2->getPhysic()->setMass(1);
-
-    universe.addEntity(entity1);
-    universe.addEntity(entity2);
+    universe.addEntity(dev_ett1);
+    // universe.addEntity(entity2);
 
 
     while(window.isOpen()){
