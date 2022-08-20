@@ -22,10 +22,10 @@ void UniverseMaster::updateEntity()
         std::cout << p_entity->getName() << " ";
         std::cout << (p_entity->getPos()).second << " ";
 
-        //TEMPORARY
+        //TODO: TEMPORARY
         if(p_entity->getSprite())
         {
-            ((sf::CircleShape*) p_entity->getSprite())->setPosition(p_entity->getPos().first, p_entity->getPos().second);
+            ((sf::CircleShape*) p_entity->getSprite())->setPosition(p_entity->getPos().first, -p_entity->getPos().second);
         }
     }
 }
