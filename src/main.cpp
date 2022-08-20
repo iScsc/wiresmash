@@ -1,3 +1,6 @@
+#include <chrono>
+#include <thread>
+
 #include "engine/universe_master.h"
 #include "graphics/display.h"
 
@@ -16,12 +19,12 @@ int main(int argc, char const *argv[]){
 
     Entity *entity2 = new Entity("Non");
     entity2->addSprite();
+    entity2->addPhysic();
+    entity2->getPhysic()->setMass(1);
 
     universe.addEntity(entity1);
     universe.addEntity(entity2);
 
-    sf::CircleShape shape(100.f);
-    shape.setFillColor(sf::Color::Green);
 
     while(window.isOpen()){
 
@@ -29,7 +32,7 @@ int main(int argc, char const *argv[]){
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-
+        std::this_thread::sleep_for(std::chrono::seconds(1));
         universe.update();
     }
     return 0;
