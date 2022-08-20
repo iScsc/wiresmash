@@ -30,6 +30,7 @@ public:
     Physic* getPhysic();
 
     void addSprite();
+    void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
 
     std::string getName(){ return name; };

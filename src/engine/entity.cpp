@@ -23,6 +23,9 @@ void Entity::addSprite(){
     circle->setPosition(1, 1);
     this->sprite = circle;
 }
+void Entity::addSprite(sf::Drawable* sprite){
+    this->sprite = sprite;
+}
 
 sf::Drawable* Entity::getSprite(){
     return this->sprite;
