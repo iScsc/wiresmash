@@ -1,40 +1,46 @@
 #ifndef HITBOX_HITBOX_H
 #define HITBOX_HITBOX_H
 
+#include <cmath>
 #include <vector>
-
+#include "engine/entity.h"
 typedef std::pair<int, int> point;
 
 struct Collision
 {
     Entity* ettColliding;
     Entity* ettCollided ;
-    std::pair<int, int> collisionVector; //Vector start from colliding, towards collided
+    std::pair<int, int> collisionVector = std::make_pair(0, 0); //Vector start from colliding, towards collided
+    Collision() = default;
 } typedef Collision;
 
-class Entity;
+// class Entity;
 
 class Hitbox
 {
     friend class Entity;
 
 private:
-
-    Entity* owner;
-    std::pair<int, int>* pos;
-    /* Position of vertices, relative to the hitbox' position */
-    std::vector<point> relVertices;
-
     void linkPos();
     void linkEntity();
 
+protected:
+    std::pair<int, int>* pos;
+    Entity* owner;
+    /* Position of vertices, relative to the hitbox' position .
+     * Vertices MUST be given in trigonometric order.
+    */
+    std::vector<point> relVertices;
+
 public:
 
-    Hitbox();
-    ~Hitbox();
+    Hitbox() = default;
+    ~Hitbox() = default;
 
-    virtual Collision checkCollision(Hitbox* );
-
+    point* getPos() {return pos;};
+    std::vector<point> getVertices() {return relVertices;};
+    Entity* getOwner() {return owner;};
+    virtual Collision checkCollision(Hitbox* ) = 0;
 };
 
 #endif
