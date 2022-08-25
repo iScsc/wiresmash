@@ -5,6 +5,7 @@ void UniverseMaster::addEntity(Entity *entity)
     this->allEntity.push_back(entity);
     Physic *physic = entity->getPhysic();
     sf::Drawable *sprite = entity->getSprite();
+    Hitbox* hitbox = entity->getHitbox();
     if (physic)
     {
         this->allPhysic.push_back(physic);
@@ -13,6 +14,11 @@ void UniverseMaster::addEntity(Entity *entity)
     {
         this->allSprite.push_back(sprite);
     }
+    if (hitbox)
+    {
+        this->allHitbox.push_back(hitbox);
+    }
+    
 }
 
 void UniverseMaster::updateEntity()
@@ -46,11 +52,36 @@ void UniverseMaster::updateSprite()
     }
 }
 
+void UniverseMaster::checkCollision()
+{
+    std::list<Collision> allCollision;
+    Collision cur_coll;
+    for (HitboxStack::iterator it = allHitbox.begin(); it != allHitbox.end()--; ++it)
+    {
+        for (HitboxStack::iterator it2 = it++; it2 != allHitbox.end(); ++it2)
+        {
+            cur_coll = (*it)->checkCollision(*it2);
+            if (cur_coll.ettColliding == NULL)
+            {
+                std::cout << "No collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << "\n";
+            }
+            else{
+                std::cout << "Collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << " ";
+                std::cout << "EttColliding" << cur_coll.ettColliding->getName() << ";ColVect" << cur_coll.collisionVector.first << "," << cur_coll.collisionVector.second << "\n";
+            }
+        }
+        
+    }
+    
+}
 
 void UniverseMaster::update()
 {
     this->window->clear();
+
     updatePhysic();
+    checkCollision();
+
     updateEntity();
     updateSprite();
     std::cout << "\n";
