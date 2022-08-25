@@ -3,8 +3,10 @@
 
 #include <cmath>
 #include <vector>
-#include "engine/entity.h"
+// #include "engine/entity.h"
 typedef std::pair<int, int> point;
+
+class Entity;
 
 struct Collision
 {
@@ -14,15 +16,14 @@ struct Collision
     Collision() = default;
 } typedef Collision;
 
-// class Entity;
 
 class Hitbox
 {
     friend class Entity;
 
 private:
-    void linkPos();
-    void linkEntity();
+    void linkPos(std::pair<int, int>* pos);
+    void linkEntity(Entity* ett);
 
 protected:
     std::pair<int, int>* pos;
