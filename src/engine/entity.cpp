@@ -30,3 +30,13 @@ void Entity::addSprite(sf::Drawable* sprite){
 sf::Drawable* Entity::getSprite(){
     return this->sprite;
 }
+
+void Entity::addHitbox(Hitbox* h){
+    this->hitbox = h;
+    h->linkPos(&(this->pos));
+    h->linkEntity(this);
+}
+
+Hitbox* Entity::getHitbox(){
+    return this->hitbox;
+}
