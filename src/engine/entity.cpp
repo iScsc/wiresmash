@@ -23,7 +23,20 @@ void Entity::addSprite(){
     circle->setPosition(1, 1);
     this->sprite = circle;
 }
+void Entity::addSprite(sf::Drawable* sprite){
+    this->sprite = sprite;
+}
 
 sf::Drawable* Entity::getSprite(){
     return this->sprite;
+}
+
+void Entity::addHitbox(Hitbox* h){
+    this->hitbox = h;
+    h->linkPos(&(this->pos));
+    h->linkEntity(this);
+}
+
+Hitbox* Entity::getHitbox(){
+    return this->hitbox;
 }

@@ -8,7 +8,7 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 #include "engine/physic/physic.h"
-
+#include "engine/hitbox/hitbox.h"
 
 class Entity
 {
@@ -20,6 +20,7 @@ private:
 
     Physic* physic;
     sf::Drawable* sprite;
+    Hitbox* hitbox;
 
 public:
     Entity();
@@ -30,7 +31,11 @@ public:
     Physic* getPhysic();
 
     void addSprite();
+    void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
+
+    void addHitbox(Hitbox* h);
+    Hitbox* getHitbox();
 
     std::string getName(){ return name; };
 

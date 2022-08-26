@@ -11,7 +11,7 @@ using namespace std;
 typedef sf::Vector2u pos;
 typedef sf::Vector2i vel;
 
-struct Collider
+struct Collision
 {
     Entity* ettColliding;
     Entity* ettCollided ;
