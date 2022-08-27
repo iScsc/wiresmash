@@ -15,7 +15,7 @@ public:
 
     Collision checkCollision(Rectangle* ); //implemented by this class
     //TODO : HORRIBLE
-    Collision checkCollision(Hitbox* h) { std::cout << "This is a rectangle. Going to that"; return dynamic_cast<Rectangle*>(h)->checkCollision(this); }; //let the other class handle the collision
+    Collision checkCollision(Hitbox* h) {return dynamic_cast<Rectangle*>(h)->checkCollision(this); }; //let the other class handle the collision
 };
 
 #endif
