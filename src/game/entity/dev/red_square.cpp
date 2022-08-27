@@ -1,7 +1,6 @@
 #include "game/entity/dev/red_square.h"
 
-RedSquare::RedSquare(){
-    Entity("dev_01_RSQ");
+RedSquare::RedSquare() : Entity("dev_01_RSQ"){
     this->addPhysic();
     this->getPhysic()->setMass(2);
 
