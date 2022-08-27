@@ -4,6 +4,7 @@
 #include <SFML/Graphics/RectangleShape.hpp>
 
 #include "engine/entity.h"
+#include "engine/hitbox/rectangle.h"
 
 class RedSquare: public Entity
 {
