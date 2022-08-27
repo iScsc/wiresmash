@@ -58,7 +58,7 @@ void UniverseMaster::checkCollision()
     Collision cur_coll;
     for (HitboxStack::iterator it = allHitbox.begin(); it != allHitbox.end()--; ++it)
     {
-        for (HitboxStack::iterator it2 = it++; it2 != allHitbox.end(); ++it2)
+        for (HitboxStack::iterator it2 = std::next(it); it2 != allHitbox.end(); ++it2)
         {
             cur_coll = (*it)->checkCollision(*it2);
             if (cur_coll.ettColliding == NULL)
