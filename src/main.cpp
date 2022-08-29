@@ -4,7 +4,8 @@
 #include "engine/universe_master.h"
 #include "graphics/display.h"
 
-#include "game/entity/dev/red_square.h"
+#include "game/entity/dev/dev_entities.h"
+
 #include "engine/hitbox/rectangle.h"
 
 int main(int argc, char const *argv[]){
@@ -17,27 +18,12 @@ int main(int argc, char const *argv[]){
     universe.linkWindow(&window);
 
     RedSquare* dev_ett1 = new RedSquare();
-    dev_ett1->addHitbox(new Rectangle(10,10));
-
+    dev_ett1->setPos(100,0);
+    
     universe.addEntity(dev_ett1);
-    // universe.addEntity(entity2);
 
-    Entity* rect1 = new Entity("Square1");
-    rect1->setPos(std::pair<int, int>(13, -39));
-    rect1->addHitbox(new Rectangle(5,5));
-    sf::RectangleShape r1 = sf::RectangleShape(sf::Vector2f(5,5));
-    rect1->addSprite(&r1);
-
-    Entity* rect2 = new Entity("Square2");
-    rect2->setPos(std::pair<int, int>(9, -40));
-    rect2->addHitbox(new Rectangle(5,5));
-    sf::RectangleShape r2 = sf::RectangleShape(sf::Vector2f(5,5));
-    r2.setFillColor(sf::Color(0,255,0));
-    rect2->addSprite(&r2);
-
-
-    universe.addEntity(rect1);
-    universe.addEntity(rect2);
+    BlueTerrain* dev_ett2 = new BlueTerrain();
+    universe.addEntity(dev_ett2);
 
     while(window.isOpen()){
 
