@@ -1,11 +1,12 @@
 #include "engine/universe_master.h"
-
+#include <chrono>
+#include <thread>
 void UniverseMaster::addEntity(Entity *entity)
 {
     this->allEntity.push_back(entity);
     Physic *physic = entity->getPhysic();
     sf::Drawable *sprite = entity->getSprite();
-    Box* hitbox = entity->getHitbox();
+    PhxBox* phxbox = entity->getPhxBox();
     if (physic)
     {
         this->allPhysic.push_back(physic);
@@ -14,9 +15,9 @@ void UniverseMaster::addEntity(Entity *entity)
     {
         this->allSprite.push_back(sprite);
     }
-    if (hitbox)
+    if (phxbox)
     {
-        this->allHitbox.push_back(hitbox);
+        this->allPhxBox.push_back(phxbox->getBox());
     }
     
 }
@@ -52,28 +53,28 @@ void UniverseMaster::updateSprite()
     }
 }
 
-std::list<Collision> UniverseMaster::checkCollision()
+std::list<Collision<PhxBox>> UniverseMaster::checkPhxCollision()
 {
-    std::list<Collision> allCollision;
-    Collision cur_coll;
-    for (HitboxStack::iterator it = allHitbox.begin(); it != allHitbox.end()--; ++it)
+    std::list<Collision<PhxBox>> allPhxCollision;
+    Collision<PhxBox> cur_coll;
+    for (PhxBoxStack::iterator it = allPhxBox.begin(); it != allPhxBox.end()--; ++it)
     {
-        for (HitboxStack::iterator it2 = std::next(it); it2 != allHitbox.end(); ++it2)
+        for (PhxBoxStack::iterator it2 = std::next(it); it2 != allPhxBox.end(); ++it2)
         {
             cur_coll = (*it)->checkCollision(*it2);
-            if (cur_coll.ettColliding == NULL)
+            if (cur_coll.colliding == NULL)
             {
-                std::cout << "No collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << "\n";
+                // std::cout << "No collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << "\n";
             }
             else{
-                std::cout << "Collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << " ";
-                std::cout << "EttColliding" << cur_coll.ettColliding->getName() << ";ColVect" << cur_coll.collisionVector.first << "," << cur_coll.collisionVector.second << "\n";
-                allCollision.push_back(cur_coll);
+                std::cout << "Collision " << std::endl;
+                // std::cout << "EttColliding" << cur_coll.colliding->getName() << ";ColVect" << cur_coll.collisionVector.first << "," << cur_coll.collisionVector.second << "\n";
+                allPhxCollision.push_back(cur_coll);
             }
         }
         
     }
-    return allCollision;
+    return allPhxCollision;
 }
 
 void UniverseMaster::update()
@@ -81,10 +82,23 @@ void UniverseMaster::update()
     this->window->clear();
 
     updatePhysic();
-    checkCollision();
-
+    std::list<Collision<PhxBox>> allPhxCollision;
+    do
+    {
+        allPhxCollision = checkPhxCollision();
+        for (Collision<PhxBox> coll_pb : allPhxCollision)
+        {
+            // std::cout << coll_pb.colliding->getOwner()->getName() << " with " << coll_pb.collided->getOwner()->getName() <<std::endl;
+            // std::cout << coll_pb.colliding->getOwner()->getPos().first << " " << coll_pb.colliding->getOwner()->getPos().second << std::endl;
+            coll_pb.colliding->solveCollision(coll_pb);
+            // coll_pb.colliding->getOwner()->collPhxNotify(coll_pb.collided->getOwner());
+            coll_pb.colliding->solveCollision(coll_pb);
+            // coll_pb.colliding->getOwner()->collPhxNotify(coll_pb.collided->getOwner());
+        }
+    } while (!allPhxCollision.empty());
     updateEntity();
     updateSprite();
     std::cout << "\n";
     this->window->display();
+    std::this_thread::sleep_for(std::chrono::milliseconds(500));
 }
