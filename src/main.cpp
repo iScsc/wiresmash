@@ -16,13 +16,18 @@ int main(int argc, char const *argv[]){
 
     universe.linkWindow(&window);
 
-    RedSquare* dev_ett1 = new RedSquare();
+    RedSquare* dev_ett1 = new RedSquare(10);
     dev_ett1->setPos(100,0);
     
     universe.addEntity(dev_ett1);
 
+    RedSquare* dev_ett3 = new RedSquare(10);
+    dev_ett3->setPos(100,0);
+    universe.addEntity(dev_ett3);
+
     BlueTerrain* dev_ett2 = new BlueTerrain();
     universe.addEntity(dev_ett2);
+    // std::this_thread::sleep_for(std::chrono::seconds(4));
 
     while(window.isOpen()){
 
@@ -30,7 +35,7 @@ int main(int argc, char const *argv[]){
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-        std::this_thread::sleep_for(std::chrono::seconds(1));
+        // std::this_thread::sleep_for(std::chrono::milliseconds(500));
         universe.update();
     }
     return 0;
