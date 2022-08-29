@@ -6,28 +6,28 @@
 // #include "engine/entity.h"
 typedef std::pair<int, int> point;
 
-class Entity;
-
+// class Entity;
+template <typename T>
 struct Collision
 {
-    Entity* ettColliding;
-    Entity* ettCollided ;
+    T* colliding;
+    T* collided ;
     std::pair<int, int> collisionVector = std::make_pair(0, 0); //Vector start from colliding, towards collided
     Collision() = default;
-} typedef Collision;
+};
 
-
+template <typename T>
 class Box
 {
-    friend class Entity;
+    friend T;
 
 private:
     void linkPos(std::pair<int, int>* pos);
-    void linkEntity(Entity* ett);
+    void linkOwner(T* t);
 
 protected:
     std::pair<int, int>* pos;
-    Entity* owner;
+    T* owner;
     /* Position of vertices, relative to the hitbox' position .
      * Vertices MUST be given in trigonometric order.
     */
@@ -40,8 +40,9 @@ public:
 
     point* getPos() {return pos;};
     std::vector<point> getVertices() {return relVertices;};
-    Entity* getOwner() {return owner;};
-    virtual Collision checkCollision(Box* ) = 0;
+    T* getOwner() {return owner;};
+    virtual Collision<T> checkCollision(Box<T>* ) = 0;
 };
+#include "../src/engine/box/box.tpp"
 
 #endif

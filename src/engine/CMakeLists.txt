@@ -3,5 +3,5 @@ target_sources(app PRIVATE
     entity.cpp 
 )
 
-add_subdirectory(box)
+# add_subdirectory(box)
 add_subdirectory(physic)
