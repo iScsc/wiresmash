@@ -5,4 +5,4 @@ target_sources(app PRIVATE
     physic/cinematic.cpp
 )
 
-add_subdirectory(hitbox)
+add_subdirectory(box)

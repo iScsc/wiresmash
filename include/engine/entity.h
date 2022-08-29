@@ -8,19 +8,30 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 #include "engine/physic/physic.h"
-#include "engine/hitbox/hitbox.h"
+#include "engine/box/box.h"
 
 class Entity
 {
 private:
+    //Coordinates
     std::pair<int, int> pos;
     std::pair<int, int> vel;
-
+    //Name
     std::string name;
-
+    //Physic
     Physic* physic;
+    //Displaying
     sf::Drawable* sprite;
-    Hitbox* hitbox;
+    // --- Boxes --- //
+    //Pushboxes
+    Box* pushbox;
+    bool    pushable;
+
+    //Hitboxes
+
+    Box* hitbox;
+
+
 
 public:
     Entity();
@@ -34,8 +45,8 @@ public:
     void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
 
-    void addHitbox(Hitbox* h);
-    Hitbox* getHitbox();
+    void addHitbox(Box* h);
+    Box* getHitbox();
 
     std::string getName(){ return name; };
 

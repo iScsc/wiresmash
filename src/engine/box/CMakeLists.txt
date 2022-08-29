@@ -1,4 +1,4 @@
 target_sources(app PRIVATE 
-    hitbox.cpp
+    box.cpp
     rectangle.cpp
 )

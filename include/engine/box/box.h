@@ -1,5 +1,5 @@
-#ifndef HITBOX_HITBOX_H
-#define HITBOX_HITBOX_H
+#ifndef ENGINE_BOX_BOX_H
+#define ENGINE_BOX_BOX_H
 
 #include <cmath>
 #include <vector>
@@ -17,7 +17,7 @@ struct Collision
 } typedef Collision;
 
 
-class Hitbox
+class Box
 {
     friend class Entity;
 
@@ -35,13 +35,13 @@ protected:
 
 public:
 
-    Hitbox() = default;
-    ~Hitbox() = default;
+    Box() = default;
+    ~Box() = default;
 
     point* getPos() {return pos;};
     std::vector<point> getVertices() {return relVertices;};
     Entity* getOwner() {return owner;};
-    virtual Collision checkCollision(Hitbox* ) = 0;
+    virtual Collision checkCollision(Box* ) = 0;
 };
 
 #endif

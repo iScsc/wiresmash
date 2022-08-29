@@ -1,4 +1,4 @@
-#include "engine/hitbox/rectangle.h"
+#include "engine/box/rectangle.h"
 
 Rectangle::Rectangle(int x, int y){
     this->relVertices.push_back(point(0, 0));

@@ -9,7 +9,7 @@
 
 #include "engine/entity.h"
 #include "engine/physic/physic.h"
-#include "engine/hitbox/hitbox.h"
+#include "engine/box/box.h"
 
 typedef std::list<Entity*> EntityStack;
 
@@ -17,7 +17,7 @@ typedef	std::list<Physic*> PhysicStack;
 
 typedef std::list<sf::Drawable*> SpriteStack; 
 
-typedef std::list<Hitbox*> HitboxStack;
+typedef std::list<Box*> HitboxStack;
 class UniverseMaster
 {
 private:
@@ -30,7 +30,7 @@ private:
     void updateEntity();
     void updateSprite();
     
-    void checkCollision();
+    std::list<Collision> checkCollision();
 
     sf::RenderWindow* window;
 

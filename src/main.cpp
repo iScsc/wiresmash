@@ -6,7 +6,6 @@
 
 #include "game/entity/dev/dev_entities.h"
 
-#include "engine/hitbox/rectangle.h"
 
 int main(int argc, char const *argv[]){
 
