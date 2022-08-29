@@ -8,6 +8,7 @@
 #include <SFML/Graphics/CircleShape.hpp>
 
 #include "engine/physic/physic.h"
+#include "engine/physic/phxbox.h"
 #include "engine/box/box.h"
 
 class Entity
@@ -24,12 +25,7 @@ private:
     sf::Drawable* sprite;
     // --- Boxes --- //
     //Pushboxes
-    Box* pushbox;
-    bool    pushable;
-
-    //Hitboxes
-
-    Box* hitbox;
+    PhxBox* phxbox;
 
 
 
@@ -45,8 +41,8 @@ public:
     void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
 
-    void addHitbox(Box* h);
-    Box* getHitbox();
+    void addPhxBox(PhxBox* h);
+    PhxBox* getPhxBox();
 
     std::string getName(){ return name; };
 
@@ -58,6 +54,7 @@ public:
     void setVel(std::pair<int, int> vel){this->vel = vel;};
     std::pair<int, int> getVel(){return vel;};
 
+    virtual void collPhxNotify(Entity* ett) {};
 };
 
 

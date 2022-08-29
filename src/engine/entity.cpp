@@ -31,12 +31,13 @@ sf::Drawable* Entity::getSprite(){
     return this->sprite;
 }
 
-void Entity::addHitbox(Box* h){
-    this->hitbox = h;
-    h->linkPos(&(this->pos));
-    h->linkEntity(this);
+void Entity::addPhxBox(PhxBox* pb){
+    this->phxbox = pb;
+    pb->linkPos(&(this->pos));
+    pb->linkVel(&(this->vel));
+    pb->linkOwner(this);
 }
 
-Box* Entity::getHitbox(){
-    return this->hitbox;
+PhxBox* Entity::getPhxBox(){
+    return this->phxbox;
 }
