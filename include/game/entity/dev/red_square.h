@@ -5,13 +5,15 @@
 
 #include "engine/entity.h"
 #include "engine/box/rectangle.h"
+#include "engine/physic/phxbox.h"
 
 class RedSquare: public Entity
 {
 private:
     /* data */
 public:
-    RedSquare();
+    RedSquare(int size);
+    void collPhxNotify(Entity* ett) {}
 };
 
 

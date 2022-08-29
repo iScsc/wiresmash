@@ -5,10 +5,11 @@
 
 #include "engine/entity.h"
 #include "engine/box/rectangle.h"
-
+#include "engine/physic/phxbox.h"
 class BlueTerrain: public Entity{
 public:
     BlueTerrain();
+    void collPhxNotify(Entity* ett) override {ett->getPhysic()->is_falling=false;}
 };
 
 #endif
