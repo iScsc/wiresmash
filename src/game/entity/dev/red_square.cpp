@@ -5,11 +5,7 @@ RedSquare::RedSquare(int size) : Entity("dev_01_RSQ"){
     this->getPhysic()->setMass(1);
 
     Rectangle<PhxBox>* myBox = new Rectangle<PhxBox>(size,size);
-    PhxBox* myPushBox = new PhxBox();
-
-    this->addPhxBox(myPushBox);
-    myPushBox->linkBox(myBox);
-    myPushBox->setCollisionType(PhxBox::CollisionBehaviour::PUSHABLE);
+    this->addPhxBox(myBox, PhxBox::CollisionBehaviour::PUSHABLE);
 
     sf::RectangleShape* square = new sf::RectangleShape(sf::Vector2f(size,-size));
     square->setFillColor(sf::Color(255,0,0));
