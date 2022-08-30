@@ -31,11 +31,19 @@ sf::Drawable* Entity::getSprite(){
     return this->sprite;
 }
 
+//Dangerous adder : only private
 void Entity::addPhxBox(PhxBox* pb){
     this->phxbox = pb;
     pb->linkPos(&(this->pos));
     pb->linkVel(&(this->vel));
     pb->linkOwner(this);
+}
+
+void Entity::addPhxBox(Box<PhxBox>* pb, PhxBox::CollisionBehaviour ct){
+    PhxBox* phxbox = new PhxBox();
+    this->addPhxBox(phxbox);
+    phxbox->linkBox(pb);
+    phxbox->setCollisionType(ct);
 }
 
 PhxBox* Entity::getPhxBox(){

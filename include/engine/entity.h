@@ -27,7 +27,8 @@ private:
     //Pushboxes
     PhxBox* phxbox;
 
-
+    //Dangerous adder, so stocked here for now
+    void addPhxBox(PhxBox* pb);
 
 public:
     Entity();
@@ -41,7 +42,7 @@ public:
     void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
 
-    void addPhxBox(PhxBox* h);
+    void addPhxBox(Box<PhxBox>* box, PhxBox::CollisionBehaviour ct);
     PhxBox* getPhxBox();
 
     std::string getName(){ return name; };
