@@ -32,8 +32,20 @@ int main(int argc, char const *argv[]){
     while(window.isOpen()){
 
         while (window.pollEvent(event)){
-            if (event.type == sf::Event::Closed)
+            switch (event.type)
+            {
+            case sf::Event::Closed :
                 window.close();
+                break;
+
+            case sf::Event::LostFocus:
+                //TODO : implement proper pause
+                while (window.pollEvent(event) || event.type != sf::Event::GainedFocus)
+                {
+                }
+            default:
+                break;
+            }
         }
         // std::this_thread::sleep_for(std::chrono::milliseconds(500));
         universe.update();
