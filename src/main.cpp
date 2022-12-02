@@ -28,7 +28,8 @@ int main(int argc, char const *argv[]){
     BlueTerrain* dev_ett2 = new BlueTerrain();
     universe.addEntity(dev_ett2);
     // std::this_thread::sleep_for(std::chrono::seconds(4));
-
+    int i = 0;
+    universe.initInput();
     while(window.isOpen()){
 
         while (window.pollEvent(event)){

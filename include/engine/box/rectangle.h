@@ -11,8 +11,8 @@ class Rectangle: public Box<T>
 {
 public:
 
-    Rectangle(int x, int y);
-    Rectangle(int x1, int y1, int x2, int y2);
+    Rectangle(double x, double y);
+    Rectangle(double x1, double y1, double x2, double y2);
 
     Collision<T> checkCollision(Rectangle<T>* ); //implemented by this class
     //TODO : HORRIBLE

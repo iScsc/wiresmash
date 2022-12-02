@@ -49,11 +49,11 @@ void PhxBox::solveCollision(Collision<PhxBox>& coll_pb){
 
 }
 
-void PhxBox::linkPos(std::pair<int, int>* owner_pos){
+void PhxBox::linkPos(std::pair<double, double>* owner_pos){
     this->owner_pos = owner_pos;
 }
 
-void PhxBox::linkVel(std::pair<int, int>* owner_vel){
+void PhxBox::linkVel(std::pair<double, double>* owner_vel){
     this->owner_vel = owner_vel;
 }
 

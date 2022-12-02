@@ -10,4 +10,10 @@ RedSquare::RedSquare(int size) : Entity("dev_01_RSQ"){
     sf::RectangleShape* square = new sf::RectangleShape(sf::Vector2f(size,-size));
     square->setFillColor(sf::Color(255,0,0));
     this->addSprite(square);
+
+    DevControllable* controls = new DevControllable();
+    controls->setAmplitude(11);
+    controls->setOwner(this);
+    this->addInputHandler(controls);
+
 }

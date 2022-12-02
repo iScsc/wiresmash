@@ -11,12 +11,13 @@
 #include "engine/physic/phxbox.h"
 #include "engine/box/box.h"
 
+class InputHandler;
 class Entity
 {
 private:
     //Coordinates
-    std::pair<int, int> pos;
-    std::pair<int, int> vel;
+    std::pair<double, double> pos;
+    std::pair<double, double> vel;
     //Name
     std::string name;
     //Physic
@@ -26,9 +27,11 @@ private:
     // --- Boxes --- //
     //Pushboxes
     PhxBox* phxbox;
-
     //Dangerous adder, so stocked here for now
     void addPhxBox(PhxBox* pb);
+
+    // --- Controls --- //
+    InputHandler* inputHandler;
 
 public:
     Entity();
@@ -47,15 +50,19 @@ public:
 
     std::string getName(){ return name; };
 
-    void setPos(int x, int y){ pos = std::make_pair(x, y);};
-    void setPos(std::pair<int, int> pos){this->pos = pos;};
-    std::pair<int, int> getPos(){return pos;};
+    void setPos(double x, double y){ pos = std::make_pair(x, y);};
+    void setPos(std::pair<double, double> pos){this->pos = pos;};
+    std::pair<double, double> getPos(){return pos;};
 
-    void setVel(int vx, int vy){ vel = std::make_pair(vx, vy);};
-    void setVel(std::pair<int, int> vel){this->vel = vel;};
-    std::pair<int, int> getVel(){return vel;};
+    void setVel(double vx, double vy){ vel = std::make_pair(vx, vy);};
+    void setVel(std::pair<double, double> vel){this->vel = vel;};
+    std::pair<double, double> getVel(){return vel;};
 
     virtual void collPhxNotify(Entity* ett) {};
+
+    InputHandler* getInputHandler() {return inputHandler;};
+    void move(double dx, double dy);
+    void addInputHandler(InputHandler* i){ this->inputHandler = i;};
 };
 
 

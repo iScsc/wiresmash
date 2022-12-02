@@ -1,5 +1,5 @@
 #include "engine/physic/cinematic.h"
 
-void gravity(std::pair<int, int>* vel, int* mass){
+void gravity(std::pair<double, double>* vel, double* mass){
     vel->second += *mass * PHX_CST_G;
 }

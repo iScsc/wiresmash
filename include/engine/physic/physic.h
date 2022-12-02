@@ -9,7 +9,7 @@
 typedef struct PhxParam PhxParam;
 struct PhxParam
 {
-    int mass = 0;
+    double mass = 0;
 
     PhxParam() = default;
 };
@@ -22,10 +22,10 @@ class Physic
 private:
 
     PhxParam phxParam;
-    std::pair<int, int>* pos;
-    std::pair<int, int> vel;
+    std::pair<double, double>* pos;
+    std::pair<double, double> vel;
     
-    void linkPos(std::pair<int, int>* pos);
+    void linkPos(std::pair<double, double>* pos);
 
 public:
 
@@ -35,7 +35,7 @@ public:
     Physic(/* args */) = default;
     Physic(PhxParam phxParam){this->phxParam = phxParam;};
 
-    void setMass(int mass){this->phxParam.mass = mass;};
+    void setMass(double mass){this->phxParam.mass = mass;};
         
     void update();
 };

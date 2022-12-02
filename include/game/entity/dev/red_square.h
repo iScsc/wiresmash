@@ -6,6 +6,7 @@
 #include "engine/entity.h"
 #include "engine/box/rectangle.h"
 #include "engine/physic/phxbox.h"
+#include "game/entity/dev/controllable.h"
 
 class RedSquare: public Entity
 {

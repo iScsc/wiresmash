@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#define PHX_CST_G -10
+#define PHX_CST_G -1
 
-void gravity(std::pair<int, int>* vel, int* mass);
+void gravity(std::pair<double, double>* vel, double* mass);
 
 #endif

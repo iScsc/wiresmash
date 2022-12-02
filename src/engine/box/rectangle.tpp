@@ -1,7 +1,7 @@
 #include "engine/box/rectangle.h"
 
 template<typename T>
-Rectangle<T>::Rectangle(int x, int y){
+Rectangle<T>::Rectangle(double x, double y){
     this->relVertices.push_back(point(0, 0));
     this->relVertices.push_back(point(x, 0));
     this->relVertices.push_back(point(x, y));

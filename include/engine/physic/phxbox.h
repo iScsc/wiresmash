@@ -25,12 +25,12 @@ public:
 private:
     Box<PhxBox>* box;
     Entity* owner;
-    std::pair<int, int>* owner_pos;
-    std::pair<int, int>* owner_vel;
+    std::pair<double, double>* owner_pos;
+    std::pair<double, double>* owner_vel;
     CollisionBehaviour type;
 
-    void linkPos(std::pair<int, int>* owner_pos);
-    void linkVel(std::pair<int, int>* owner_vel);
+    void linkPos(std::pair<double, double>* owner_pos);
+    void linkVel(std::pair<double, double>* owner_vel);
 };
 
 

@@ -49,3 +49,8 @@ void Entity::addPhxBox(Box<PhxBox>* pb, PhxBox::CollisionBehaviour ct){
 PhxBox* Entity::getPhxBox(){
     return this->phxbox;
 }
+
+void Entity::move(double dx, double dy){
+    this->pos.first += dx;
+    this->pos.second += dy;
+}

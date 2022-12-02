@@ -4,7 +4,7 @@
 #include <cmath>
 #include <vector>
 // #include "engine/entity.h"
-typedef std::pair<int, int> point;
+typedef std::pair<double, double> point;
 
 // class Entity;
 template <typename T>
@@ -12,7 +12,7 @@ struct Collision
 {
     T* colliding;
     T* collided ;
-    std::pair<int, int> collisionVector = std::make_pair(0, 0); //Vector start from colliding, towards collided
+    std::pair<double, double> collisionVector = std::make_pair(0, 0); //Vector start from colliding, towards collided
     Collision() = default;
 };
 
@@ -22,11 +22,11 @@ class Box
     friend T;
 
 private:
-    void linkPos(std::pair<int, int>* pos);
+    void linkPos(std::pair<double, double>* pos);
     void linkOwner(T* t);
 
 protected:
-    std::pair<int, int>* pos;
+    std::pair<double, double>* pos;
     T* owner;
     /* Position of vertices, relative to the hitbox' position .
      * Vertices MUST be given in trigonometric order.

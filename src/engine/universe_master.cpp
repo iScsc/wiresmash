@@ -7,6 +7,7 @@ void UniverseMaster::addEntity(Entity *entity)
     Physic *physic = entity->getPhysic();
     sf::Drawable *sprite = entity->getSprite();
     PhxBox* phxbox = entity->getPhxBox();
+    InputHandler* inphdl = entity->getInputHandler();
     if (physic)
     {
         this->allPhysic.push_back(physic);
@@ -18,6 +19,10 @@ void UniverseMaster::addEntity(Entity *entity)
     if (phxbox)
     {
         this->allPhxBox.push_back(phxbox->getBox());
+    }
+    if (inphdl)
+    {
+        this->allInpHdl.push_back(inphdl);
     }
     
 }
@@ -53,6 +58,19 @@ void UniverseMaster::updateSprite()
     }
 }
 
+void UniverseMaster::readInputs(){
+    for (Keybind bind : keybindings)
+    {
+        if (sf::Keyboard::isKeyPressed(bind.key) && bind.action.handlerId < allInpHdl.size())
+        {
+            std::cout << "Input " << bind.action.inputId << " to Handler " << bind.action.handlerId << "\n";
+            allInpHdl.at(bind.action.handlerId)->doInput(bind.action.inputId);            
+        }
+        
+    }
+    
+}
+
 std::list<Collision<PhxBox>> UniverseMaster::checkPhxCollision()
 {
     std::list<Collision<PhxBox>> allPhxCollision;
@@ -80,7 +98,7 @@ std::list<Collision<PhxBox>> UniverseMaster::checkPhxCollision()
 void UniverseMaster::update()
 {
     this->window->clear();
-
+    readInputs();
     updatePhysic();
     std::list<Collision<PhxBox>> allPhxCollision;
     do
@@ -100,5 +118,20 @@ void UniverseMaster::update()
     updateSprite();
     std::cout << "\n";
     this->window->display();
-    std::this_thread::sleep_for(std::chrono::milliseconds(500));
+    std::this_thread::sleep_for(std::chrono::milliseconds(20));
+}
+
+void UniverseMaster::initInput(){
+    std::list<Keybind> keybindings;
+    keybindings.push_back(Keybind{sf::Keyboard::Key::W, UniversalInput{0, 0}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::A, UniversalInput{0, 1}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::S, UniversalInput{0, 2}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::D, UniversalInput{0, 3}});
+
+    keybindings.push_back(Keybind{sf::Keyboard::Key::I, UniversalInput{1, 0}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::J, UniversalInput{1, 1}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::K, UniversalInput{1, 2}});
+    keybindings.push_back(Keybind{sf::Keyboard::Key::L, UniversalInput{1, 3}});
+
+    this->keybindings = keybindings;
 }
