@@ -1,3 +1,12 @@
+/**
+ * @file entity.h
+ * @author Grégory Brivady
+ * @brief Master object of the game
+ * @version 0.1
+ * @date 2022-12-03
+ * 
+ * 
+ */
 #ifndef ENGINE_ENTITY_H
 #define ENGINE_ENTITY_H
 
@@ -12,27 +21,18 @@
 #include "engine/box/box.h"
 
 class InputHandler;
+
+/**
+ * @brief An entity is an object that exists in the game universe.
+ * 
+ * @details This class both links to all the properties of an object, 
+ * but also handles interfacing between the properties. Each property is stored
+ * as a pointer. To add a property to an entity, one should use the add functions,
+ * and once everything is initialised, the entity can be added to the universe.
+ * 
+ */
 class Entity
 {
-private:
-    //Coordinates
-    std::pair<double, double> pos;
-    std::pair<double, double> vel;
-    //Name
-    std::string name;
-    //Physic
-    Physic* physic;
-    //Displaying
-    sf::Drawable* sprite;
-    // --- Boxes --- //
-    //Pushboxes
-    PhxBox* phxbox;
-    //Dangerous adder, so stocked here for now
-    void addPhxBox(PhxBox* pb);
-
-    // --- Controls --- //
-    InputHandler* inputHandler;
-
 public:
     Entity();
     Entity(std::string name);
@@ -45,6 +45,12 @@ public:
     void addSprite(sf::Drawable*);
     sf::Drawable* getSprite();
 
+    /**
+     * @brief Add physical collision to the entity
+     * 
+     * @param box the box containing the entiy
+     * @param ct behaviour of the entity, as a an object that can collid
+     */
     void addPhxBox(Box<PhxBox>* box, PhxBox::CollisionBehaviour ct);
     PhxBox* getPhxBox();
 
@@ -63,6 +69,27 @@ public:
     InputHandler* getInputHandler() {return inputHandler;};
     void move(double dx, double dy);
     void addInputHandler(InputHandler* i){ this->inputHandler = i;};
+
+private:
+    //Coordinates
+    std::pair<double, double> pos;
+    std::pair<double, double> vel;
+    //Name
+    std::string name;
+    //Physic
+    Physic* physic;
+    //Displaying
+    sf::Drawable* sprite;
+    
+    // --- Boxes --- //
+    //Pushboxes
+    PhxBox* phxbox;
+    //Dangerous adder, so stocked here for now
+    void addPhxBox(PhxBox* pb);
+
+    // --- Controls --- //
+    InputHandler* inputHandler;
+
 };
 
 
