@@ -16,18 +16,15 @@ void PhxBox::linkBox(Box<PhxBox>* box){
 
 void PhxBox::solveCollision(Collision<PhxBox>& coll_pb){
     PhxBox* that = coll_pb.collided;
-    if (that->type == CollisionBehaviour::STATIC){
-        //internal logic with full amplitude for displacement
-        coll_pb.collisionVector.first *= 2;
-        coll_pb.collisionVector.second *= 2;
-    }
     //internal logic
     switch (type)
     {
     case CollisionBehaviour::PUSHABLE:
-        if(coll_pb.collisionVector.second == 1) {coll_pb.collisionVector.second = 2;}
-        if(coll_pb.collisionVector.first == 1) {coll_pb.collisionVector.first=2;}
-        
+        if (that->type == CollisionBehaviour::STATIC){
+            //internal logic with full amplitude for displacement
+            coll_pb.collisionVector.first *= 2;
+            coll_pb.collisionVector.second *= 2;
+        }
         if(abs(coll_pb.collisionVector.first) > abs(coll_pb.collisionVector.second)){
             owner_pos->second -= (coll_pb.collisionVector.second)/2;
         }else if(abs(coll_pb.collisionVector.first) < abs(coll_pb.collisionVector.second)){
@@ -46,7 +43,6 @@ void PhxBox::solveCollision(Collision<PhxBox>& coll_pb){
     coll_pb.collided = this;
     coll_pb.collisionVector.first *= -1;
     coll_pb.collisionVector.second *= -1;
-
 }
 
 void PhxBox::linkPos(std::pair<double, double>* owner_pos){
