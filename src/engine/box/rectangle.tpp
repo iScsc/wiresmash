@@ -8,39 +8,39 @@ Rectangle<T>::Rectangle(double x, double y){
     this->relVertices.push_back(point(0, y));
 }
 
-//Bottom-left point first; then counter clockwise
-// template<typename T>
-// Rectangle<T>::Rectangle(int x1, int x2, int y1, int y2){
-//     if (x1<x2)  //x1 is minx
-//     {
-//         if (y1<y2)  //y1 is miny
-//         {
-//             this->relVertices.push_back(point(x1, y1));
-//             this->relVertices.push_back(point(x2, y1));
-//             this->relVertices.push_back(point(x2, y2));
-//             this->relVertices.push_back(point(x1, y2));
-//         }else{  //y2 is miny
-//             this->relVertices.push_back(point(x1, y2));
-//             this->relVertices.push_back(point(x2, y2));
-//             this->relVertices.push_back(point(x2, y1));
-//             this->relVertices.push_back(point(x1, y1));
-//         }
-//     }else{
-//         if (y1<y2)
-//         {
-//             this->relVertices.push_back(point(x2, y1));
-//             this->relVertices.push_back(point(x1, y1));
-//             this->relVertices.push_back(point(x1, y2));
-//             this->relVertices.push_back(point(x2, y2));
-//         }else{
-//             this->relVertices.push_back(point(x2, y2));
-//             this->relVertices.push_back(point(x1, y2));
-//             this->relVertices.push_back(point(x1, y1));
-//             this->relVertices.push_back(point(x2, y1));
-//         }
-//     }
+// Bottom-left point first; then counter clockwise
+template<typename T>
+Rectangle<T>::Rectangle(double x1, double x2, double y1, double y2){
+    if (x1<x2)  //x1 is minx
+    {
+        if (y1<y2)  //y1 is miny
+        {
+            this->relVertices.push_back(point(x1, y1));
+            this->relVertices.push_back(point(x2, y1));
+            this->relVertices.push_back(point(x2, y2));
+            this->relVertices.push_back(point(x1, y2));
+        }else{  //y2 is miny
+            this->relVertices.push_back(point(x1, y2));
+            this->relVertices.push_back(point(x2, y2));
+            this->relVertices.push_back(point(x2, y1));
+            this->relVertices.push_back(point(x1, y1));
+        }
+    }else{
+        if (y1<y2)
+        {
+            this->relVertices.push_back(point(x2, y1));
+            this->relVertices.push_back(point(x1, y1));
+            this->relVertices.push_back(point(x1, y2));
+            this->relVertices.push_back(point(x2, y2));
+        }else{
+            this->relVertices.push_back(point(x2, y2));
+            this->relVertices.push_back(point(x1, y2));
+            this->relVertices.push_back(point(x1, y1));
+            this->relVertices.push_back(point(x2, y1));
+        }
+    }
     
-// }
+}
 
 template<typename T>
 Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
@@ -66,13 +66,11 @@ Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
 
     std::cout<< xcol1 << " " << xcol2 << " " << ycol1 << " "<<ycol2<<"\n";
     if(xcol1 > 0 && xcol2 > 0){
-        xcol1 < xcol2 ? (xcol = xcol1) : (xcol = -xcol2);
-        // xcol = std::min(xcol1,xcol2);
+        xcol1 < xcol2 ? (xcol = xcol1) : (xcol = -xcol2); //Vector must be going from 'this' to 'that'
     }
     if (ycol1 > 0 && ycol2 >0)
     {
         ycol1 < ycol2 ? (ycol = ycol1) : (ycol = -ycol2);
-        // ycol = std::min(ycol1, ycol2);
     }
     
     coll.intersectionVector = std::pair(xcol, ycol);
