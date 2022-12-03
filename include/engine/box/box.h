@@ -1,6 +1,6 @@
 /**
  * @file box.h
- * @author Grégory Brivady (gregory.brivady@gmail.com)
+ * @author Grégory Brivady
  * @brief Box tempalte class definition
  * @version 0.1.0
  * @date 2022-08-25
@@ -16,6 +16,11 @@ typedef std::pair<double, double> point;
 
 // class Entity;
 
+/**
+ * @brief Container for all the information about an intersection of two boxes.
+ * 
+ * @tparam T behaviour of the boxes
+ */
 template <typename T>
 struct Intersection
 {
@@ -38,18 +43,6 @@ class Box
 {
     friend T;
 
-private:
-    void linkPos(std::pair<double, double>* pos);
-    void linkOwner(T* t);
-
-protected:
-    std::pair<double, double>* pos;
-    T* owner;
-    /* Position of vertices, relative to the hitbox' position .
-     * Vertices MUST be given in trigonometric order.
-    */
-    std::vector<point> relVertices;
-
 public:
 
     Box() = default;
@@ -58,8 +51,51 @@ public:
     point* getPos() {return pos;};
     std::vector<point> getVertices() {return relVertices;};
     T* getOwner() {return owner;};
-    virtual Intersection<T> checkIntersection(Box<T>* ) = 0;
+
+    /**
+     * @brief Check if this box and another one intersects.
+     * 
+     * @param b 
+     * @return an @see Intersection<T>  object
+     */
+    virtual Intersection<T> checkIntersection(Box<T>* b) = 0;
+
+protected:
+    /**
+     * @brief direct link to owner's position
+     * 
+     */
+    std::pair<double, double>* pos;
+
+    /**
+     * @brief the behaviour who owns the box
+     * 
+     */
+    T* owner;
+
+   /**
+    * @brief Position of the vertices, relative to the box frame of reference.
+    * Vertices must be given in trigonometric order.
+   */
+    std::vector<point> relVertices;
+
+private:
+
+    /**
+     * @brief link the position of this box to the one of its owner.
+     * 
+     * @param pos 
+     */
+    void linkPos(std::pair<double, double>* pos);
+
+    /**
+     * @brief link the box to its owner.
+     * 
+     * @param t 
+     */
+    void linkOwner(T* t);
 };
-#include "../src/engine/box/box.tpp"
+
+#include "../src/engine/box/box.tpp" //TODO : find a better way to include this
 
 #endif
