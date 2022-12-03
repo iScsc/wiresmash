@@ -18,7 +18,7 @@ public:
     void linkOwner(Entity* owner);
     void linkBox(Box<PhxBox>* box);
 
-    void solveCollision(Collision<PhxBox>& coll_pb);
+    void solveCollision(Intersection<PhxBox>& coll_pb);
 
     Entity* getOwner();
     

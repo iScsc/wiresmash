@@ -48,7 +48,7 @@ private:
 
     void readInputs();
 
-    std::list<Collision<PhxBox>> checkPhxCollision();
+    std::list<Intersection<PhxBox>> checkPhxCollision();
 
     sf::RenderWindow* window;
 

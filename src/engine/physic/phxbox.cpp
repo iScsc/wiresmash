@@ -14,24 +14,24 @@ void PhxBox::linkBox(Box<PhxBox>* box){
     box->linkPos(this->owner_pos);
 }
 
-void PhxBox::solveCollision(Collision<PhxBox>& coll_pb){
-    PhxBox* that = coll_pb.collided;
+void PhxBox::solveCollision(Intersection<PhxBox>& coll_pb){
+    PhxBox* that = coll_pb.intersected;
     //internal logic
     switch (type)
     {
     case CollisionBehaviour::PUSHABLE:
         if (that->type == CollisionBehaviour::STATIC){
             //internal logic with full amplitude for displacement
-            coll_pb.collisionVector.first *= 2;
-            coll_pb.collisionVector.second *= 2;
+            coll_pb.intersectionVector.first *= 2;
+            coll_pb.intersectionVector.second *= 2;
         }
-        if(abs(coll_pb.collisionVector.first) > abs(coll_pb.collisionVector.second)){
-            owner_pos->second -= (coll_pb.collisionVector.second)/2;
-        }else if(abs(coll_pb.collisionVector.first) < abs(coll_pb.collisionVector.second)){
-            owner_pos->first -= (coll_pb.collisionVector.first)/2;
+        if(abs(coll_pb.intersectionVector.first) > abs(coll_pb.intersectionVector.second)){
+            owner_pos->second -= (coll_pb.intersectionVector.second)/2;
+        }else if(abs(coll_pb.intersectionVector.first) < abs(coll_pb.intersectionVector.second)){
+            owner_pos->first -= (coll_pb.intersectionVector.first)/2;
         } else {
-            owner_pos->first -= (coll_pb.collisionVector.first)/2;
-            owner_pos->second -= (coll_pb.collisionVector.second)/2;
+            owner_pos->first -= (coll_pb.intersectionVector.first)/2;
+            owner_pos->second -= (coll_pb.intersectionVector.second)/2;
         }
     case CollisionBehaviour::STATIC:
         //do nothing
@@ -39,10 +39,10 @@ void PhxBox::solveCollision(Collision<PhxBox>& coll_pb){
     default:
         break;
     }
-    coll_pb.colliding = that;
-    coll_pb.collided = this;
-    coll_pb.collisionVector.first *= -1;
-    coll_pb.collisionVector.second *= -1;
+    coll_pb.intersecting = that;
+    coll_pb.intersected = this;
+    coll_pb.intersectionVector.first *= -1;
+    coll_pb.intersectionVector.second *= -1;
 }
 
 void PhxBox::linkPos(std::pair<double, double>* owner_pos){

@@ -31,8 +31,8 @@ void UniverseMaster::updateEntity()
 {
     for (Entity *p_entity : allEntity)
     {
-        std::cout << p_entity->getName() << " ";
-        std::cout << (p_entity->getPos()).second << " ";
+        // std::cout << p_entity->getName() << " ";
+        // std::cout << (p_entity->getPos()).second << " ";
 
         //TODO: TEMPORARY
         if(p_entity->getSprite())
@@ -71,22 +71,22 @@ void UniverseMaster::readInputs(){
     
 }
 
-std::list<Collision<PhxBox>> UniverseMaster::checkPhxCollision()
+std::list<Intersection<PhxBox>> UniverseMaster::checkPhxCollision()
 {
-    std::list<Collision<PhxBox>> allPhxCollision;
-    Collision<PhxBox> cur_coll;
+    std::list<Intersection<PhxBox>> allPhxCollision;
+    Intersection<PhxBox> cur_coll;
     for (PhxBoxStack::iterator it = allPhxBox.begin(); it != allPhxBox.end()--; ++it)
     {
         for (PhxBoxStack::iterator it2 = std::next(it); it2 != allPhxBox.end(); ++it2)
         {
-            cur_coll = (*it)->checkCollision(*it2);
-            if (cur_coll.colliding == NULL)
+            cur_coll = (*it)->checkIntersection(*it2);
+            if (cur_coll.intersecting == NULL)
             {
                 // std::cout << "No collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << "\n";
             }
             else{
-                std::cout << "Collision " << std::endl;
-                // std::cout << "EttColliding" << cur_coll.colliding->getName() << ";ColVect" << cur_coll.collisionVector.first << "," << cur_coll.collisionVector.second << "\n";
+                std::cout << "Intersection " << std::endl;
+                // std::cout << "EttColliding" << cur_coll.intersecting->getName() << ";ColVect" << cur_coll.intersectionVector.first << "," << cur_coll.intersectionVector.second << "\n";
                 allPhxCollision.push_back(cur_coll);
             }
         }
@@ -100,18 +100,18 @@ void UniverseMaster::update()
     this->window->clear();
     readInputs();
     updatePhysic();
-    std::list<Collision<PhxBox>> allPhxCollision;
+    std::list<Intersection<PhxBox>> allPhxCollision;
     do
     {
         allPhxCollision = checkPhxCollision();
-        for (Collision<PhxBox> coll_pb : allPhxCollision)
+        for (Intersection<PhxBox> coll_pb : allPhxCollision)
         {
-            // std::cout << coll_pb.colliding->getOwner()->getName() << " with " << coll_pb.collided->getOwner()->getName() <<std::endl;
-            // std::cout << coll_pb.colliding->getOwner()->getPos().first << " " << coll_pb.colliding->getOwner()->getPos().second << std::endl;
-            coll_pb.colliding->solveCollision(coll_pb);
-            // coll_pb.colliding->getOwner()->collPhxNotify(coll_pb.collided->getOwner());
-            coll_pb.colliding->solveCollision(coll_pb);
-            // coll_pb.colliding->getOwner()->collPhxNotify(coll_pb.collided->getOwner());
+            // std::cout << coll_pb.intersecting->getOwner()->getName() << " with " << coll_pb.intersected->getOwner()->getName() <<std::endl;
+            // std::cout << coll_pb.intersecting->getOwner()->getPos().first << " " << coll_pb.intersecting->getOwner()->getPos().second << std::endl;
+            coll_pb.intersecting->solveCollision(coll_pb);
+            // coll_pb.intersecting->getOwner()->collPhxNotify(coll_pb.intersected->getOwner());
+            coll_pb.intersecting->solveCollision(coll_pb);
+            // coll_pb.intersecting->getOwner()->collPhxNotify(coll_pb.intersected->getOwner());
         }
     } while (!allPhxCollision.empty());
     updateEntity();

@@ -12,7 +12,7 @@ RedSquare::RedSquare(int size) : Entity("dev_01_RSQ"){
     this->addSprite(square);
 
     DevControllable* controls = new DevControllable();
-    controls->setAmplitude(11);
+    controls->setAmplitude(1);
     controls->setOwner(this);
     this->addInputHandler(controls);
 

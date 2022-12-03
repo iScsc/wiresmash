@@ -43,11 +43,11 @@ Rectangle<T>::Rectangle(double x, double y){
 // }
 
 template<typename T>
-Collision<T> Rectangle<T>::checkCollision(Rectangle<T>* r){
+Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
     point* this_pos = this->getPos();
     point* that_pos = r->getPos();
 
-    Collision<T> coll = Collision<T>();
+    Intersection<T> coll = Intersection<T>();
 
     int xcol1 = (this->relVertices.at(1).first + this_pos->first)
               - (r->getVertices().at(0).first + that_pos->first);
@@ -75,14 +75,14 @@ Collision<T> Rectangle<T>::checkCollision(Rectangle<T>* r){
         // ycol = std::min(ycol1, ycol2);
     }
     
-    coll.collisionVector = std::pair(xcol, ycol);
+    coll.intersectionVector = std::pair(xcol, ycol);
     if (ycol !=0 && xcol!=0)
     {
-        coll.colliding = this->getOwner();
-        coll.collided = r->getOwner();
+        coll.intersecting = this->getOwner();
+        coll.intersected = r->getOwner();
         return coll;
     }else{
-        coll.colliding = NULL;
+        coll.intersecting = NULL;
         return coll;
     }
 
