@@ -25,7 +25,7 @@ void read_player_input(std::list<Keybind>& keybinds, std::ifstream& file){
     while (nb_players < 2 && std::getline(file, line))
     {
         if (line.length() > 2 && line.substr(0, 2) == "A0"){ //TODO : not amazing
-            for (int i = 0; i < 6; i++){
+            for (int i = 0; i < 7; i++){ //TODO : max number of input per "input handler type" (here player) must become a global constant
                 std::getline(file, line);
                 keybinds.push_back(Keybind{key_of_string(line), UniversalInput{nb_players, i}});
             }
@@ -78,6 +78,8 @@ sf::Keyboard::Key key_of_string(std::string str){
     case 'R':
         return sf::Keyboard::Key::R;
     case 'S':
+        if(str.length() >=5 && str.substr(0, 5) == "SPACE")
+            return sf::Keyboard::Key::Space;
         return sf::Keyboard::Key::S;
     case 'T':
         return sf::Keyboard::Key::T;
@@ -94,8 +96,6 @@ sf::Keyboard::Key key_of_string(std::string str){
     case 'Z':
         return sf::Keyboard::Key::Z;
     default:
-        if(str.length() >=5 && str.substr(0, 5) == "SPACE")
-            return sf::Keyboard::Key::Space;
         std::cerr << "Unrecognised line " << str << std::endl; //TODO : specify line number
         std::abort();
     }
