@@ -64,7 +64,6 @@ Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
 
     int ycol = 0;
 
-    std::cout<< xcol1 << " " << xcol2 << " " << ycol1 << " "<<ycol2<<"\n";
     if(xcol1 > 0 && xcol2 > 0){
         xcol1 < xcol2 ? (xcol = xcol1) : (xcol = -xcol2); //Vector must be going from 'this' to 'that'
     }
