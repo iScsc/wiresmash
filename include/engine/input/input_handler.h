@@ -1,3 +1,12 @@
+/**
+ * @file input_handler.h
+ * @author Grégory Brivady
+ * @brief Handle key input
+ * @version 0.1
+ * @date 2022-12-04
+ * 
+ * 
+ */
 #ifndef ENGINE_INPUT_INPUT_HANDLER_H
 #define ENGINE_INPUT_INPUT_HANDLER_H
 
@@ -9,18 +18,24 @@ struct UniversalInput
     int inputId;
 };
 
-class InputHandler
+/**
+ * @brief Translates sfml keys to game actions
+ * 
+ */
+class InputHandler 
 {
-private:
-    int start_action_id;
-
-protected:
-    Entity* owner;
 public:
     InputHandler(/* args */) = default;
     ~InputHandler() = default;
     void setOwner(Entity* entity){ this->owner = entity;};
     virtual void doInput(int actionId) {};
+
+protected:
+    Entity* owner;
+
+private:
+    int start_action_id;
+
 };
 
 #endif
