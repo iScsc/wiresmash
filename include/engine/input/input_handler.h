@@ -10,12 +10,21 @@
 #ifndef ENGINE_INPUT_INPUT_HANDLER_H
 #define ENGINE_INPUT_INPUT_HANDLER_H
 
+#include <SFML/Window/Keyboard.hpp>
+
 #include "engine/entity.h"
+
 
 struct UniversalInput
 {
     int handlerId;
     int inputId;
+};
+
+struct Keybind
+{
+    sf::Keyboard::Key key;
+    UniversalInput    action;
 };
 
 /**

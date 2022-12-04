@@ -18,12 +18,6 @@
 #include <SFML/Window/Keyboard.hpp>
 #include "engine/input/input_handler.h"
 
-struct Keybind //TODO : move this to input reader
-{
-    sf::Keyboard::Key key;
-    UniversalInput    action;
-};
-
 /**
  * @brief make a list of keybinds, given a file
  * 
