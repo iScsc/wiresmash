@@ -80,13 +80,8 @@ std::list<Intersection<PhxBox>> UniverseMaster::checkPhxCollision()
         for (PhxBoxStack::iterator it2 = std::next(it); it2 != allPhxBox.end(); ++it2)
         {
             cur_coll = (*it)->checkIntersection(*it2);
-            if (cur_coll.intersecting == NULL)
+            if (cur_coll.intersecting != NULL)
             {
-                // std::cout << "No collision between " << (*it)->getOwner()->getName() << " and " << (*it2)->getOwner()->getName() << "\n";
-            }
-            else{
-                std::cout << "Intersection " << std::endl;
-                // std::cout << "EttColliding" << cur_coll.intersecting->getName() << ";ColVect" << cur_coll.intersectionVector.first << "," << cur_coll.intersectionVector.second << "\n";
                 allPhxCollision.push_back(cur_coll);
             }
         }
