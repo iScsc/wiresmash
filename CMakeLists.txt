@@ -5,10 +5,9 @@ cmake_minimum_required(VERSION 3.16)
 project(
   "Wiresmash"
   VERSION
-  0.2
+  0.1
   LANGUAGES
   CXX
 )
 
 add_subdirectory(src)
-add_subdirectory(test)
