@@ -5,6 +5,7 @@ add_executable(app main.cpp
 add_subdirectory(engine)
 add_subdirectory(graphics)
 add_subdirectory(game)
+add_subdirectory(settings)
 
 target_include_directories(app PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
