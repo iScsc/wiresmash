@@ -31,9 +31,6 @@ void UniverseMaster::updateEntity()
 {
     for (Entity *p_entity : allEntity)
     {
-        // std::cout << p_entity->getName() << " ";
-        // std::cout << (p_entity->getPos()).second << " ";
-
         //TODO: TEMPORARY
         if(p_entity->getSprite())
         {
@@ -63,7 +60,6 @@ void UniverseMaster::readInputs(){
     {
         if (sf::Keyboard::isKeyPressed(bind.key) && bind.action.handlerId < allInpHdl.size())
         {
-            std::cout << "Input " << bind.action.inputId << " to Handler " << bind.action.handlerId << "\n";
             allInpHdl.at(bind.action.handlerId)->doInput(bind.action.inputId);            
         }
         
@@ -107,7 +103,6 @@ void UniverseMaster::update()
     } while (!allPhxCollision.empty());
     updateEntity();
     updateSprite();
-    std::cout << "\n";
     this->window->display();
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
 }
