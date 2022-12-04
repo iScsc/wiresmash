@@ -6,6 +6,7 @@
 
 #include "game/entity/dev/dev_entities.h"
 
+#include "settings/input_reader.h"
 
 int main(int argc, char const *argv[]){
 
@@ -13,8 +14,8 @@ int main(int argc, char const *argv[]){
     sf::Event event;
 
     UniverseMaster universe = UniverseMaster();
-
     universe.linkWindow(&window);
+    universe.initInput(make_keybinds("../settings/keybinds"));
 
     RedSquare* dev_ett1 = new RedSquare(10);
     dev_ett1->setPos(100,0);
@@ -29,7 +30,6 @@ int main(int argc, char const *argv[]){
     universe.addEntity(dev_ett2);
     // std::this_thread::sleep_for(std::chrono::seconds(4));
     int i = 0;
-    universe.initInput();
     while(window.isOpen()){
 
         while (window.pollEvent(event)){

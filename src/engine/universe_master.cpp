@@ -106,12 +106,8 @@ void UniverseMaster::update()
         allPhxCollision = checkPhxCollision();
         for (Intersection<PhxBox> coll_pb : allPhxCollision)
         {
-            // std::cout << coll_pb.intersecting->getOwner()->getName() << " with " << coll_pb.intersected->getOwner()->getName() <<std::endl;
-            // std::cout << coll_pb.intersecting->getOwner()->getPos().first << " " << coll_pb.intersecting->getOwner()->getPos().second << std::endl;
             coll_pb.intersecting->solveCollision(coll_pb);
-            // coll_pb.intersecting->getOwner()->collPhxNotify(coll_pb.intersected->getOwner());
             coll_pb.intersecting->solveCollision(coll_pb);
-            // coll_pb.intersecting->getOwner()->collPhxNotify(coll_pb.intersected->getOwner());
         }
     } while (!allPhxCollision.empty());
     updateEntity();
@@ -121,17 +117,6 @@ void UniverseMaster::update()
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
 }
 
-void UniverseMaster::initInput(){
-    std::list<Keybind> keybindings;
-    keybindings.push_back(Keybind{sf::Keyboard::Key::W, UniversalInput{0, 0}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::A, UniversalInput{0, 1}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::S, UniversalInput{0, 2}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::D, UniversalInput{0, 3}});
-
-    keybindings.push_back(Keybind{sf::Keyboard::Key::I, UniversalInput{1, 0}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::J, UniversalInput{1, 1}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::K, UniversalInput{1, 2}});
-    keybindings.push_back(Keybind{sf::Keyboard::Key::L, UniversalInput{1, 3}});
-
+void UniverseMaster::initInput(std::list<Keybind> keybindings){
     this->keybindings = keybindings;
 }
