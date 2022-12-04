@@ -19,6 +19,10 @@ It consists of two red squares and a blue platform. The squares are controllable
 - Better jump system
 - Real cinematic system with management of velocity, more forces, ...
 
+## Launching
+
+Make sur to launch the executable from the bin folder, or it will not find the keybinds and scream an error.
+
 ## Build
 
 ### Requirements
