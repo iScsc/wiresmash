@@ -1,7 +1,7 @@
 /**
  * @file box.h
  * @author Grégory Brivady
- * @brief Box tempalte class definition
+ * @brief Box template class definition
  * @version 0.1.0
  * @date 2022-08-25
  * 
@@ -31,7 +31,7 @@ struct Intersection
 };
 
 /**
- * @brief Boxes are defined solely as geometrical objects. Their only purposes
+ * @brief Boxes are defined solely as geometrical objects. Their only purpose
  * is to check if they intersect with other box-objects of the same type. By
  * using the template parameter, one can specify the behaviour of such a box when it
  * intersects with another box-object.
