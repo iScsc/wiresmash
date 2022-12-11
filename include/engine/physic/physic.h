@@ -46,7 +46,7 @@ public:
     
     /**
      * @brief Update the position of the physic object by
-     * computing every forces that applies on it, and then
+     * computing all the forces that apply on it, and then
      * applying Newton's second law.
      * 
      */
