@@ -1,13 +1,13 @@
 /**
  * @file cinematic.h
  * @author Grégory Brivady
- * @brief Contains anything that may be useful to do point cinematic for the physic
+ * @brief Contains anything that may be useful to do point kinematics for the physics
  * @version 0.1
  * @date 2022-12-03
  * 
  */
-#ifndef ENGINE_PHYSICS_CINEMATIC_H
-#define ENGINE_PHYSICS_CINEMATIC_H
+#ifndef ENGINE_PHYSICS_KINEMATICS_H
+#define ENGINE_PHYSICS_KINEMATICS_H
 
 #include <vector>
 

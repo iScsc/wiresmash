@@ -1,5 +1,5 @@
 target_sources(app PRIVATE 
     physic.cpp 
-    cinematic.cpp
+    kinematics.cpp
     phxbox.cpp
 )

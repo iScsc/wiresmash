@@ -12,7 +12,7 @@
 
 #include <vector>
 
-#include "engine/physics/cinematic.h"
+#include "engine/physics/kinematics.h"
 
 /**
  * @brief Parameters of a physic object, used to compute forces
