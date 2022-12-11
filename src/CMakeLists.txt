@@ -1,5 +1,6 @@
 
-add_executable(app main.cpp
+add_executable(app 
+    main.cpp
 )
 
 add_subdirectory(engine)
