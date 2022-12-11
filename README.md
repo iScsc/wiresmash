@@ -21,19 +21,19 @@ It consists of two red squares and a blue platform. The squares are controllable
 
 ## Launching
 
-Make sur to launch the executable from the bin folder, or it will not find the keybinds and scream an error.
+Make sure to launch the executable from the `./bin` folder, or it will not find the keybinds and scream an error.
 
 ## Build
 
 ### Requirements
 
-- a C++ compiler of your choice
-- CMake
-- SFML
+- `a C++ compiler of your choice`
+- `CMake`
+- `SFML`
 
 ### Building with CMake
 
-Clone the project using git, then run the following commands:
+Clone the project using `git`, then run the following commands:
 
 ```bash
 cmake -S ./ -B ./build/
@@ -45,4 +45,4 @@ to generate a build system, then run:
 cmake --build ./build/
 ```
 
-to build the executable. You will find the build executable in the bin folder.
+to build the executable. You will find the build executable in the `./bin` folder.
