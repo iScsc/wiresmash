@@ -48,8 +48,8 @@ public:
     /**
      * @brief Add physical collision to the entity
      * 
-     * @param box the box containing the entiy
-     * @param ct behaviour of the entity, as a an object that can collid
+     * @param box the box containing the entity
+     * @param ct behaviour of the entity, as a an object that can collide
      */
     void addPhxBox(Box<PhxBox>* box, PhxBox::CollisionBehaviour ct);
     PhxBox* getPhxBox();
