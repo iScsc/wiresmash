@@ -3,7 +3,6 @@ add_executable(app main.cpp
 )
 
 add_subdirectory(engine)
-add_subdirectory(graphics)
 add_subdirectory(game)
 add_subdirectory(settings)
 
