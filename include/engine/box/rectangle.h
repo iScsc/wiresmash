@@ -27,7 +27,7 @@ class Rectangle: public Box<T>
 public:
 
     /**
-     * @brief Construct a new Rectangle object by using only its lenght
+     * @brief Construct a new Rectangle object by using only its length
      * and its height.
      * 
      * @param x Length of the rectangle on the x (horizontal) axis
@@ -53,5 +53,7 @@ public:
     //TODO : HORRIBLE
     Intersection<T> checkIntersection(Box<T>* h) {return dynamic_cast<Rectangle<T>*>(h)->checkIntersection(this); }; //let the other class handle the collision
 };
+
 #include "../src/engine/box/rectangle.tpp" //Todo : same as box.tpp todo
+
 #endif
