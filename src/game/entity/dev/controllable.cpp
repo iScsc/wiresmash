@@ -1,4 +1,4 @@
-#include "game\entity\dev\controllable.h"
+#include "game/entity/dev/controllable.h"
 
 void DevControllable::doInput(int actionId){
     switch (actionId)
