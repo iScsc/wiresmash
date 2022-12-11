@@ -1,5 +1,3 @@
-target_sources(app PRIVATE 
-dev/red_square.cpp
-dev/blue_terrain.cpp
-dev/controllable.cpp
-)
+add_subdirectory(dev) 
+#TODO: edit this file to not build the dev folder
+#if we are building the release executable
