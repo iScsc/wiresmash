@@ -17,7 +17,7 @@ It consists of two red squares and a blue platform. The squares are controllable
 
 - A simple combat prototype
 - Better jump system
-- Real cinematic system with management of velocity, more forces, ...
+- Real kinematics system with management of velocity, more forces, ...
 
 ## Launching
 

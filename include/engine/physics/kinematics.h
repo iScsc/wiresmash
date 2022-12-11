@@ -1,5 +1,5 @@
 /**
- * @file cinematic.h
+ * @file kinematics.h
  * @author Grégory Brivady
  * @brief Contains anything that may be useful to do point kinematics for the physics
  * @version 0.1

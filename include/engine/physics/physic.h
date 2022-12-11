@@ -27,7 +27,7 @@ struct PhxParam
 
 /**
  * @brief A Physic object, handles all the computation of the
- * cinematic to update the position of the Entity that owns it.
+ * kinematics to update the position of the Entity that owns it.
  * 
  */
 class Physic
