@@ -78,7 +78,7 @@ sf::Keyboard::Key key_of_string(std::string str){
     case 'R':
         return sf::Keyboard::Key::R;
     case 'S':
-        if(str.length() >=5 && str.substr(0, 5) == "SPACE")
+        if(str.length() >= 5 && str.substr(0, 5) == "SPACE")
             return sf::Keyboard::Key::Space;
         return sf::Keyboard::Key::S;
     case 'T':
