@@ -16,7 +16,7 @@
 class Entity;
 
 /**
- * @brief Boxes that should push each others to solve intersection.
+ * @brief Boxes that should push each other to solve intersection.
  * 
  */
 class PhxBox{
