@@ -19,8 +19,8 @@
 #include <SFML/Window/Keyboard.hpp>
 
 #include "engine/entity.h"
-#include "engine/physic/physic.h"
-#include "engine/physic/phxbox.h"
+#include "engine/physics/physic.h"
+#include "engine/physics/phxbox.h"
 #include "engine/input/input_handler.h"
 
 #include "settings/input_reader.h"

@@ -6,8 +6,8 @@
  * @date 2022-12-03
  * 
  */
-#ifndef ENGINE_PHYSIC_CINEMATIC_H
-#define ENGINE_PHYSIC_CINEMATIC_H
+#ifndef ENGINE_PHYSICS_CINEMATIC_H
+#define ENGINE_PHYSICS_CINEMATIC_H
 
 #include <vector>
 

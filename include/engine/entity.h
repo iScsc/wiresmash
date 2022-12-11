@@ -16,8 +16,8 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 
-#include "engine/physic/physic.h"
-#include "engine/physic/phxbox.h"
+#include "engine/physics/physic.h"
+#include "engine/physics/phxbox.h"
 #include "engine/box/box.h"
 
 class InputHandler;

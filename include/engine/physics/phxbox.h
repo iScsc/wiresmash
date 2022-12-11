@@ -7,8 +7,8 @@
  * 
  * 
  */
-#ifndef ENGINE_PHYSIC_PHXBOX_H
-#define ENGINE_PHYSIC_PHXBOX_H
+#ifndef ENGINE_PHYSICS_PHXBOX_H
+#define ENGINE_PHYSICS_PHXBOX_H
 
 #include <utility>
 #include "engine/box/box.h"

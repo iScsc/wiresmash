@@ -1,4 +1,4 @@
-#include "engine/physic/phxbox.h"
+#include "engine/physics/phxbox.h"
 
 void PhxBox::setCollisionType(CollisionBehaviour ct){
     this->type = ct;

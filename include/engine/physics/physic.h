@@ -7,12 +7,12 @@
  * 
  * 
  */
-#ifndef ENGINE_PHYSIC_PHYSIC_H
-#define ENGINE_PHYSIC_PHYSIC_H
+#ifndef ENGINE_PHYSICS_PHYSIC_H
+#define ENGINE_PHYSICS_PHYSIC_H
 
 #include <vector>
 
-#include "engine/physic/cinematic.h"
+#include "engine/physics/cinematic.h"
 
 /**
  * @brief Parameters of a physic object, used to compute forces

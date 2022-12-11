@@ -4,4 +4,4 @@ target_sources(app PRIVATE
 )
 
 # add_subdirectory(box)
-add_subdirectory(physic)
+add_subdirectory(physics)

@@ -5,7 +5,7 @@
 
 #include "engine/entity.h"
 #include "engine/box/rectangle.h"
-#include "engine/physic/phxbox.h"
+#include "engine/physics/phxbox.h"
 class BlueTerrain: public Entity{
 public:
     BlueTerrain();

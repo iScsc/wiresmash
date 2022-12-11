@@ -1,4 +1,4 @@
-#include "engine/physic/physic.h"
+#include "engine/physics/physic.h"
 
 void Physic::linkPos(std::pair<double, double>* pos){
    this->pos = pos;
