@@ -27,7 +27,7 @@ Make sure to launch the executable from the `./bin` folder, or it will not find 
 
 ### Requirements
 
-- `a C++ compiler of your choice`
+- a `C++` compiler of your choice
 - `CMake`
 - `SFML`
 
