@@ -11,10 +11,9 @@
 
 #include <cmath>
 #include <vector>
-// #include "engine/entity.h"
+
 typedef std::pair<double, double> point;
 
-// class Entity;
 
 /**
  * @brief Container for all the information about an intersection of two boxes.
