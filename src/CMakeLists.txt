@@ -8,7 +8,7 @@ add_subdirectory(settings)
 
 target_include_directories(app PRIVATE ${PROJECT_SOURCE_DIR}/include)
 
-find_package(SFML 2 REQUIRED network audio graphics window system) 
+find_package(SFML 2 REQUIRED graphics window system) 
 target_include_directories(app PUBLIC ${SFML_INCLUDE_DIR}) 
 target_link_libraries(app sfml-graphics)
 
