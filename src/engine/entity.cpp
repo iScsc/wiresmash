@@ -1,7 +1,7 @@
 #include "engine/entity.h"
 
 Entity::Entity(){
-    this->physic = NULL;
+    this->point = NULL;
     this->sprite = NULL;
 }
 
@@ -9,13 +9,13 @@ Entity::Entity(std::string name): Entity() {
     this->name = name;
 }
 
-void Entity::addPhysic(){
-    this->physic = new Physic();
-    this->physic->linkPos(&(this->pos));
+void Entity::addPoint(){
+    this->point = new Point();
+    this->point->linkPos(&(this->pos));
 }
 
-Physic* Entity::getPhysic(){
-    return this->physic;
+Point* Entity::getPoint(){
+    return this->point;
 }
 
 void Entity::addSprite(){

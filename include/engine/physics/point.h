@@ -1,5 +1,5 @@
 /**
- * @file physic.h
+ * @file point.h
  * @author Grégory Brivady
  * @brief Physics of the game engine
  * @version 0.1
@@ -7,15 +7,15 @@
  * 
  * 
  */
-#ifndef ENGINE_PHYSICS_PHYSIC_H
-#define ENGINE_PHYSICS_PHYSIC_H
+#ifndef ENGINE_PHYSICS_POINT_H
+#define ENGINE_PHYSICS_POINT_H
 
 #include <vector>
 
 #include "engine/physics/kinematics.h"
 
 /**
- * @brief Parameters of a physic object, used to compute forces
+ * @brief Parameters of a point object, used to compute forces
  * 
  */
 struct PhxParam
@@ -26,11 +26,11 @@ struct PhxParam
 } typedef PhxParam;
 
 /**
- * @brief A Physic object, handles all the computation of the
+ * @brief A Point object, handles all the computation of the
  * kinematics to update the position of the Entity that owns it.
  * 
  */
-class Physic
+class Point
 {
     friend class Entity;
 
@@ -39,13 +39,13 @@ public:
     bool is_falling = true;
 
     PhxParam getParam();
-    Physic(/* args */) = default;
-    Physic(PhxParam phxParam){this->phxParam = phxParam;};
+    Point(/* args */) = default;
+    Point(PhxParam phxParam){this->phxParam = phxParam;};
 
     void setMass(double mass){this->phxParam.mass = mass;};
     
     /**
-     * @brief Update the position of the physic object by
+     * @brief Update the position of the point object by
      * computing all the forces that apply on it, and then
      * applying Newton's second law.
      * 

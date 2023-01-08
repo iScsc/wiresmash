@@ -1,8 +1,8 @@
 #include "game/entity/dev/red_square.h"
 
 RedSquare::RedSquare(int size) : Entity("dev_01_RSQ"){
-    this->addPhysic();
-    this->getPhysic()->setMass(1);
+    this->addPoint();
+    this->getPoint()->setMass(1);
 
     Rectangle<PhxBox>* myBox = new Rectangle<PhxBox>(size,size);
     this->addPhxBox(myBox, PhxBox::CollisionBehaviour::PUSHABLE);

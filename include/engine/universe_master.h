@@ -19,7 +19,7 @@
 #include <SFML/Window/Keyboard.hpp>
 
 #include "engine/entity.h"
-#include "engine/physics/physic.h"
+#include "engine/physics/point.h"
 #include "engine/physics/phxbox.h"
 #include "engine/input/input_handler.h"
 
@@ -27,7 +27,7 @@
 
 typedef std::list<Entity*> EntityStack;
 
-typedef	std::list<Physic*> PhysicStack;
+typedef	std::list<Point*> PointStack;
 
 typedef std::list<sf::Drawable*> SpriteStack; 
 
@@ -60,12 +60,12 @@ private:
     std::list<Keybind> keybindings;
 
     EntityStack allEntity;
-    PhysicStack allPhysic;
+    PointStack allPoint;
     SpriteStack allSprite;
     PhxBoxStack allPhxBox;
     InpHdlTable allInpHdl;
 
-    void updatePhysic();
+    void updatePoint();
     void updateEntity();
     void updateSprite();
 

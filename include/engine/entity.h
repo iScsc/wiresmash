@@ -16,7 +16,7 @@
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/CircleShape.hpp>
 
-#include "engine/physics/physic.h"
+#include "engine/physics/point.h"
 #include "engine/physics/phxbox.h"
 #include "engine/box/box.h"
 
@@ -38,8 +38,8 @@ public:
     Entity(std::string name);
     ~Entity() = default;
 
-    void addPhysic();
-    Physic* getPhysic();
+    void addPoint();
+    Point* getPoint();
 
     void addSprite();
     void addSprite(sf::Drawable*);
@@ -76,8 +76,8 @@ private:
     std::pair<double, double> vel;
     //Name
     std::string name;
-    //Physic
-    Physic* physic;
+    //Point
+    Point* point;
     //Displaying
     sf::Drawable* sprite;
     

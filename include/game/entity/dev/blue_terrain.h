@@ -9,7 +9,7 @@
 class BlueTerrain: public Entity{
 public:
     BlueTerrain();
-    void collPhxNotify(Entity* ett) override {ett->getPhysic()->is_falling=false;}
+    void collPhxNotify(Entity* ett) override {ett->getPoint()->is_falling=false;}
 };
 
 #endif

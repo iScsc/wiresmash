@@ -16,9 +16,9 @@ void DevControllable::doInput(int actionId){
         owner->move(amplitude,0);
         break;
     case 6:
-        // if(!owner->getPhysic()->is_falling){
+        // if(!owner->getPoint()->is_falling){
         //     owner->move(0, 10*amplitude);
-        //     owner->getPhysic()->is_falling = true;
+        //     owner->getPoint()->is_falling = true;
         // }
         owner->move(0, 4*amplitude);
         break;

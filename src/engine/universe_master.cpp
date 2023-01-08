@@ -4,13 +4,13 @@
 void UniverseMaster::addEntity(Entity *entity)
 {
     this->allEntity.push_back(entity);
-    Physic *physic = entity->getPhysic();
+    Point *point = entity->getPoint();
     sf::Drawable *sprite = entity->getSprite();
     PhxBox* phxbox = entity->getPhxBox();
     InputHandler* inphdl = entity->getInputHandler();
-    if (physic)
+    if (point)
     {
-        this->allPhysic.push_back(physic);
+        this->allPoint.push_back(point);
     }
     if (sprite)
     {
@@ -39,9 +39,9 @@ void UniverseMaster::updateEntity()
     }
 }
 
-void UniverseMaster::updatePhysic()
+void UniverseMaster::updatePoint()
 {
-    for (Physic *p_physic : allPhysic)
+    for (Point *p_physic : allPoint)
     {
         p_physic->update();
     }
@@ -90,7 +90,7 @@ void UniverseMaster::update()
 {
     this->window->clear();
     readInputs();
-    updatePhysic();
+    updatePoint();
     std::list<Intersection<PhxBox>> allPhxCollision;
     do
     {
