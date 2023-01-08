@@ -12,9 +12,6 @@
 #include <cmath>
 #include <vector>
 
-typedef std::pair<double, double> point;
-
-
 /**
  * @brief Container for all the information about an intersection of two boxes.
  * 
@@ -47,8 +44,8 @@ public:
     Box() = default;
     ~Box() = default;
 
-    point* getPos() {return pos;};
-    std::vector<point> getVertices() {return relVertices;};
+    std::pair<double, double>* getPos() {return pos;};
+    std::vector<std::pair<double, double>> getVertices() {return relVertices;};
     T* getOwner() {return owner;};
 
     /**
@@ -76,7 +73,7 @@ protected:
     * @brief Position of the vertices, relative to the box frame of reference.
     * Vertices must be given in trigonometric order.
    */
-    std::vector<point> relVertices;
+    std::vector<std::pair<double, double>> relVertices;
 
 private:
 
