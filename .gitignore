@@ -1,4 +1,5 @@
-
 build
 debug
 .cache
+.vscode
+bin

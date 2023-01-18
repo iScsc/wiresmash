@@ -1,0 +1,20 @@
+% This file serves as a default implementation for dev purposes. It should be replaced asap with a proper implementation
+% QWERTY layout
+
+A0              - Players
+A01             - Player 1
+W               Up
+A               Left
+S               Down
+D               Right
+Q               Action1
+E               Action2
+SPACE           Jump
+A02             - Player 2
+I               Up
+J               Left
+K               Down
+L               Right
+U               Action1
+O               Action2
+M               Jump
