@@ -1,6 +1,16 @@
-# Wiresmash
+# Wiresmash <!-- omit in toc -->
 
 Wiresmash is a Smash-like game currently under development by the iScsc dev team.
+
+## Table of content <!-- omit in toc -->
+
+- [Useful links](#useful-links)
+- [Current Features](#current-features)
+- [Launching](#launching)
+- [Building from source](#building-from-source)
+  - [Requirements](#requirements)
+  - [Building with CMake](#building-with-cmake)
+- [Future Plans](#future-plans)
 
 ## Useful links
 
@@ -8,7 +18,7 @@ Wiresmash is a Smash-like game currently under development by the iScsc dev team
 - [How to contribute](CONTRIBUTING.md)
 - [Wiresmash wiki](https://github.com/iScsc/wiresmash/wiki)
 
-## Currently
+## Current Features
 
 The game is currently a very simple demo containing:
 
