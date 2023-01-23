@@ -2,6 +2,12 @@
 
 Wiresmash is a Smash-like game currently under development by the iScsc dev team.
 
+## Useful links
+
+- [The iscsc website](https://iscsc.fr/)
+- [How to contribute](CONTRIBUTING.md)
+- [Wiresmash wiki](https://github.com/iScsc/wiresmash/wiki)
+
 ## Currently
 
 The game is currently a very simple demo containing:
