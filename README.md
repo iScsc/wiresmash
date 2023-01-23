@@ -17,13 +17,13 @@ It consists of two red squares and a blue platform. The squares are controllable
 
 Make sure to launch the executable from the `./bin` folder, or it will not find the keybinds and scream an error.
 
-## Building
+## Building from source
 
 ### Requirements
 
-- a `C++` compiler of your choice
-- `CMake`
-- `SFML`
+- `C++` compiler supporting `C++17` or newer, may work with an earlier standard
+- `CMake 3.16+`
+- `SFML 2.5.1+`
 
 ### Building with CMake
 
