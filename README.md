@@ -46,3 +46,14 @@ cmake --build ./build/
 ```
 
 to build the executable. You will find the build executable in the `./bin` folder.
+
+> **Note**
+> you can directly use the `build`, `run` and `clean` rules for `make` instead
+> ```bash
+> make build run
+> ```
+> to run the application and
+> ```bash
+> make clean
+> ```
+> to clean all compilation files
