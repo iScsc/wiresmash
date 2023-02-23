@@ -1,8 +1,24 @@
-# Wiresmash
+# Wiresmash <!-- omit in toc -->
 
 Wiresmash is a Smash-like game currently under development by the iScsc dev team.
 
-## Currently
+## Table of content <!-- omit in toc -->
+
+- [Useful links](#useful-links)
+- [Current Features](#current-features)
+- [Launching](#launching)
+- [Building from source](#building-from-source)
+  - [Requirements](#requirements)
+  - [Building with CMake](#building-with-cmake)
+- [Future Plans](#future-plans)
+
+## Useful links
+
+- [The iscsc website](https://iscsc.fr/)
+- [How to contribute](CONTRIBUTING.md)
+- [Wiresmash wiki](https://github.com/iScsc/wiresmash/wiki)
+
+## Current Features
 
 The game is currently a very simple demo containing:
 
@@ -13,23 +29,17 @@ The game is currently a very simple demo containing:
 
 It consists of two red squares and a blue platform. The squares are controllable using (by default) the keys WASD/IJKL for up/left/down/right and Space/M for "jump".
 
-## Next Step
-
-- A simple combat prototype
-- Better jump system
-- Real kinematics system with management of velocity, more forces, ...
-
 ## Launching
 
 Make sure to launch the executable from the `./bin` folder, or it will not find the keybinds and scream an error.
 
-## Build
+## Building from source
 
 ### Requirements
 
-- a `C++` compiler of your choice
-- `CMake`
-- `SFML`
+- `C++` compiler supporting `C++17` or newer, may work with an earlier standard
+- `CMake 3.16+`
+- `SFML 2.5.1+`
 
 ### Building with CMake
 
@@ -46,3 +56,11 @@ cmake --build ./build/
 ```
 
 to build the executable. You will find the build executable in the `./bin` folder.
+
+## Future Plans
+
+- A simple combat prototype with attacks and HP bars
+- Better jump system
+- Real kinematics system with management of velocity, more forces, ...
+- Actual graphics subsystem
+- Proper input configuration
