@@ -41,7 +41,7 @@ int main(int argc, char const *argv[]){
 
             case sf::Event::LostFocus:
                 //TODO : implement proper pause
-                while (window.pollEvent(event) || event.type != sf::Event::GainedFocus)
+                while (window.waitEvent(event) && event.type != sf::Event::GainedFocus)
                 {
                 }
             default:
