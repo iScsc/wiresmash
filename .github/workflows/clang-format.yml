@@ -1,0 +1,24 @@
+# Taken from https://github.com/jidicula/clang-format-action
+name: Check format with clang-format
+
+on:
+    push:
+        branches: [ "main" ]
+    pull_request:
+        branches: [ "*" ]
+
+jobs:
+    check-format:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                path:
+                    - src
+                    - include
+        steps:
+            - uses: action/checkout@v3
+            - name: Run clang-format style check for C++ code
+              uses: jidicula/clang-format-action@v4.11.0
+              with:
+                check-path: ${{ matrix.path }}
+
