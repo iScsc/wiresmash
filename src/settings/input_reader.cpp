@@ -1,46 +1,50 @@
 #include "settings/input_reader.h"
 
-std::list<Engine::Keybind> make_keybinds(std::string path){
+std::list<Engine::Keybind> make_keybinds(std::string path) {
     std::list<Engine::Keybind> keybinds = std::list<Engine::Keybind>();
     std::ifstream key_config;
     key_config.open(path);
-    if(!key_config){
+    if (!key_config) {
         std::cerr << "Error : input config file missing" << std::endl;
         exit(1);
     }
     std::string line;
-    while (std::getline(key_config, line)){
-        if (line.length() > 1 && line.substr(0, 2) == "A0"){
+    while (std::getline(key_config, line)) {
+        if (line.length() > 1 && line.substr(0, 2) == "A0") {
             read_player_input(keybinds, key_config);
-        }   
+        }
     }
-    
+
     return keybinds;
 }
 
-void read_player_input(std::list<Engine::Keybind>& keybinds, std::ifstream& file){
+void read_player_input(std::list<Engine::Keybind>& keybinds,
+                       std::ifstream& file) {
     std::string line;
-    int nb_players = 0; 
-    //TODO : max number of players become a "global" constant
-    while (nb_players < 2 && std::getline(file, line))
-    {
-        if (line.length() > 2 && line.substr(0, 2) == "A0"){ //TODO : not amazing
-            for (int i = 0; i < 7; i++){ //TODO : max number of input per "input handler type" (here player) must become a global constant
+    int nb_players = 0;
+    // TODO : max number of players become a "global" constant
+    while (nb_players < 2 && std::getline(file, line)) {
+        if (line.length() > 2 &&
+            line.substr(0, 2) == "A0") { // TODO : not amazing
+            for (int i = 0; i < 7;
+                 i++) { // TODO : max number of input per "input handler type"
+                        // (here player) must become a global constant
                 std::getline(file, line);
-                keybinds.push_back(Engine::Keybind{key_of_string(line), Engine::UniversalInput{nb_players, i}});
+                keybinds.push_back(
+                    Engine::Keybind{key_of_string(line),
+                                    Engine::UniversalInput{nb_players, i}});
             }
             nb_players++;
         }
     }
-    if (nb_players != 2){
+    if (nb_players != 2) {
         std::cerr << "Some players miss some outputs" << std::endl;
         exit(1);
     }
 }
 
-sf::Keyboard::Key key_of_string(std::string str){
-    switch (str[0])
-    {
+sf::Keyboard::Key key_of_string(std::string str) {
+    switch (str[0]) {
     case 'A':
         return sf::Keyboard::Key::A;
     case 'B':
@@ -78,7 +82,7 @@ sf::Keyboard::Key key_of_string(std::string str){
     case 'R':
         return sf::Keyboard::Key::R;
     case 'S':
-        if(str.length() >= 5 && str.substr(0, 5) == "SPACE")
+        if (str.length() >= 5 && str.substr(0, 5) == "SPACE")
             return sf::Keyboard::Key::Space;
         return sf::Keyboard::Key::S;
     case 'T':
@@ -96,7 +100,8 @@ sf::Keyboard::Key key_of_string(std::string str){
     case 'Z':
         return sf::Keyboard::Key::Z;
     default:
-        std::cerr << "Unrecognised line " << str << std::endl; //TODO : specify line number
+        std::cerr << "Unrecognised line " << str
+                  << std::endl; // TODO : specify line number
         std::abort();
     }
 }

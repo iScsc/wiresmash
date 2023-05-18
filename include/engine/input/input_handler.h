@@ -4,8 +4,8 @@
  * @brief Handle key input
  * @version 0.1
  * @date 2022-12-04
- * 
- * 
+ *
+ *
  */
 #ifndef ENGINE_INPUT_INPUT_HANDLER_H
 #define ENGINE_INPUT_INPUT_HANDLER_H
@@ -14,41 +14,36 @@
 
 #include "engine/entity.h"
 
-namespace Engine 
-{
+namespace Engine {
 
-struct UniversalInput
-{
+struct UniversalInput {
     int handlerId;
     int inputId;
 };
 
-struct Keybind
-{
+struct Keybind {
     sf::Keyboard::Key key;
-    UniversalInput    action;
+    UniversalInput action;
 };
 
 /**
  * @brief Translates sfml keys to game actions
- * 
+ *
  */
-class InputHandler 
-{
-public:
+class InputHandler {
+  public:
     InputHandler(/* args */) = default;
     ~InputHandler() = default;
-    void setOwner(Entity* entity){ this->owner = entity;};
-    virtual void doInput(int actionId) {};
+    void setOwner(Entity* entity) { this->owner = entity; };
+    virtual void doInput(int actionId){};
 
-protected:
+  protected:
     Entity* owner;
 
-private:
+  private:
     int start_action_id;
-
 };
 
-} //namespace Engine
+} // namespace Engine
 
 #endif

@@ -13,15 +13,12 @@
 #include <string>
 #include <vector>
 
+#include <SFML/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+
 #include "engine/box/box.h"
 #include "engine/physics/phxbox.h"
 #include "engine/physics/point.h"
-
-
-
-
-#include <SFML/Graphics/CircleShape.hpp>
-#include <SFML/Graphics/Drawable.hpp>
 
 namespace Engine {
 
