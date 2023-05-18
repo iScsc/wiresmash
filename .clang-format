@@ -101,20 +101,32 @@ IfMacros:
   - KJ_IF_MAYBE
 IncludeBlocks:   Regroup # default is Preserve
 IncludeCategories:
-  - Regex:           '<SFML/*'
-    Priority:        3
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
+  - Regex:           '<([A-Za-z0-9\/-_])+>'
     Priority:        1
     SortPriority:    0
     CaseSensitive:   false
-  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
-    Priority:        2
+  - Regex:           '<SFML/*'
+    Priority:        20
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '"engine/*'
+    Priority:        30
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '"game/*'
+    Priority:        40
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '"graphics/*'
+    Priority:        50
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '"settings/*'
+    Priority:        60
     SortPriority:    0
     CaseSensitive:   false
   - Regex:           '.*'
-    Priority:        4
+    Priority:        99
     SortPriority:    0
     CaseSensitive:   false
 IncludeIsMainRegex: '(Test)?$'
