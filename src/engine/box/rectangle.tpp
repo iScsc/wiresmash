@@ -1,7 +1,9 @@
 #include "engine/box/rectangle.h"
 
+using namespace Engine;
+
 template<typename T>
-Rectangle<T>::Rectangle(double x, double y){
+Engine::Rectangle<T>::Rectangle(double x, double y){
     this->relVertices.push_back(std::pair<double, double>(0, 0));
     this->relVertices.push_back(std::pair<double, double>(x, 0));
     this->relVertices.push_back(std::pair<double, double>(x, y));
@@ -10,7 +12,7 @@ Rectangle<T>::Rectangle(double x, double y){
 
 // Bottom-left point first; then counter clockwise
 template<typename T>
-Rectangle<T>::Rectangle(double x1, double x2, double y1, double y2){
+Engine::Rectangle<T>::Rectangle(double x1, double x2, double y1, double y2){
     if (x1<x2)  //x1 is minx
     {
         if (y1<y2)  //y1 is miny
@@ -43,7 +45,7 @@ Rectangle<T>::Rectangle(double x1, double x2, double y1, double y2){
 }
 
 template<typename T>
-Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
+Engine::Intersection<T> Rectangle<T>::checkIntersection(Rectangle<T>* r){
     std::pair<double, double>* this_pos = this->getPos();
     std::pair<double, double>* that_pos = r->getPos();
 

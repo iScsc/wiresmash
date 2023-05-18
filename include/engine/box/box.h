@@ -12,6 +12,8 @@
 #include <cmath>
 #include <vector>
 
+namespace Engine {
+
 /**
  * @brief Container for all the information about an intersection of two boxes.
  * 
@@ -93,5 +95,8 @@ private:
 };
 
 #include "../src/engine/box/box.tpp" //TODO : find a better way to include this
+
+} //namespace Engine
+
 
 #endif
