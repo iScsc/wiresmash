@@ -1,7 +1,7 @@
 #include "settings/input_reader.h"
 
-std::list<Keybind> make_keybinds(std::string path){
-    std::list<Keybind> keybinds = std::list<Keybind>();
+std::list<Engine::Keybind> make_keybinds(std::string path){
+    std::list<Engine::Keybind> keybinds = std::list<Engine::Keybind>();
     std::ifstream key_config;
     key_config.open(path);
     if(!key_config){
@@ -18,7 +18,7 @@ std::list<Keybind> make_keybinds(std::string path){
     return keybinds;
 }
 
-void read_player_input(std::list<Keybind>& keybinds, std::ifstream& file){
+void read_player_input(std::list<Engine::Keybind>& keybinds, std::ifstream& file){
     std::string line;
     int nb_players = 0; 
     //TODO : max number of players become a "global" constant
@@ -27,7 +27,7 @@ void read_player_input(std::list<Keybind>& keybinds, std::ifstream& file){
         if (line.length() > 2 && line.substr(0, 2) == "A0"){ //TODO : not amazing
             for (int i = 0; i < 7; i++){ //TODO : max number of input per "input handler type" (here player) must become a global constant
                 std::getline(file, line);
-                keybinds.push_back(Keybind{key_of_string(line), UniversalInput{nb_players, i}});
+                keybinds.push_back(Engine::Keybind{key_of_string(line), Engine::UniversalInput{nb_players, i}});
             }
             nb_players++;
         }
