@@ -14,6 +14,9 @@
 
 #include "engine/physics/kinematics.h"
 
+namespace Engine 
+{
+
 /**
  * @brief Parameters of a point object, used to compute forces
  * 
@@ -60,5 +63,7 @@ private:
     
     void linkPos(std::pair<double, double>* pos);
 };
+
+} //namespace Engine
 
 #endif

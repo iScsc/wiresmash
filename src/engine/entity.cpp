@@ -1,56 +1,58 @@
 #include "engine/entity.h"
 
-Entity::Entity(){
+using namespace Engine;
+
+Engine::Entity::Entity(){
     this->point = NULL;
     this->sprite = NULL;
 }
 
-Entity::Entity(std::string name): Entity() {
+Engine::Entity::Entity(std::string name): Entity() {
     this->name = name;
 }
 
-void Entity::addPoint(){
+void Engine::Entity::addPoint(){
     this->point = new Point();
     this->point->linkPos(&(this->pos));
 }
 
-Point* Entity::getPoint(){
+Point* Engine::Entity::getPoint(){
     return this->point;
 }
 
-void Entity::addSprite(){
+void Engine::Entity::addSprite(){
     sf::CircleShape* circle = new sf::CircleShape(10);
     circle->setPosition(1, 1);
     this->sprite = circle;
 }
-void Entity::addSprite(sf::Drawable* sprite){
+void Engine::Entity::addSprite(sf::Drawable* sprite){
     this->sprite = sprite;
 }
 
-sf::Drawable* Entity::getSprite(){
+sf::Drawable* Engine::Entity::getSprite(){
     return this->sprite;
 }
 
 //Dangerous adder : only private
-void Entity::addPhxBox(PhxBox* pb){
+void Engine::Entity::addPhxBox(PhxBox* pb){
     this->phxbox = pb;
     pb->linkPos(&(this->pos));
     pb->linkVel(&(this->vel));
     pb->linkOwner(this);
 }
 
-void Entity::addPhxBox(Box<PhxBox>* pb, PhxBox::CollisionBehaviour ct){
+void Engine::Entity::addPhxBox(Box<PhxBox>* pb, PhxBox::CollisionBehaviour ct){
     PhxBox* phxbox = new PhxBox();
     this->addPhxBox(phxbox);
     phxbox->linkBox(pb);
     phxbox->setCollisionType(ct);
 }
 
-PhxBox* Entity::getPhxBox(){
+PhxBox* Engine::Entity::getPhxBox(){
     return this->phxbox;
 }
 
-void Entity::move(double dx, double dy){
+void Engine::Entity::move(double dx, double dy){
     this->pos.first += dx;
     this->pos.second += dy;
 }

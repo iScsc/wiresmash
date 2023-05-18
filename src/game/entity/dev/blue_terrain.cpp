@@ -1,9 +1,9 @@
 #include "game/entity/dev/blue_terrain.h"
 
-BlueTerrain::BlueTerrain() : Entity("dev_02_BTR"){
+BlueTerrain::BlueTerrain() : Engine::Entity("dev_02_BTR"){
 
-    Rectangle<PhxBox>* myBox = new Rectangle<PhxBox>(100,20);
-    this->addPhxBox(myBox, PhxBox::CollisionBehaviour::STATIC);
+    Engine::Rectangle<Engine::PhxBox>* myBox = new Engine::Rectangle<Engine::PhxBox>(100,20);
+    this->addPhxBox(myBox, Engine::PhxBox::CollisionBehaviour::STATIC);
 
     this->setPos(std::pair<double, double>(50, -150));
 

@@ -1,7 +1,10 @@
 #include "engine/universe_master.h"
 #include <chrono>
 #include <thread>
-void UniverseMaster::addEntity(Entity *entity)
+
+using namespace Engine;
+
+void Engine::UniverseMaster::addEntity(Entity *entity)
 {
     this->allEntity.push_back(entity);
     Point *point = entity->getPoint();
@@ -27,7 +30,7 @@ void UniverseMaster::addEntity(Entity *entity)
     
 }
 
-void UniverseMaster::updateEntity()
+void Engine::UniverseMaster::updateEntity()
 {
     for (Entity *p_entity : allEntity)
     {
@@ -39,7 +42,7 @@ void UniverseMaster::updateEntity()
     }
 }
 
-void UniverseMaster::updatePoint()
+void Engine::UniverseMaster::updatePoint()
 {
     for (Point *p_physic : allPoint)
     {
@@ -47,7 +50,7 @@ void UniverseMaster::updatePoint()
     }
 }
 
-void UniverseMaster::updateSprite()
+void Engine::UniverseMaster::updateSprite()
 {
     for (sf::Drawable* p_sprite : allSprite)
     {
@@ -55,7 +58,7 @@ void UniverseMaster::updateSprite()
     }
 }
 
-void UniverseMaster::readInputs(){
+void Engine::UniverseMaster::readInputs(){
     for (Keybind bind : keybindings)
     {
         if (sf::Keyboard::isKeyPressed(bind.key) && bind.action.handlerId < allInpHdl.size())
@@ -67,7 +70,7 @@ void UniverseMaster::readInputs(){
     
 }
 
-std::list<Intersection<PhxBox>> UniverseMaster::checkPhxCollision()
+std::list<Intersection<PhxBox>> Engine::UniverseMaster::checkPhxCollision()
 {
     std::list<Intersection<PhxBox>> allPhxCollision;
     Intersection<PhxBox> cur_coll;
@@ -86,7 +89,7 @@ std::list<Intersection<PhxBox>> UniverseMaster::checkPhxCollision()
     return allPhxCollision;
 }
 
-void UniverseMaster::update()
+void Engine::UniverseMaster::update()
 {
     this->window->clear();
     readInputs();
@@ -107,6 +110,6 @@ void UniverseMaster::update()
     std::this_thread::sleep_for(std::chrono::milliseconds(20));
 }
 
-void UniverseMaster::initInput(std::list<Keybind> keybindings){
+void Engine::UniverseMaster::initInput(std::list<Keybind> keybindings){
     this->keybindings = keybindings;
 }

@@ -14,6 +14,9 @@
 
 #include "engine/box/box.h"
 
+namespace Engine 
+{
+
 /**
  * @brief A rectangle, defined by 4 vertices, starting from bottom-left, and then
  * progressing in trigonometric order.
@@ -55,5 +58,7 @@ public:
 };
 
 #include "../src/engine/box/rectangle.tpp" //Todo : same as box.tpp todo
+
+} //namespace Engine
 
 #endif
