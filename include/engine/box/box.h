@@ -12,7 +12,8 @@
 #include <cmath>
 #include <vector>
 
-namespace Engine {
+namespace Engine 
+{
 
 /**
  * @brief Container for all the information about an intersection of two boxes.

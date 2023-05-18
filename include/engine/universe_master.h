@@ -25,7 +25,8 @@
 
 #include "settings/input_reader.h"
 
-namespace Engine{
+namespace Engine
+{
 
 typedef std::list<Entity*> EntityStack;
 

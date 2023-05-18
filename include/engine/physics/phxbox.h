@@ -13,7 +13,8 @@
 #include <utility>
 #include "engine/box/box.h"
 
-namespace Engine {
+namespace Engine 
+{
     
 class Entity;
 

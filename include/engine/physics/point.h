@@ -14,7 +14,8 @@
 
 #include "engine/physics/kinematics.h"
 
-namespace Engine {
+namespace Engine 
+{
 
 /**
  * @brief Parameters of a point object, used to compute forces

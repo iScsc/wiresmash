@@ -14,7 +14,8 @@
 
 #include "engine/box/box.h"
 
-namespace Engine {
+namespace Engine 
+{
 
 /**
  * @brief A rectangle, defined by 4 vertices, starting from bottom-left, and then

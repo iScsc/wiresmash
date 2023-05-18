@@ -14,7 +14,8 @@
 
 #include "engine/entity.h"
 
-namespace Engine {
+namespace Engine 
+{
 
 struct UniversalInput
 {

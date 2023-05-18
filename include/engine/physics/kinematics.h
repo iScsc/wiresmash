@@ -11,7 +11,8 @@
 
 #include <vector>
 
-namespace Engine {
+namespace Engine 
+{
 
 #define PHX_CST_G -1
 
