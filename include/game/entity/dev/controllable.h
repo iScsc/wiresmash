@@ -3,7 +3,7 @@
 
 #include "engine/input/input_handler.h" 
 
-class DevControllable : public InputHandler
+class DevControllable : public Engine::InputHandler
 {
 private:
     int amplitude;

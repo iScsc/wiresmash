@@ -8,13 +8,13 @@
 #include "engine/physics/phxbox.h"
 #include "game/entity/dev/controllable.h"
 
-class RedSquare: public Entity
+class RedSquare: public Engine::Entity
 {
 private:
     /* data */
 public:
     RedSquare(int size);
-    void collPhxNotify(Entity* ett) {}
+    void collPhxNotify(Engine::Entity* ett) {}
 };
 
 
