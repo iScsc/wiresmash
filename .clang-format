@@ -99,18 +99,22 @@ ForEachMacros:
   - BOOST_FOREACH
 IfMacros:
   - KJ_IF_MAYBE
-IncludeBlocks:   Preserve
+IncludeBlocks:   Regroup # default is Preserve
 IncludeCategories:
-  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
-    Priority:        2
-    SortPriority:    0
-    CaseSensitive:   false
-  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
+  - Regex:           '<SFML/*'
     Priority:        3
     SortPriority:    0
     CaseSensitive:   false
-  - Regex:           '.*'
+  - Regex:           '^"(llvm|llvm-c|clang|clang-c)/'
     Priority:        1
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '^(<|"(gtest|gmock|isl|json)/)'
+    Priority:        2
+    SortPriority:    0
+    CaseSensitive:   false
+  - Regex:           '.*'
+    Priority:        4
     SortPriority:    0
     CaseSensitive:   false
 IncludeIsMainRegex: '(Test)?$'
