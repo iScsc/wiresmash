@@ -25,6 +25,9 @@
 
 #include "settings/input_reader.h"
 
+namespace Engine
+{
+
 typedef std::list<Entity*> EntityStack;
 
 typedef	std::list<Point*> PointStack;
@@ -76,5 +79,7 @@ private:
     sf::RenderWindow* window;
 
 };
+
+} //namespace Engine
 
 #endif

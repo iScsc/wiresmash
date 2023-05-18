@@ -1,11 +1,11 @@
 #include "game/entity/dev/red_square.h"
 
-RedSquare::RedSquare(int size) : Entity("dev_01_RSQ"){
+RedSquare::RedSquare(int size) : Engine::Entity("dev_01_RSQ"){
     this->addPoint();
     this->getPoint()->setMass(1);
 
-    Rectangle<PhxBox>* myBox = new Rectangle<PhxBox>(size,size);
-    this->addPhxBox(myBox, PhxBox::CollisionBehaviour::PUSHABLE);
+    Engine::Rectangle<Engine::PhxBox>* myBox = new Engine::Rectangle<Engine::PhxBox>(size,size);
+    this->addPhxBox(myBox, Engine::PhxBox::CollisionBehaviour::PUSHABLE);
 
     sf::RectangleShape* square = new sf::RectangleShape(sf::Vector2f(size,-size));
     square->setFillColor(sf::Color(255,0,0));

@@ -1,10 +1,12 @@
 #include "engine/physics/point.h"
 
-void Point::linkPos(std::pair<double, double>* pos){
+using namespace Engine;
+
+void Engine::Point::linkPos(std::pair<double, double>* pos){
    this->pos = pos;
 }
 
-void Point::update(){
+void Engine::Point::update(){
     if(is_falling){
 	gravity(pos, &(phxParam.mass));
     }

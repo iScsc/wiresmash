@@ -20,6 +20,9 @@
 #include "engine/physics/phxbox.h"
 #include "engine/box/box.h"
 
+namespace Engine
+{
+
 class InputHandler;
 
 /**
@@ -92,5 +95,6 @@ private:
 
 };
 
+} // namespace Engine
 
 #endif

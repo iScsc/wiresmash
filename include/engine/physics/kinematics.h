@@ -11,6 +11,9 @@
 
 #include <vector>
 
+namespace Engine 
+{
+
 #define PHX_CST_G -1
 
 /**
@@ -20,5 +23,7 @@
  * @param mass 
  */
 void gravity(std::pair<double, double>* vel, double* mass);
+
+} //namespace Engine
 
 #endif

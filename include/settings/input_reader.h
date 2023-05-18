@@ -24,7 +24,7 @@
  * @param path input file
  * @return std::list<Keybind> 
  */
-std::list<Keybind> make_keybinds(std::string path);
+std::list<Engine::Keybind> make_keybinds(std::string path);
 
 /**
  * @brief Read the players part of the inputs
@@ -32,7 +32,7 @@ std::list<Keybind> make_keybinds(std::string path);
  * @param keybinds 
  * @param file 
  */
-void read_player_input(std::list<Keybind>& keybinds, std::ifstream& file);
+void read_player_input(std::list<Engine::Keybind>& keybinds, std::ifstream& file);
 
 /**
  * @brief Transforms a string to an sfml key
