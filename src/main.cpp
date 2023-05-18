@@ -13,7 +13,7 @@ int main(int argc, char const *argv[]){
     sf::RenderWindow window(sf::VideoMode(200, 200), "WIRESMASH");
     sf::Event event;
 
-    UniverseMaster universe = UniverseMaster();
+    Engine::UniverseMaster universe = Engine::UniverseMaster();
     universe.linkWindow(&window);
     universe.initInput(make_keybinds("../settings/keybinds"));
 
