@@ -1,20 +1,22 @@
 #include "engine/physics/phxbox.h"
 
-void PhxBox::setCollisionType(CollisionBehaviour ct){
+using namespace Engine;
+
+void Engine::PhxBox::setCollisionType(CollisionBehaviour ct){
     this->type = ct;
 }
 
-void PhxBox::linkOwner(Entity* owner){
+void Engine::PhxBox::linkOwner(Entity* owner){
     this->owner = owner;
 }
 
-void PhxBox::linkBox(Box<PhxBox>* box){
+void Engine::PhxBox::linkBox(Box<PhxBox>* box){
     this->box = box;
     box->linkOwner(this);
     box->linkPos(this->owner_pos);
 }
 
-void PhxBox::solveCollision(Intersection<PhxBox>& coll_pb){
+void Engine::PhxBox::solveCollision(Intersection<PhxBox>& coll_pb){
     PhxBox* that = coll_pb.intersected;
     //internal logic
     switch (type)
@@ -45,14 +47,14 @@ void PhxBox::solveCollision(Intersection<PhxBox>& coll_pb){
     coll_pb.intersectionVector.second *= -1;
 }
 
-void PhxBox::linkPos(std::pair<double, double>* owner_pos){
+void Engine::PhxBox::linkPos(std::pair<double, double>* owner_pos){
     this->owner_pos = owner_pos;
 }
 
-void PhxBox::linkVel(std::pair<double, double>* owner_vel){
+void Engine::PhxBox::linkVel(std::pair<double, double>* owner_vel){
     this->owner_vel = owner_vel;
 }
 
-Entity* PhxBox::getOwner(){
+Entity* Engine::PhxBox::getOwner(){
     return this->owner;
 }

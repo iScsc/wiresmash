@@ -13,6 +13,8 @@
 #include <utility>
 #include "engine/box/box.h"
 
+namespace Engine {
+    
 class Entity;
 
 /**
@@ -65,5 +67,6 @@ private:
     void linkVel(std::pair<double, double>* owner_vel);
 };
 
+} //namespace Engine
 
 #endif
