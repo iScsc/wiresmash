@@ -14,6 +14,7 @@
 
 #include "engine/entity.h"
 
+namespace Engine {
 
 struct UniversalInput
 {
@@ -46,5 +47,7 @@ private:
     int start_action_id;
 
 };
+
+} //namespace Engine
 
 #endif
