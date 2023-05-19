@@ -3,12 +3,11 @@
 
 #include "engine/input/input_handler.h"
 
-class DevControllable : public Engine::InputHandler
-{
-private:
+class DevControllable : public Engine::InputHandler {
+  private:
     int amplitude;
 
-public:
+  public:
     void setAmplitude(int amp) { this->amplitude = amp; };
     void doInput(int actionId) override;
 };

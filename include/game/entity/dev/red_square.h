@@ -3,19 +3,18 @@
 
 #include <SFML/Graphics/RectangleShape.hpp>
 
-#include "engine/entity.h"
 #include "engine/box/rectangle.h"
+#include "engine/entity.h"
 #include "engine/physics/phxbox.h"
+
 #include "game/entity/dev/controllable.h"
 
-class RedSquare: public Engine::Entity
-{
-private:
+class RedSquare : public Engine::Entity {
+  private:
     /* data */
-public:
+  public:
     RedSquare(int size);
     void collPhxNotify(Engine::Entity* ett) {}
 };
-
 
 #endif
