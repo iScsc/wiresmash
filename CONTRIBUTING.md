@@ -12,10 +12,15 @@ It is advised to format code either as you go, but *atleast once* before doing a
 
 A pre-commit hook for formatting is provided in `.githooks/pre-commit`. It is strongly advised that you setup the hook by running `git config --local core.hooksPath .githooks`.It will warn you when you try to commit unformatted code, and prevent you from pushing it.
 
-To run `clang-format` on a single file, simply run from the root of the repo the following command:
+### Running clang-format
+
+#### **On staged files**
+You can run `git clang-format` to format staged files.
+
+#### **On a single file**
+To run `clang-format` on a single file, run the following command:
 ```bash
 clang-format -i path/to/file.extension
 ```
-This will overwrite the file, inplace (`-i`), with its formatted version.
 
-You can also stage your change, and then simply run `git clang-format` to format stuff.
+This will overwrite the file, replacing it with its formatted version.
