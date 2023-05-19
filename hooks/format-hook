@@ -2,10 +2,10 @@
   
 if git rev-parse --verify HEAD >/dev/null 2>&1  
 then  
-against=HEAD  
+    against=HEAD  
 else  
 # Initial commit: diff against an empty tree object  
-against=$(git hash-object -t tree /dev/null)
+    against=$(git hash-object -t tree /dev/null)
 fi  
   
 # Test clang-format  
