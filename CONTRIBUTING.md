@@ -10,7 +10,7 @@ Quick TLDR:
 
 It is advised to format code either as you go, but *atleast once* before doing a PR. PR wil provide a fail if the code is not formatted. **Only format files on which you worked.** We use `clang-format`, version `16+` for formatting, and the file is already in the repo (`.clang-format` in root).
 
-A pre-commit hook is provided in `hooks/format-hook`. It is strongly advised that you move the code inside of it to the `.git/hooks/pre-commit` file. It will warn you when you try to commit unformatted code.
+A pre-commit hook for formatting is provided in `.githooks/pre-commit`. It is strongly advised that you setup the hook by running `git config --local core.hooksPath .githooks`.It will warn you when you try to commit unformatted code, and prevent you from pushing it.
 
 To run `clang-format` on a single file, simply run from the root of the repo the following command:
 ```bash
