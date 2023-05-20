@@ -18,16 +18,16 @@ int main(int argc, char const* argv[]) {
     universe.linkWindow(&window);
     universe.initInput(make_keybinds("../settings/keybinds"));
 
-    RedSquare* dev_ett1 = new RedSquare(10);
+    Wiresmash::RedSquare* dev_ett1 = new Wiresmash::RedSquare(10);
     dev_ett1->setPos(100, 0);
 
     universe.addEntity(dev_ett1);
 
-    RedSquare* dev_ett3 = new RedSquare(10);
+    Wiresmash::RedSquare* dev_ett3 = new Wiresmash::RedSquare(10);
     dev_ett3->setPos(100, 0);
     universe.addEntity(dev_ett3);
 
-    BlueTerrain* dev_ett2 = new BlueTerrain();
+    Wiresmash::BlueTerrain* dev_ett2 = new Wiresmash::BlueTerrain();
     universe.addEntity(dev_ett2);
     // std::this_thread::sleep_for(std::chrono::seconds(4));
     int i = 0;

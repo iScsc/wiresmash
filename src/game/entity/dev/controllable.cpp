@@ -1,6 +1,8 @@
 #include "game/entity/dev/controllable.h"
 
-void DevControllable::doInput(int actionId) {
+using namespace Wiresmash;
+
+void Wiresmash::DevControllable::doInput(int actionId) {
     switch (actionId) {
     case 0:
         owner->move(0, amplitude);

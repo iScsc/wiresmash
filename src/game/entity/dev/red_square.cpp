@@ -1,6 +1,8 @@
 #include "game/entity/dev/red_square.h"
 
-RedSquare::RedSquare(int size) : Engine::Entity("dev_01_RSQ") {
+using namespace Wiresmash;
+
+Wiresmash::RedSquare::RedSquare(int size) : Engine::Entity("dev_01_RSQ") {
     this->addPoint();
     this->getPoint()->setMass(1);
 
