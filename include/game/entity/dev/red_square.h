@@ -9,6 +9,8 @@
 
 #include "game/entity/dev/controllable.h"
 
+namespace Wiresmash {
+
 class RedSquare : public Engine::Entity {
   private:
     /* data */
@@ -16,5 +18,7 @@ class RedSquare : public Engine::Entity {
     RedSquare(int size);
     void collPhxNotify(Engine::Entity* ett) {}
 };
+
+} // namespace Wiresmash
 
 #endif

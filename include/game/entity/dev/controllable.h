@@ -3,6 +3,7 @@
 
 #include "engine/input/input_handler.h"
 
+namespace Wiresmash {
 class DevControllable : public Engine::InputHandler {
   private:
     int amplitude;
@@ -11,5 +12,7 @@ class DevControllable : public Engine::InputHandler {
     void setAmplitude(int amp) { this->amplitude = amp; };
     void doInput(int actionId) override;
 };
+
+} // namespace Wiresmash
 
 #endif

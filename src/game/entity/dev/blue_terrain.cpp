@@ -1,6 +1,8 @@
 #include "game/entity/dev/blue_terrain.h"
 
-BlueTerrain::BlueTerrain() : Engine::Entity("dev_02_BTR") {
+using namespace Wiresmash;
+
+Wiresmash::BlueTerrain::BlueTerrain() : Engine::Entity("dev_02_BTR") {
 
     Engine::Rectangle<Engine::PhxBox>* myBox =
         new Engine::Rectangle<Engine::PhxBox>(100, 20);
