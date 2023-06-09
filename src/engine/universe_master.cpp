@@ -5,6 +5,15 @@
 
 using namespace Engine;
 
+Engine::UniverseMaster::~UniverseMaster() {
+    for (Entity* entity : this->allEntity) {
+        delete entity;
+    }
+    for (InputHandler* handle : this->allInpHdl) {
+        delete handle;
+    }
+}
+
 void Engine::UniverseMaster::addEntity(Entity* entity) {
     this->allEntity.push_back(entity);
     Point* point = entity->getPoint();

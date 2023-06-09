@@ -48,6 +48,7 @@ typedef std::vector<InputHandler*> InpHdlTable;
 class UniverseMaster {
   public:
     UniverseMaster(/* args */) = default;
+    ~UniverseMaster();
 
     void linkWindow(sf::RenderWindow* p_window) { this->window = p_window; };
 
