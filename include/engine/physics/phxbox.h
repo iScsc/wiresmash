@@ -36,6 +36,7 @@ class PhxBox {
         STATIC    ///< Cannot be pushed
     };
     PhxBox() = default;
+    ~PhxBox(){};
 
     Box<PhxBox>* getBox() { return this->box; };
 
