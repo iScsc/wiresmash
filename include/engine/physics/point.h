@@ -39,6 +39,7 @@ class Point {
 
     PhxParam getParam();
     Point(/* args */) = default;
+    ~Point(){};
     Point(PhxParam phxParam) { this->phxParam = phxParam; };
 
     void setMass(double mass) { this->phxParam.mass = mass; };
