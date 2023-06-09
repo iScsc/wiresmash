@@ -20,6 +20,8 @@
 #include "engine/physics/phxbox.h"
 #include "engine/physics/point.h"
 
+#include "macros.h"
+
 namespace Engine {
 
 class InputHandler;
@@ -38,7 +40,7 @@ class Entity {
   public:
     Entity();
     Entity(std::string name);
-    ~Entity() = default;
+    virtual ~Entity();
 
     void addPoint();
     Point* getPoint();

@@ -7,6 +7,12 @@ Engine::Entity::Entity() {
     this->sprite = NULL;
 }
 
+Engine::Entity::~Entity() {
+    IF_NOT_NULL_DELETE(this->point);
+    IF_NOT_NULL_DELETE(this->sprite);
+    IF_NOT_NULL_DELETE(this->phxbox);
+}
+
 Engine::Entity::Entity(std::string name) : Entity() { this->name = name; }
 
 void Engine::Entity::addPoint() {
