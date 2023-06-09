@@ -25,6 +25,7 @@ template <typename T> struct Intersection {
     std::pair<double, double> intersectionVector = std::make_pair(
         0, 0); // Vector start from intersecting, towards intersected
     Intersection() = default;
+    virtual ~Intersection(){};
 };
 
 /**
@@ -40,7 +41,7 @@ template <typename T> class Box {
 
   public:
     Box() = default;
-    ~Box() = default;
+    virtual ~Box(){};
 
     std::pair<double, double>* getPos() { return pos; };
     std::vector<std::pair<double, double>> getVertices() {
