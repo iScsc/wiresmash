@@ -34,7 +34,7 @@ struct Keybind {
 class InputHandler {
   public:
     InputHandler(/* args */) = default;
-    ~InputHandler() = default;
+    ~InputHandler(){};
     void setOwner(Entity* entity) { this->owner = entity; };
     virtual void doInput(int actionId){};
 
